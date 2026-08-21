@@ -2,1897 +2,1027 @@
 <html lang="en" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>India's Top Slots & Casino Apps Store | Download Best Rummy & Yono APKs</title>
-    <!-- Tailwind CSS CDN -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Yono VIP Hub | Premium APK Directory</title>
+    <meta name="description" content="Discover the best and safest Yono casino and rummy applications. Verified APKs with exclusive signup bonuses.">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
+    
     <script>
         tailwind.config = {
+            darkMode: 'class',
             theme: {
                 extend: {
-                    colors: {
-                        casinoRed: {
-                            DEFAULT: '#DC2626',
-                            dark: '#991B1B',
-                            light: '#FEF2F2',
-                            accent: '#EF4444'
-                        },
-                        darkSlate: '#0F172A'
-                    },
                     fontFamily: {
-                        sans: ['Inter', 'sans-serif']
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        casinoRed: '#e11d48', // Primary brand red
+                        casinoRedDark: '#be123c',
+                        darkSlate: '#0f172a', // Main background
+                        surface: '#1e293b',   // Card background
+                        surfaceLight: '#334155', // Hover states
+                        gold: '#fbbf24',      // Accents and ratings
+                        emerald: '#10b981',   // Success/Safe indicators
+                    },
+                    animation: {
+                        'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                        'float': 'float 3s ease-in-out infinite',
+                        'slide-up': 'slideUp 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards',
+                        'fade-in': 'fadeIn 0.3s ease-out forwards',
+                        'glow': 'glow 2s ease-in-out infinite alternate',
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-8px)' },
+                        },
+                        slideUp: {
+                            '0%': { transform: 'translateY(20px)', opacity: '0' },
+                            '100%': { transform: 'translateY(0)', opacity: '1' },
+                        },
+                        fadeIn: {
+                            '0%': { opacity: '0' },
+                            '100%': { opacity: '1' },
+                        },
+                        glow: {
+                            '0%': { boxShadow: '0 0 5px rgba(225, 29, 72, 0.2)' },
+                            '100%': { boxShadow: '0 0 20px rgba(225, 29, 72, 0.6)' },
+                        }
                     }
                 }
             }
         }
     </script>
-    <!-- Google Fonts Inter -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
     <style>
-        body { font-family: 'Inter', sans-serif; }
-        /* Custom scrollbar for clean UI */
+        /* Custom Webkit Scrollbar */
         ::-webkit-scrollbar {
             width: 6px;
-            height: 6px;
+            height: 4px;
         }
         ::-webkit-scrollbar-track {
-            background: #F1F5F9;
+            background: #0f172a;
         }
         ::-webkit-scrollbar-thumb {
-            background: #CBD5E1;
-            border-radius: 9999px;
+            background: #334155;
+            border-radius: 10px;
         }
         ::-webkit-scrollbar-thumb:hover {
-            background: #94A3B8;
+            background: #475569;
+        }
+
+        /* Hide scrollbar for horizontal scrolling areas but keep functionality */
+        .scrollbar-hide::-webkit-scrollbar {
+            display: none;
+        }
+        .scrollbar-hide {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+
+        /* Base utility classes */
+        body {
+            background-color: #0f172a;
+            color: #f8fafc;
+            -webkit-tap-highlight-color: transparent;
+        }
+        
+        .glass-panel {
+            background: rgba(15, 23, 42, 0.85);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .text-gradient {
+            background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* Modal & Overlay Transitions */
+        .modal-active {
+            opacity: 1 !important;
+            pointer-events: auto !important;
+        }
+        .modal-active .modal-content {
+            transform: scale(1) translateY(0) !important;
+            opacity: 1 !important;
+        }
+        .modal-content {
+            transform: scale(0.95) translateY(10px);
+            opacity: 0;
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        
+        /* Mobile menu transition */
+        #mobileMenu {
+            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        /* App card hover effects */
+        .app-card {
+            transition: all 0.2s ease;
+        }
+        .app-card:hover {
+            transform: translateY(-2px);
+            border-color: rgba(225, 29, 72, 0.3);
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.5), 0 0 15px -5px rgba(225, 29, 72, 0.15);
         }
     </style>
 </head>
-<body class="bg-[#F8FAFC] text-slate-900 antialiased selection:bg-red-500 selection:text-white">
+<body class="antialiased min-h-screen flex flex-col pb-20 lg:pb-0">
 
-    <!-- TOP BRAND BAR -->
-    <header class="sticky top-0 z-40 bg-gradient-to-r from-slate-900 via-slate-900 to-slate-800 text-white shadow-lg border-b border-red-900/30">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
-            <!-- Brand Logo & Title -->
-<div class="flex items-center space-x-3 cursor-pointer" onclick="window.scrollTo({top:0, behavior:'smooth'})">
-
-    <!-- Premium Header Logo -->
-    <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-red-600 to-red-700 flex items-center justify-center shadow-md shadow-red-900/50 border border-red-500/30">
-
-        <svg xmlns="http://www.w3.org/2000/svg"
-             width="21"
-             height="21"
-             viewBox="0 0 24 24"
-             fill="none"
-             stroke="currentColor"
-             stroke-width="2"
-             stroke-linecap="round"
-             stroke-linejoin="round"
-             class="text-white">
-
-            <!-- Shield -->
-            <path d="M12 3L20 6V11C20 16.2 16.6 20 12 21C7.4 20 4 16.2 4 11V6L12 3Z"/>
-
-            <!-- Crown / VIP mark -->
-            <path d="M8 11L10 13L12 9L14 13L16 11"/>
-            <path d="M8.5 15H15.5"/>
-
-        </svg>
-
-    </div>
-
-    <div>
-        <span class="text-lg sm:text-xl font-black tracking-tight bg-gradient-to-r from-white via-slate-100 to-red-400 bg-clip-text text-transparent">
-            YONO VIP HUB
-        </span>
-
-        <span class="block text-[10px] uppercase tracking-widest text-red-400 font-semibold">
-            Verified Casino Directory
-        </span>
-    </div>
-
-</div>
-            <!-- Desktop & Tablet Actions -->
-            <div class="hidden md:flex items-center space-x-4">
-                <span class="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-medium bg-red-950 text-red-300 border border-red-800/50">
-                    <span class="w-2 h-2 mr-1.5 rounded-full bg-emerald-500 animate-ping"></span> Live APKs: 100% Safe
-                </span>
-                <a href="https://t.me/gmzate" target="_blank" rel="noopener noreferrer" class="inline-flex items-center px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold text-white bg-sky-600 hover:bg-sky-500 shadow-md transition-all duration-200 hover:scale-105">
-                    <svg class="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69.01-.03.01-.14-.07-.2-.08-.06-.19-.04-.27 0-.12.07-1.99 1.27-5.62 3.72-.53.36-1.01.54-1.44.53-.47-.02-1.37-.26-2.03-.48-.82-.27-1.47-.42-1.42-.88.03-.25.38-.51 1.05-.78 4.11-1.79 6.85-2.97 8.22-3.55 3.91-1.67 4.72-1.96 5.24-1.97.12 0 .39.03.56.17.15.12.19.28.21.4-.01.07.01.37-.02.6z"/></svg>
-                    Join Telegram
-                </a>
+    <header class="sticky top-0 z-50 glass-panel">
+        <!-- Top Brand Bar -->
+        <div class="max-w-7xl mx-auto px-4 h-16 flex items-center justify-between">
+            <div class="flex items-center gap-3">
+                <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-casinoRed to-orange-600 flex items-center justify-center shadow-lg shadow-casinoRed/20 relative overflow-hidden">
+                    <div class="absolute inset-0 bg-white/20 blur-sm transform -rotate-45 translate-x-[-100%] hover:translate-x-[100%] transition-transform duration-1000"></div>
+                    <svg class="w-6 h-6 text-white relative z-10" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path></svg>
+                </div>
+                <div>
+                    <h1 class="font-extrabold text-xl leading-none tracking-tight text-white flex items-center gap-1.5">
+                        Yono <span class="text-casinoRed">VIP</span>
+                        <svg class="w-4 h-4 text-gold" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 2a1 1 0 01.832.445l2.457 3.686 4.305.626a1 1 0 01.554 1.705l-3.115 3.037.735 4.286a1 1 0 01-1.451 1.054L10 14.567l-3.85 2.025a1 1 0 01-1.45-1.054l.734-4.286-3.114-3.037a1 1 0 01.554-1.705l4.305-.626 2.457-3.686A1 1 0 0110 2z" clip-rule="evenodd"></path></svg>
+                    </h1>
+                    <p class="text-[11px] text-emerald-400 flex items-center gap-1 font-medium mt-0.5">
+                        <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span> 100% Safe APKs
+                    </p>
+                </div>
             </div>
 
-            <!-- Mobile Hamburger Button -->
-            <div class="md:hidden flex items-center">
-                <button id="menu-toggle" type="button" class="p-2 rounded-lg text-slate-300 hover:text-white hover:bg-slate-800 focus:outline-none transition">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
-                    </svg>
+            <div class="flex items-center gap-3">
+                <a href="#" class="hidden md:flex items-center gap-2 text-sm font-semibold text-white bg-[#0088cc] hover:bg-[#0077b3] px-4 py-2 rounded-full transition-colors shadow-md shadow-[#0088cc]/20">
+                    <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69a.2.2 0 00-.05-.18c-.06-.05-.14-.03-.21-.02-.09.02-1.49.95-4.22 2.79-.4.27-.76.41-1.08.4-.36-.01-1.04-.2-1.55-.37-.63-.2-1.12-.31-1.08-.66.02-.18.27-.36.74-.55 2.92-1.27 4.86-2.11 5.83-2.51 2.78-1.16 3.35-1.36 3.73-1.36.08 0 .27.02.39.12.1.08.13.19.14.27-.01.06.01.24 0 .24z"/></svg>
+                    Join Telegram
+                </a>
+                <button id="menuBtn" class="lg:hidden w-10 h-10 rounded-xl bg-surface border border-slate-700 flex items-center justify-center text-slate-300 hover:text-white transition-colors">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
                 </button>
             </div>
         </div>
 
-        <!-- Mobile Menu Dropdown -->
-        <div id="mobile-menu" class="hidden md:hidden border-t border-slate-800 bg-slate-900 px-4 pt-2 pb-4 space-y-2">
-            <a href="#home" class="block px-3 py-2 rounded-md text-base font-medium hover:bg-slate-800 text-slate-200">Home</a>
-            <a href="#games" class="block px-3 py-2 rounded-md text-base font-medium hover:bg-slate-800 text-slate-200">Games & Apps</a>
-            <a href="#about" class="block px-3 py-2 rounded-md text-base font-medium hover:bg-slate-800 text-slate-200">About Directory</a>
-            <a href="#contact" class="block px-3 py-2 rounded-md text-base font-medium hover:bg-slate-800 text-slate-200">Contact Support</a>
-            <div class="pt-2">
-                <a href="https://t.me/gmzate" target="_blank" rel="noopener noreferrer" class="w-full flex items-center justify-center px-4 py-2 rounded-xl text-sm font-semibold text-white bg-sky-600 hover:bg-sky-500 shadow">
-                    Join Telegram Channel
-                </a>
-            </div>
+        <!-- Main Navigation Tabs Bar -->
+        <div class="border-t border-slate-800/50 bg-darkSlate/50">
+            <nav class="max-w-7xl mx-auto px-2">
+                <ul class="flex overflow-x-auto gap-2 py-2 scrollbar-hide text-sm font-medium text-slate-400">
+                    <li><a href="#" class="px-4 py-1.5 block rounded-lg bg-surface text-white border border-slate-700 whitespace-nowrap shadow-sm">Home</a></li>
+                    <li><a href="#all-apps" class="px-4 py-1.5 block rounded-lg hover:bg-surface hover:text-slate-200 transition-colors whitespace-nowrap">All Yono</a></li>
+                    <li><a href="#top-picks" class="px-4 py-1.5 block rounded-lg hover:bg-surface hover:text-slate-200 transition-colors whitespace-nowrap flex gap-1.5 items-center">Top Rated <svg class="w-3.5 h-3.5 text-gold" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg></a></li>
+                    <li><a href="#all-apps" onclick="document.querySelector('[data-filter=\'new\']').click()" class="px-4 py-1.5 block rounded-lg hover:bg-surface hover:text-slate-200 transition-colors whitespace-nowrap">New Launches</a></li>
+                    <li><a href="#seo-guide" class="px-4 py-1.5 block rounded-lg hover:bg-surface hover:text-slate-200 transition-colors whitespace-nowrap">SEO Guide</a></li>
+                </ul>
+            </nav>
         </div>
     </header>
 
-    <!-- MAIN NAVIGATION TABS BAR -->
-    <nav class="bg-white border-b border-slate-200 shadow-sm sticky top-16 z-30">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-           <div class="flex items-center space-x-1 sm:space-x-8 overflow-x-auto py-2.5 no-scrollbar whitespace-nowrap">
-
-    <a href="#home" class="nav-tab active-tab inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg text-sm font-semibold text-red-600 bg-red-50 border border-red-200 transition">
-        <svg class="w-4 h-4 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M3 10.5L12 3l9 7.5M5 9.5V21h14V9.5M9 21v-6h6v6"/>
-        </svg>
-        Home
-    </a>
-
-    <a href="#games" class="nav-tab inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg text-sm font-medium text-slate-600 hover:text-red-600 hover:bg-slate-50 transition">
-        <svg class="w-4 h-4 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M7 8h10a4 4 0 014 4v3a3 3 0 01-5.2 2L14 15h-4l-1.8 2a3 3 0 01-5.2-2v-3a4 4 0 014-4z"/>
-            <path stroke-linecap="round" stroke-linejoin="round" d="M8 11v4M6 13h4"/>
-            <circle cx="16.5" cy="12" r=".8" fill="currentColor"/>
-            <circle cx="18.5" cy="14" r=".8" fill="currentColor"/>
-        </svg>
-        All Yono &amp; Rummy Apps
-    </a>
-
-    <a href="#best-apps" class="nav-tab inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg text-sm font-medium text-slate-600 hover:text-red-600 hover:bg-slate-50 transition">
-        <svg class="w-4 h-4 shrink-0" viewBox="0 0 24 24" fill="currentColor">
-            <path d="M12 2.8l2.8 5.7 6.3.9-4.6 4.5 1.1 6.3-5.6-3-5.6 3 1.1-6.3-4.6-4.5 6.3-.9L12 2.8z"/>
-        </svg>
-        Top Rated Apps
-    </a>
-
-    <a href="#new-apps" class="nav-tab inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg text-sm font-medium text-slate-600 hover:text-red-600 hover:bg-slate-50 transition">
-        <svg class="w-4 h-4 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M13 2L4 13h7l-1 9 10-13h-7l0-7z"/>
-        </svg>
-        New Launches
-    </a>
-
-    <a href="#about" class="nav-tab inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg text-sm font-medium text-slate-600 hover:text-red-600 hover:bg-slate-50 transition">
-        <svg class="w-4 h-4 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M4 5a3 3 0 013-3h10a3 3 0 013 3v16l-5-3-5 3-5-3V5z"/>
-            <path stroke-linecap="round" stroke-linejoin="round" d="M9 7h6M9 11h6M9 15h4"/>
-        </svg>
-        SEO Guide
-    </a>
-
-    <a href="#contact" class="nav-tab inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg text-sm font-medium text-slate-600 hover:text-red-600 hover:bg-slate-50 transition">
-        <svg class="w-4 h-4 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M4 5a3 3 0 013-3h10a3 3 0 013 3v14a3 3 0 01-3 3H7a3 3 0 01-3-3V5z"/>
-            <path stroke-linecap="round" stroke-linejoin="round" d="M8 8h8M8 12h5M8 16h3"/>
-        </svg>
-        Support
-    </a>
-
-</div>
+    <!-- Mobile Navigation Drawer (Hidden by default) -->
+    <div id="mobileMenu" class="fixed inset-0 z-[100] bg-darkSlate/95 backdrop-blur-xl transform translate-x-full lg:hidden flex flex-col">
+        <div class="h-16 flex items-center justify-between px-4 border-b border-slate-800">
+            <span class="font-bold text-white text-lg">Menu</span>
+            <button id="closeMenuBtn" class="w-10 h-10 flex items-center justify-center text-slate-400 hover:text-white">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+            </button>
         </div>
-    </nav>
-
-    <!-- HERO & BANNER SECTION -->
-<section id="home" class="w-full mx-auto px-0 sm:px-2 py-0">
-    <div class="relative overflow-hidden sm:rounded-2xl bg-gradient-to-br from-slate-900 via-red-950 to-slate-900 text-white shadow-2xl border-y sm:border border-red-500/20 p-5 sm:p-10">
-        <!-- Decorative background glow -->
-        <div class="absolute -right-16 -top-16 w-64 h-64 bg-red-600/20 rounded-full blur-3xl pointer-events-none"></div>
-        <div class="absolute -left-16 -bottom-16 w-64 h-64 bg-blue-600/10 rounded-full blur-3xl pointer-events-none"></div>
-
-        <div class="relative z-10 flex flex-col md:flex-row items-center justify-between gap-6">
-            <div class="space-y-4 text-center md:text-left max-w-2xl">
-                <div class="inline-flex items-center space-x-2 bg-red-900/60 border border-red-500/40 px-3 py-1 rounded-full text-xs font-semibold text-red-200">
-                    <span class="flex h-2 w-2 relative">
-                        <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-400 opacity-75"></span>
-                        <span class="relative inline-flex rounded-full h-2 w-2 bg-red-500"></span>
-                    </span>
-                    <span>India's #1 Verified Slots & Rummy Apps Portal</span>
-                </div>
-                
-                <h1 class="text-2xl sm:text-4xl lg:text-5xl font-black tracking-tight leading-tight">
-                    Download India's Top <span class="bg-gradient-to-r from-red-400 to-amber-300 bg-clip-text text-transparent">Slots & Rummy</span> APKs
-                </h1>
-                
-                <p class="text-slate-300 text-sm sm:text-base leading-relaxed">
-                    Access instant sign-up bonuses up to ₹1,000, lightning-fast UPI withdrawals, and 100% secure official APK downloads vetted by gaming experts.
-                </p>
-                
-                <!-- Trust Badges Row -->
-                <div class="flex flex-wrap items-center justify-center md:justify-start gap-3 pt-1 text-xs text-slate-300 font-medium">
-                    <div class="flex items-center space-x-1.5 bg-slate-800/80 px-3 py-1.5 rounded-lg border border-slate-700">
-                        <svg class="w-4 h-4 text-amber-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
-                        <span>4.9/5 User Rating</span>
-                    </div>
-                    <div class="flex items-center space-x-1.5 bg-slate-800/80 px-3 py-1.5 rounded-lg border border-slate-700">
-                        <svg class="w-4 h-4 text-emerald-400" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
-                        <span>Anti-Fraud Protected</span>
-                    </div>
-                    <!-- 18+ Badge with SVG Icon -->
-                    <div class="flex items-center space-x-1.5 bg-red-950/80 px-3 py-1.5 rounded-lg border border-red-900 text-red-300 font-bold">
-                        <svg class="w-4 h-4 text-red-400" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path>
-                        </svg>
-                        <span>18+ Only</span>
-                    </div>
-                </div>
-
-                <!-- Bottom Action Buttons: Telegram & WhatsApp -->
-                <div class="flex flex-wrap items-center justify-center md:justify-start gap-3 pt-3">
-                    <!-- Telegram Button -->
-                    <a href="https://t.me/gmzate" target="_blank" rel="noopener noreferrer" class="flex items-center space-x-2 bg-sky-600 hover:bg-sky-500 text-white font-semibold px-4 py-2.5 rounded-xl transition-all duration-200 shadow-lg shadow-sky-600/30 text-xs sm:text-sm">
-                        <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm5.894 8.221l-1.97 9.28c-.145.658-.537.818-1.084.508l-3-2.21-1.446 1.394c-.14.14-.26.26-.534.26l.213-3.053 5.56-5.022c.24-.213-.054-.334-.373-.121l-6.869 4.326-2.96-.924c-.64-.203-.654-.64.135-.954l11.566-4.458c.538-.196 1.006.128.832 1.057z"/></svg>
-                        <span>Join Telegram</span>
-                    </a>
-                    
-                    <!-- WhatsApp Button -->
-                    <a href="https://whatsapp.com/channel/your_channel" target="_blank" rel="noopener noreferrer" class="flex items-center space-x-2 bg-emerald-600 hover:bg-emerald-500 text-white font-semibold px-4 py-2.5 rounded-xl transition-all duration-200 shadow-lg shadow-emerald-600/30 text-xs sm:text-sm">
-                        <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.572.118.479-.175 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
-                        <span>Join WhatsApp</span>
-                    </a>
-                </div>
-            </div>
-
-            <!-- Right Visual Graphic Box with Premium SVG Icon -->
-            <div class="flex flex-col items-center justify-center bg-gradient-to-b from-red-600/20 to-slate-900/60 p-6 rounded-2xl border border-red-500/30 text-center w-full md:w-auto min-w-[240px]">
-                <div class="w-16 h-16 rounded-2xl bg-gradient-to-tr from-red-600 to-amber-500 flex items-center justify-center shadow-xl mb-3 text-white">
-                    <svg class="w-8 h-8" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"></path>
-                        <circle cx="9" cy="15" r="1" fill="currentColor"></circle>
-                        <circle cx="15" cy="15" r="1" fill="currentColor"></circle>
-                    </svg>
-                </div>
-                <span class="text-xs font-semibold text-slate-400 uppercase tracking-widest">Total Active Players</span>
-                <span class="text-3xl font-extrabold text-white mt-1">46.2M+</span>
-                
-                <!-- Payouts Enabled line with Lightning SVG instead of Emoji -->
-                <div class="flex items-center justify-center space-x-1 mt-1 text-[11px] text-emerald-400 font-medium">
-                    <svg class="w-3.5 h-3.5 text-amber-400 fill-current" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"></path>
-                    </svg>
-                    <span>Instant (UPI,Bank) Payouts Enabled</span>
-                </div>
+        <div class="flex-1 overflow-y-auto p-4">
+            <nav class="flex flex-col gap-2">
+                <a href="#" class="p-4 rounded-xl bg-surface border border-slate-700 text-white font-medium flex items-center gap-3">
+                    <svg class="w-5 h-5 text-casinoRed" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path></svg>
+                    Home
+                </a>
+                <a href="#all-apps" class="p-4 rounded-xl hover:bg-surface text-slate-300 font-medium flex items-center gap-3 transition-colors">
+                    <svg class="w-5 h-5 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z"></path></svg>
+                    All Directory Apps
+                </a>
+                <a href="#seo-guide" class="p-4 rounded-xl hover:bg-surface text-slate-300 font-medium flex items-center gap-3 transition-colors">
+                    <svg class="w-5 h-5 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                    About & Guides
+                </a>
+            </nav>
+            <div class="mt-8 pt-8 border-t border-slate-800">
+                <p class="text-sm text-slate-500 mb-4 uppercase tracking-wider font-semibold">Connect</p>
+                <a href="#" class="w-full flex items-center justify-center gap-2 bg-[#0088cc] text-white p-4 rounded-xl font-bold shadow-lg shadow-[#0088cc]/20">
+                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69a.2.2 0 00-.05-.18c-.06-.05-.14-.03-.21-.02-.09.02-1.49.95-4.22 2.79-.4.27-.76.41-1.08.4-.36-.01-1.04-.2-1.55-.37-.63-.2-1.12-.31-1.08-.66.02-.18.27-.36.74-.55 2.92-1.27 4.86-2.11 5.83-2.51 2.78-1.16 3.35-1.36 3.73-1.36.08 0 .27.02.39.12.1.08.13.19.14.27-.01.06.01.24 0 .24z"/></svg>
+                    Official Telegram Channel
+                </a>
             </div>
         </div>
     </div>
-</section>
 
-    <!-- SEARCH & QUICK FILTER PILLS -->
-    <section id="games" class="max-w-7xl mx-auto py-4">  <div class="bg-white rounded-2xl shadow-sm border border-slate-200 p-4 sm:p-6 space-y-4">
+    <main class="flex-1 max-w-7xl mx-auto w-full">
+        
+        <!-- Hero Banner Section -->
+        <section class="mx-4 mt-6 relative overflow-hidden rounded-3xl bg-gradient-to-b from-surface to-darkSlate border border-slate-700 shadow-2xl shadow-black/50 group">
+            <!-- Decorative Background Elements -->
+            <div class="absolute top-0 right-0 -mr-20 -mt-20 w-72 h-72 rounded-full bg-casinoRed/20 blur-[60px] pointer-events-none group-hover:bg-casinoRed/30 transition-colors duration-700"></div>
+            <div class="absolute bottom-0 left-0 -ml-20 -mb-20 w-72 h-72 rounded-full bg-blue-600/20 blur-[60px] pointer-events-none group-hover:bg-blue-600/30 transition-colors duration-700"></div>
             
-            <!-- Search Bar + Quick Join -->
-            <div class="flex flex-col sm:flex-row gap-3 items-center">
-                <div class="relative w-full">
-                    <div class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none">
-                        <svg class="w-5 h-5 text-slate-400" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
+            <div class="relative p-6 sm:p-10 lg:p-12 flex flex-col md:flex-row items-center gap-8">
+                <div class="flex-1 text-center md:text-left z-10 w-full">
+                    <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-slate-800/80 border border-slate-700 text-xs font-semibold text-gold mb-5 uppercase tracking-wider backdrop-blur-sm shadow-inner">
+                        <span class="relative flex h-2.5 w-2.5">
+                          <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-gold opacity-75"></span>
+                          <span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-gold"></span>
+                        </span>
+                        Daily Updated APK List
                     </div>
-                    <input type="text" id="app-search-input" placeholder="Search apps by name (e.g., Yono Rummy, Teen Patti, Slots)..." class="w-full pl-11 pr-4 py-3 bg-slate-50 border border-slate-300 rounded-xl text-sm font-medium text-slate-900 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-red-500 focus:bg-white transition">
-                </div>
-                <button onclick="triggerQuickJoin()" class="w-full sm:w-auto px-6 py-3 bg-gradient-to-r from-red-600 to-red-700 hover:from-red-500 hover:to-red-600 text-white font-semibold rounded-xl text-sm shadow-md shadow-red-600/30 transition flex items-center justify-center space-x-2 whitespace-nowrap">
-                    <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
-                    <span>Quick Join</span>
-                </button>
-            </div>
-
-            <!-- Premium Category Filter Pills -->
-<div class="flex items-center gap-2 overflow-x-auto py-1 no-scrollbar">
-
-    <!-- All Apps -->
-    <button onclick="filterCategory('all', this)"
-        class="filter-pill active-pill inline-flex items-center gap-2 px-4 py-2 rounded-xl text-xs sm:text-sm font-bold bg-red-600 text-white shadow-sm shadow-red-600/20 transition-all duration-200 whitespace-nowrap">
-        
-        <svg class="w-3.5 h-3.5 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
-            <path stroke-linecap="round" stroke-linejoin="round"
-                d="M12 3l1.8 5.6H19.7l-4.8 3.5 1.8 5.7-4.7-3.5-4.7 3.5 1.8-5.7-4.8-3.5h5.9L12 3z"/>
-        </svg>
-
-        <span>All Apps</span>
-        <span class="text-[10px] opacity-80">(26)</span>
-    </button>
-
-
-    <!-- Best Apps -->
-    <button onclick="filterCategory('best', this)"
-        class="filter-pill inline-flex items-center gap-2 px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold bg-slate-100 hover:bg-slate-200 text-slate-700 transition-all duration-200 whitespace-nowrap">
-
-        <svg class="w-3.5 h-3.5 shrink-0 text-amber-500" viewBox="0 0 24 24" fill="currentColor">
-            <path d="M12 2.8l2.8 5.7 6.3.9-4.6 4.5 1.1 6.3-5.6-3-5.6 3 1.1-6.3-4.6-4.5 6.3-.9L12 2.8z"/>
-        </svg>
-
-        <span>Best Apps</span>
-    </button>
-
-
-    <!-- Yono Apps -->
-    <button onclick="filterCategory('yono', this)"
-        class="filter-pill inline-flex items-center gap-2 px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold bg-slate-100 hover:bg-slate-200 text-slate-700 transition-all duration-200 whitespace-nowrap">
-
-        <svg class="w-3.5 h-3.5 shrink-0 text-violet-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <rect x="3" y="3" width="7" height="7" rx="1.5"/>
-            <rect x="14" y="3" width="7" height="7" rx="1.5"/>
-            <rect x="3" y="14" width="7" height="7" rx="1.5"/>
-            <rect x="14" y="14" width="7" height="7" rx="1.5"/>
-        </svg>
-
-        <span>All Yono Apps</span>
-    </button>
-
-
-    <!-- New Apps -->
-    <button onclick="filterCategory('new', this)"
-        class="filter-pill inline-flex items-center gap-2 px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold bg-slate-100 hover:bg-slate-200 text-slate-700 transition-all duration-200 whitespace-nowrap">
-
-        <svg class="w-3.5 h-3.5 shrink-0 text-sky-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
-            <path stroke-linecap="round" stroke-linejoin="round"
-                d="M13 2L4 13h7l-1 9 10-13h-7l0-7z"/>
-        </svg>
-
-        <span>New Apps</span>
-    </button>
-
-
-    <!-- Rummy & Patti -->
-    <button onclick="filterCategory('rummy', this)"
-        class="filter-pill inline-flex items-center gap-2 px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold bg-slate-100 hover:bg-slate-200 text-slate-700 transition-all duration-200 whitespace-nowrap">
-
-        <svg class="w-3.5 h-3.5 shrink-0 text-rose-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <path stroke-linecap="round" stroke-linejoin="round"
-                d="M12 21s-7-4.6-7-10.5C5 7.2 7.1 5 10 5c1 0 1.9.4 2.5 1.1C13.1 5.4 14 5 15 5c2.9 0 5 2.2 5 5.5C20 16.4 12 21 12 21z"/>
-            <path stroke-linecap="round" stroke-linejoin="round"
-                d="M12 9v6M9 12h6"/>
-        </svg>
-
-        <span>Rummy &amp; Patti</span>
-    </button>
-
-</div> </div>
-    </section>
-
-    <!-- APP LISTINGS GRID -->
-    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 mb-16">
-        <div class="flex items-center justify-between mb-4">
-            <h2 class="text-xl sm:text-2xl font-bold tracking-tight text-slate-900 flex items-center space-x-2">
-                <span> Games &amp; Apps   </span>
-                <span class="text-xs font-semibold px-2.5 py-0.5 rounded-full bg-red-100 text-red-700">
-                  Latest </span>
-            </h2>
-            <span id="results-count" class="text-xs text-slate-500 font-medium"> Verified.</span>
-        </div>
-
-        <div id="app-cards-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-4 sm:gap-6">
-        <!-- app card grid 11111111111  -->
-        
-        </div>
-    </main>
-  <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-2 mb-16">
-
-    <!-- Section Header -->
-    <div class="flex items-center justify-between mb-4">
-        <div class="flex items-center gap-2 min-w-0">
-            <h2 class="text-xl sm:text-2xl font-bold tracking-tight text-slate-900 truncate">
-               <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-patch-check-fill" viewBox="0 0 16 16">
-  <path d="M10.067.87a2.89 2.89 0 0 0-4.134 0l-.622.638-.89-.011a2.89 2.89 0 0 0-2.924 2.924l.01.89-.636.622a2.89 2.89 0 0 0 0 4.134l.637.622-.011.89a2.89 2.89 0 0 0 2.924 2.924l.89-.01.622.636a2.89 2.89 0 0 0 4.134 0l.622-.637.89.011a2.89 2.89 0 0 0 2.924-2.924l-.01-.89.636-.622a2.89 2.89 0 0 0 0-4.134l-.637-.622.011-.89a2.89 2.89 0 0 0-2.924-2.924l-.89.01zm.287 5.984-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L7 8.793l2.646-2.647a.5.5 0 0 1 .708.708"/>
-</svg> Trending Apps
-            </h2>
-
-            <span class="text-xs font-semibold px-2.5 py-0.5 rounded-full bg-emerald-100 text-emerald-700 whitespace-nowrap">
-                Popular
-            </span>
-        </div>
-
-        <span class="text-xs text-slate-500 font-medium whitespace-nowrap">
-            Swipe →
-        </span>
-    </div>
-
-
-    <!-- Horizontal Scroll -->
-    <div
-    id="scrolling-cards"
-    class="flex gap-4 overflow-x-auto pb-4 snap-x snap-mandatory"
-    style="scrollbar-width:none; -ms-overflow-style:none;"
->
-</div>
-
-        
-
-            
-    </div>
-
-</section>
-
-
-<!-- Hide scrollbar -->
-<style>
-    section .overflow-x-auto::-webkit-scrollbar {
-        display: none;
-    }
-</style>
-    <!-- SEO ARTICLE SECTION -->
-    <section id="about" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 border-t border-slate-200 bg-white">
-        <div class="max-w-4xl mx-auto space-y-8 text-slate-700">
-            
-            <div class="space-y-3">
-                <span class="text-xs font-bold uppercase tracking-widest text-red-600 bg-red-50 px-3 py-1 rounded-full border border-red-200">Expert Directory Review</span>
-                <h2 class="text-2xl sm:text-3xl font-black text-slate-900 tracking-tight">
-                    All Rummy Apps & Yono Slots Directory – Compare & Download Secure APKs
-                </h2>
-                <p class="text-sm sm:text-base leading-relaxed text-slate-600">
-                    Welcome to <strong>Yono VIP Hub</strong>, your #1 trusted online destination to explore, compare, and download verified real-money gaming apps, Yono platforms, online slots, and classic Teen Patti variations. We test every single application for safety, payout reliability, and sign-up bonuses so you can enjoy a seamless gaming experience without hassle.
-                </p>
-            </div>
-
-            <!-- Key Features Bullet Grid -->
-            <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-2">
-                <div class="bg-slate-50 border border-slate-200 p-5 rounded-2xl space-y-2">
-                    <div class="w-10 h-10 rounded-xl bg-red-100 text-red-600 flex items-center justify-center font-bold text-lg">⚡</div>
-                    <h3 class="font-bold text-slate-900 text-base">Low Withdrawal</h3>
-                    <p class="text-xs text-slate-600 leading-relaxed">Enjoy ultra-low minimum payout thresholds starting at just ₹50 or ₹100 directly to your UPI or Bank account.</p>
-                </div>
-                <div class="bg-slate-50 border border-slate-200 p-5 rounded-2xl space-y-2">
-                    <div class="w-10 h-10 rounded-xl bg-emerald-100 text-emerald-600 flex items-center justify-center font-bold text-lg">🛡️</div>
-                    <h3 class="font-bold text-slate-900 text-base">Fair Play Guaranteed</h3>
-                    <p class="text-xs text-slate-600 leading-relaxed">All featured APKs feature certified Random Number Generators (RNG) and stringent anti-fraud protection.</p>
-                </div>
-                <div class="bg-slate-50 border border-slate-200 p-5 rounded-2xl space-y-2">
-                    <div class="w-10 h-10 rounded-xl bg-sky-100 text-sky-600 flex items-center justify-center font-bold text-lg">📱</div>
-                    <h3 class="font-bold text-slate-900 text-base">One-Tap Access</h3>
-                    <p class="text-xs text-slate-600 leading-relaxed">Direct, lightning-fast secure downloads with instant update alerts straight to your mobile device.</p>
-                </div>
-            </div>
-
-            <!-- About / Disclaimer Info Box -->
-            <div class="bg-amber-50 border border-amber-200/80 rounded-2xl p-6 text-amber-900 space-y-2">
-                <div class="flex items-center space-x-2 font-bold text-sm sm:text-base">
-                    <svg class="w-5 h-5 text-amber-600 flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path></svg>
-                    <span>Responsible Gaming & Disclaimer Notice</span>
-                </div>
-                <p class="text-xs sm:text-sm leading-relaxed text-amber-800">
-                    Games listed on this platform involve financial risk and may be addictive. Please play responsibly and at your own risk. This portal is strictly intended for users aged 18 and above residing in regions where skill-based gaming is legally permissible. We do not host or operate games directly; we provide safe review directory links.
-                </p>
-            </div>
-
-        </div>
-    </section>
-
-    <!-- FOOTER -->
-    <footer id="contact" class="bg-slate-900 text-slate-400 border-t border-slate-800 pt-12 pb-24 sm:pb-16">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
-            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
-                <!-- Col 1: Brand Info -->
-                <div class="space-y-4 md:col-span-2">
-                    <div class="flex items-center space-x-3">
-                        <div class="w-8 h-8 rounded-lg bg-red-600 flex items-center justify-center text-white font-bold">Y</div>
-                        <span class="text-lg font-black text-white tracking-tight">YONO VIP HUB</span>
-                    </div>
-                    <p class="text-xs sm:text-sm text-slate-400 max-w-sm leading-relaxed">
-                        The ultimate verified directory for Indian rummy apps, Yono slots, and online entertainment APK downloads. Secure, fast, and regularly updated.
+                    <h2 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold text-white mb-4 leading-[1.1] tracking-tight">
+                        Discover the Best <br class="hidden sm:block"/>
+                        <span class="text-gradient drop-shadow-md">Yono Games</span>
+                    </h2>
+                    <p class="text-slate-400 mb-8 max-w-lg mx-auto md:mx-0 text-sm sm:text-base leading-relaxed">
+                        Your trusted directory for safe, verified APKs. Claim exclusive signup bonuses up to ₹500 and join over <strong class="text-white bg-white/10 px-1 rounded">46.2M+</strong> active players today.
                     </p>
-                    <div class="flex items-center space-x-3">
-                        <span class="px-3 py-1 rounded-full text-xs font-bold bg-red-950 text-red-400 border border-red-800">🔞 18+ Strictly Enforced</span>
+                    <div class="flex flex-col sm:flex-row items-center justify-center md:justify-start gap-4">
+                        <a href="#all-apps" class="w-full sm:w-auto px-8 py-4 rounded-xl bg-casinoRed hover:bg-casinoRedDark text-white font-bold transition-all transform hover:-translate-y-1 shadow-lg hover:shadow-casinoRed/40 flex items-center justify-center gap-2 animate-glow">
+                            Explore Directory
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path></svg>
+                        </a>
+                        <div class="flex items-center gap-3 text-xs text-slate-300 font-medium bg-slate-800/60 px-5 py-4 rounded-xl border border-slate-700/50 backdrop-blur w-full sm:w-auto justify-center">
+                            <div class="w-8 h-8 rounded-full bg-emerald-500/20 flex items-center justify-center">
+                                <svg class="w-4 h-4 text-emerald-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
+                            </div>
+                            <div class="text-left">
+                                <span class="block text-white font-semibold">Anti-Ban Protection</span>
+                                <span class="text-emerald-400 text-[10px]">100% Virus Free</span>
+                            </div>
+                        </div>
                     </div>
                 </div>
-<script src="./data.js"></script>
-                <!-- Col 2: Quick Links -->
-                <div class="space-y-3">
-                    <h4 class="text-sm font-bold text-white uppercase tracking-wider">Quick Links</h4>
-                    <ul class="space-y-2 text-xs sm:text-sm font-medium">
-                        <li><a href="#home" class="hover:text-red-400 transition">Home Directory</a></li>
-                        <li><a href="#games" class="hover:text-red-400 transition">All Casino APKs</a></li>
-                        <li><a href="#about" class="hover:text-red-400 transition">SEO Gaming Guide</a></li>
-                        <li><a href="https://t.me/gmzate" target="_blank" rel="noopener noreferrer" class="hover:text-red-400 transition">Telegram Support</a></li>
-                    </ul>
-                </div>
-
-                <!-- Col 3: Legal & Policies -->
-                <div class="space-y-3">
-                    <h4 class="text-sm font-bold text-white uppercase tracking-wider">Legal & Compliance</h4>
-                    <ul class="space-y-2 text-xs sm:text-sm font-medium">
-                        <li><a href="#" onclick="openLegalModal('Privacy Policy'); return false;" class="hover:text-red-400 transition">Privacy Policy</a></li>
-                        <li><a href="#" onclick="openLegalModal('Terms & Conditions'); return false;" class="hover:text-red-400 transition">Terms & Conditions</a></li>
-                        <li><a href="#" onclick="openLegalModal('Disclaimer & Fair Play'); return false;" class="hover:text-red-400 transition">Disclaimer Notice</a></li>
-                        <li><a href="#" onclick="openLegalModal('Contact Support'); return false;" class="hover:text-red-400 transition">Contact Us</a></li>
-                    </ul>
+                
+                <!-- Hero Visual Elements -->
+                <div class="hidden md:flex w-1/2 relative z-10 justify-center items-center h-64 animate-float">
+                    <div class="relative w-full max-w-sm">
+                        <!-- Card 1 -->
+                        <div class="absolute top-0 right-10 w-32 h-32 rounded-2xl bg-surface border border-slate-600 shadow-2xl transform rotate-12 flex flex-col items-center justify-center p-3 opacity-90">
+                            <div class="w-12 h-12 rounded-full bg-blue-500/20 mb-2 flex items-center justify-center">
+                                <svg class="w-6 h-6 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                            </div>
+                            <span class="text-xs font-bold text-white">Big Wins</span>
+                        </div>
+                        <!-- Card 2 -->
+                        <div class="absolute top-10 left-10 w-40 h-40 rounded-2xl bg-surface border-2 border-casinoRed/50 shadow-2xl shadow-casinoRed/20 transform -rotate-6 flex flex-col items-center justify-center p-4 z-10 bg-gradient-to-br from-surface to-slate-800">
+                             <div class="w-16 h-16 rounded-2xl bg-gradient-to-tr from-gold to-yellow-500 mb-3 flex items-center justify-center shadow-inner">
+                                <span class="text-2xl font-black text-slate-900">VIP</span>
+                            </div>
+                            <span class="text-sm font-bold text-white">Premium Hub</span>
+                            <span class="text-[10px] text-gold mt-1">Daily Bonuses</span>
+                        </div>
+                         <!-- Card 3 -->
+                        <div class="absolute bottom-[-20px] right-20 w-28 h-28 rounded-2xl bg-surface border border-slate-600 shadow-xl transform rotate-[20deg] flex flex-col items-center justify-center p-3 opacity-80">
+                            <div class="w-10 h-10 rounded-full bg-emerald-500/20 mb-1 flex items-center justify-center">
+                                <svg class="w-5 h-5 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
+                            </div>
+                            <span class="text-[10px] font-bold text-white">Verified</span>
+                        </div>
+                    </div>
                 </div>
             </div>
+        </section>
 
-            <div class="border-t border-slate-800 pt-6 flex flex-col sm:flex-row items-center justify-between text-xs text-slate-500">
-                <p>&copy; 2026 Yono VIP Hub. All rights reserved. Designed for mobile enthusiasts.</p>
-                <p class="mt-2 sm:mt-0">Secure SSL Encrypted Platform 🔒</p>
+        <!-- Search & Filter Section -->
+        <section class="sticky top-[104px] z-40 glass-panel py-4 px-4 mt-8" id="filter-section">
+            <div class="max-w-4xl mx-auto flex flex-col md:flex-row gap-4 items-center">
+                <!-- Search Bar -->
+                <div class="relative w-full md:w-1/3 shrink-0 group">
+                    <div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
+                        <svg class="w-5 h-5 text-slate-400 group-focus-within:text-casinoRed transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
+                    </div>
+                    <input type="text" id="searchInput" class="block w-full pl-11 pr-4 py-3 bg-slate-900 border border-slate-700 rounded-xl text-sm text-white placeholder-slate-500 focus:outline-none focus:border-casinoRed focus:ring-1 focus:ring-casinoRed transition-all shadow-inner" placeholder="Search apps, tags, categories...">
+                </div>
+                
+                <!-- Filter Pills -->
+                <div class="w-full flex overflow-x-auto gap-2 pb-1 scrollbar-hide md:pb-0 items-center" id="filterPillsContainer">
+                    <button class="filter-btn active-filter px-5 py-2.5 rounded-xl border border-casinoRed bg-casinoRed text-white text-sm font-semibold whitespace-nowrap transition-all shadow-lg shadow-casinoRed/20" data-filter="all">All Apps</button>
+                    <button class="filter-btn px-5 py-2.5 rounded-xl border border-slate-700 bg-surface hover:bg-slate-700 text-slate-300 text-sm font-medium whitespace-nowrap transition-all" data-filter="best">Best Apps</button>
+                    <button class="filter-btn px-5 py-2.5 rounded-xl border border-slate-700 bg-surface hover:bg-slate-700 text-slate-300 text-sm font-medium whitespace-nowrap transition-all" data-filter="yono">Yono Apps</button>
+                    <button class="filter-btn px-5 py-2.5 rounded-xl border border-slate-700 bg-surface hover:bg-slate-700 text-slate-300 text-sm font-medium whitespace-nowrap transition-all" data-filter="new">New Apps</button>
+                    <button class="filter-btn px-5 py-2.5 rounded-xl border border-slate-700 bg-surface hover:bg-slate-700 text-slate-300 text-sm font-medium whitespace-nowrap transition-all" data-filter="rummy">Rummy & Patti</button>
+                </div>
+            </div>
+            
+            <div class="max-w-4xl mx-auto mt-3 px-1 text-xs flex justify-between items-center text-slate-400">
+                <span id="resultsCounter" class="bg-slate-800 px-2 py-1 rounded border border-slate-700">Showing <span class="text-white font-bold mx-1">0</span> verified apps</span>
+                <span class="flex items-center gap-1.5 font-medium"><span class="relative flex h-2 w-2"><span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span><span class="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span></span> Live Status: Online</span>
+            </div>
+        </section>
+
+        <!-- Top Recommendations Slider -->
+        <section class="mt-8 px-4" id="top-picks">
+            <div class="flex items-center justify-between mb-4">
+                <h3 class="text-xl font-bold text-white flex items-center gap-2">
+                    <div class="w-8 h-8 rounded-lg bg-gold/20 flex items-center justify-center text-gold">
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                    </div>
+                    Top Recommendations
+                </h3>
+            </div>
+            
+            <!-- Horizontal Slider Container -->
+            <div class="flex overflow-x-auto gap-4 pb-6 snap-x snap-mandatory scrollbar-hide" id="sliderContainer">
+                <!-- Data will be injected here via JavaScript -->
+                <div class="w-full flex justify-center py-8">
+                    <div class="animate-spin rounded-full h-8 w-8 border-b-2 border-gold"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Main Directory Grid -->
+        <section class="mt-4 px-4" id="all-apps">
+            <div class="flex items-center justify-between mb-6 border-b border-slate-800 pb-3">
+                <h3 class="text-xl font-bold text-white flex items-center gap-2">
+                    <svg class="w-5 h-5 text-casinoRed" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z"></path></svg>
+                    Complete App Directory
+                </h3>
+                
+                <!-- Sort dropdown (Visual only for layout completeness) -->
+                <div class="hidden sm:flex items-center gap-2 text-sm text-slate-400">
+                    <span>Sort by:</span>
+                    <select class="bg-surface border border-slate-700 rounded-lg px-2 py-1 outline-none focus:border-slate-500">
+                        <option>Popularity</option>
+                        <option>Bonus (High to Low)</option>
+                        <option>Newest</option>
+                    </select>
+                </div>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4" id="gridContainer">
+                <!-- Data will be injected here via JavaScript -->
+            </div>
+            
+            <!-- Empty State for Search/Filter -->
+            <div id="emptyState" class="hidden text-center py-16 px-4 bg-surface/50 rounded-2xl border border-slate-800 border-dashed mt-4">
+                <div class="w-16 h-16 bg-slate-800 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <svg class="w-8 h-8 text-slate-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.172 16.172a4 4 0 015.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                </div>
+                <h4 class="text-white text-lg font-semibold mb-2">No applications found</h4>
+                <p class="text-slate-400 text-sm max-w-sm mx-auto mb-6">We couldn't find any apps matching your current search or filter criteria. Try adjusting your terms.</p>
+                <button onclick="resetFilters()" class="px-6 py-2 bg-slate-700 hover:bg-slate-600 text-white rounded-lg transition-colors text-sm font-medium">Clear All Filters</button>
+            </div>
+        </section>
+
+        <!-- SEO Article & Legal Disclaimer -->
+        <section class="mt-16 mx-4 mb-10" id="seo-guide">
+            <div class="bg-surface rounded-3xl border border-slate-700 overflow-hidden shadow-xl">
+                <div class="p-8 md:p-12">
+                    <h2 class="text-2xl md:text-3xl font-bold text-white mb-6">Why Choose Yono VIP Hub?</h2>
+                    
+                    <div class="prose prose-invert max-w-none text-slate-300 text-sm md:text-base leading-relaxed">
+                        <p class="mb-4">
+                            Welcome to <strong>Yono VIP Hub</strong>, the most comprehensive and frequently updated directory for top-rated casino and card game applications. Our platform is dedicated to providing users with verified, secure, and high-performance APK downloads. We understand the importance of safe gaming, which is why every link on our portal is rigorously checked against malicious software.
+                        </p>
+                        <p class="mb-8">
+                            Whether you are looking for the latest Rummy variation, classic Teen Patti, or modern slot simulations, our categorized directory helps you find the highest-paying and most reliable applications with exclusive signup bonuses.
+                        </p>
+                    </div>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+                        <!-- Feature Block 1 -->
+                        <div class="bg-slate-900/50 p-5 rounded-2xl border border-slate-800">
+                            <div class="w-10 h-10 rounded-xl bg-emerald-500/20 text-emerald-400 flex items-center justify-center mb-3">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
+                            </div>
+                            <h4 class="text-white font-semibold mb-2">Verified Security</h4>
+                            <p class="text-slate-400 text-xs">All APKs undergo strict scanning to guarantee a 100% secure, virus-free installation on your device.</p>
+                        </div>
+                        
+                        <!-- Feature Block 2 -->
+                        <div class="bg-slate-900/50 p-5 rounded-2xl border border-slate-800">
+                            <div class="w-10 h-10 rounded-xl bg-blue-500/20 text-blue-400 flex items-center justify-center mb-3">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+                            </div>
+                            <h4 class="text-white font-semibold mb-2">Fast Updates</h4>
+                            <p class="text-slate-400 text-xs">Access the latest app versions, new game launches, and updated bonus codes before anyone else.</p>
+                        </div>
+                        
+                        <!-- Feature Block 3 -->
+                        <div class="bg-slate-900/50 p-5 rounded-2xl border border-slate-800">
+                            <div class="w-10 h-10 rounded-xl bg-gold/20 text-gold flex items-center justify-center mb-3">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                            </div>
+                            <h4 class="text-white font-semibold mb-2">Exclusive Bonuses</h4>
+                            <p class="text-slate-400 text-xs">Claim high signup cash bonuses and daily rewards specifically curated for our VIP portal users.</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Legal Disclaimer -->
+                    <div class="p-5 bg-darkSlate rounded-xl border border-slate-800 text-xs text-slate-500 flex gap-4 items-start">
+                        <svg class="w-6 h-6 text-slate-600 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                        <div>
+                            <strong class="text-slate-400 block mb-1">Important Disclaimer & Responsible Gaming:</strong>
+                            <p>This portal acts solely as an informational directory and aggregator. We do not host APK files, process payments, or operate gaming services on our servers. Links are provided for educational and convenience purposes. Users must be 18 years or older. Real money gaming involves financial risk; please play responsibly and adhere to the laws and regulations of your local jurisdiction.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="bg-darkSlate border-t border-slate-800 pt-12 pb-24 lg:pb-12 mt-auto">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="flex flex-col md:flex-row justify-between items-center gap-6 mb-8">
+                <div class="flex items-center gap-2">
+                    <div class="w-8 h-8 rounded-lg bg-casinoRed flex items-center justify-center">
+                        <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path></svg>
+                    </div>
+                    <span class="font-bold text-lg text-white">Yono <span class="text-casinoRed">VIP</span> Hub</span>
+                </div>
+                
+                <div class="flex gap-6 text-sm text-slate-400">
+                    <a href="#" class="hover:text-white transition-colors">Privacy Policy</a>
+                    <a href="#" class="hover:text-white transition-colors">Terms of Service</a>
+                    <a href="#" class="hover:text-white transition-colors">Contact Support</a>
+                </div>
+            </div>
+            
+            <div class="border-t border-slate-800 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-slate-600">
+                <p>&copy; <span id="currentYear"></span> Yono VIP Directory. All rights reserved.</p>
+                <p class="flex items-center gap-1">Designed for high-performance <svg class="w-3 h-3 text-red-500" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z" clip-rule="evenodd"></path></svg></p>
             </div>
         </div>
     </footer>
 
-    <!-- FLOATING ACTION BUTTONS (FAB) -->
-    <div class="fixed bottom-6 right-4 sm:right-6 z-30 flex flex-col items-end space-y-3 pointer-events-auto">
-        <!-- Status Indicator Badge Button -->
-        <div class="flex items-center space-x-1.5 bg-slate-900/90 hover:bg-slate-900 text-white px-3.5 py-2 rounded-full shadow-lg border border-slate-700/80 backdrop-blur-md text-xs font-bold transition transform hover:scale-105 cursor-pointer" onclick="showStatusToast()">
-            <span class="text-emerald-400"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-graph-up-arrow" viewBox="0 0 16 16">
-  <path fill-rule="evenodd" d="M0 0h1v15h15v1H0zm10 3.5a.5.5 0 0 1 .5-.5h4a.5.5 0 0 1 .5.5v4a.5.5 0 0 1-1 0V4.9l-3.613 4.417a.5.5 0 0 1-.74.037L7.06 6.767l-3.656 5.027a.5.5 0 0 1-.808-.588l4-5.5a.5.5 0 0 1 .758-.06l2.609 2.61L13.445 4H10.5a.5.5 0 0 1-.5-.5"/>
-</svg></span>
-            <span>80% Win Rate</span>
-            <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse ml-1"></span>
-        </div>
-
-        <!-- Telegram Support Floating Button -->
-        <a href="https://t.me/gmzate" target="_blank" rel="noopener noreferrer" class="w-14 h-14 rounded-full bg-sky-500 hover:bg-sky-400 text-white flex items-center justify-center shadow-xl shadow-sky-500/40 transform hover:scale-110 transition-all duration-200 border-2 border-white/20">
-            <svg class="w-7 h-7" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69.01-.03.01-.14-.07-.2-.08-.06-.19-.04-.27 0-.12.07-1.99 1.27-5.62 3.72-.53.36-1.01.54-1.44.53-.47-.02-1.37-.26-2.03-.48-.82-.27-1.47-.42-1.42-.88.03-.25.38-.51 1.05-.78 4.11-1.79 6.85-2.97 8.22-3.55 3.91-1.67 4.72-1.96 5.24-1.97.12 0 .39.03.56.17.15.12.19.28.21.4-.01.07.01.37-.02.6z"/></svg>
+    <!-- Mobile Bottom CTA Bar -->
+    <div class="lg:hidden fixed bottom-0 left-0 right-0 p-3 bg-darkSlate/95 backdrop-blur-md border-t border-slate-800 z-40 flex gap-3">
+        <button onclick="window.scrollTo(0,0)" class="w-12 flex-shrink-0 bg-surface text-slate-400 rounded-xl flex items-center justify-center border border-slate-700">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 15l7-7 7 7"></path></svg>
+        </button>
+        <a href="#all-apps" class="flex-1 bg-surface text-white text-center py-3.5 rounded-xl text-sm font-semibold border border-slate-700">Browse All</a>
+        <a href="#" class="flex-1 bg-[#0088cc] text-white text-center py-3.5 rounded-xl text-sm font-bold shadow-lg shadow-[#0088cc]/20 flex items-center justify-center gap-2">
+            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69a.2.2 0 00-.05-.18c-.06-.05-.14-.03-.21-.02-.09.02-1.49.95-4.22 2.79-.4.27-.76.41-1.08.4-.36-.01-1.04-.2-1.55-.37-.63-.2-1.12-.31-1.08-.66.02-.18.27-.36.74-.55 2.92-1.27 4.86-2.11 5.83-2.51 2.78-1.16 3.35-1.36 3.73-1.36.08 0 .27.02.39.12.1.08.13.19.14.27-.01.06.01.24 0 .24z"/></svg>
+            Telegram
         </a>
     </div>
 
-    <!-- DOWNLOAD MODAL BACKDROP -->
-    <div id="download-modal" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-900/70 backdrop-blur-sm hidden opacity-0 transition-opacity duration-300">
-        <div id="modal-box" class="bg-white rounded-3xl shadow-2xl max-w-md w-full overflow-hidden transform scale-95 transition-transform duration-300 border border-slate-100">
-            <!-- Modal Header Banner -->
-            <div class="bg-gradient-to-r from-slate-900 via-slate-900 to-red-950 p-6 text-white relative">
-                <button onclick="closeDownloadModal()" class="absolute top-4 right-4 text-slate-400 hover:text-white p-2 rounded-full hover:bg-white/10 transition">
-                    <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"></path></svg>
-                </button>
-                <div class="flex items-center space-x-4">
-                    <img id="modal-app-icon" src="https://placehold.co/100x100/dc2626/ffffff?text=App" alt="App Icon" class="w-16 h-16 rounded-2xl object-cover shadow-md border-2 border-red-500/40">
+    <!-- Desktop Floating Action Buttons -->
+    <div class="hidden lg:flex fixed bottom-8 right-8 flex-col gap-3 z-40">
+        <button onclick="window.scrollTo({top: 0, behavior: 'smooth'})" class="w-12 h-12 bg-surface border border-slate-700 rounded-full flex items-center justify-center text-slate-400 hover:text-white hover:bg-slate-700 transition-all shadow-lg" aria-label="Scroll to top">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 15l7-7 7 7"></path></svg>
+        </button>
+        <a href="#" class="w-14 h-14 bg-[#0088cc] rounded-full flex items-center justify-center text-white shadow-lg shadow-[#0088cc]/30 hover:bg-[#0077b3] transition-transform transform hover:-translate-y-1" aria-label="Join Telegram">
+            <svg class="w-7 h-7" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69a.2.2 0 00-.05-.18c-.06-.05-.14-.03-.21-.02-.09.02-1.49.95-4.22 2.79-.4.27-.76.41-1.08.4-.36-.01-1.04-.2-1.55-.37-.63-.2-1.12-.31-1.08-.66.02-.18.27-.36.74-.55 2.92-1.27 4.86-2.11 5.83-2.51 2.78-1.16 3.35-1.36 3.73-1.36.08 0 .27.02.39.12.1.08.13.19.14.27-.01.06.01.24 0 .24z"/></svg>
+        </a>
+    </div>
+
+    <!-- Download Modal Overlay -->
+    <div id="downloadModal" class="fixed inset-0 z-[110] flex items-center justify-center bg-darkSlate/90 backdrop-blur-sm opacity-0 pointer-events-none transition-opacity duration-300 px-4">
+        <div class="modal-content bg-surface border border-slate-700 rounded-3xl w-full max-w-sm shadow-2xl relative overflow-hidden">
+            <!-- Header Pattern -->
+            <div class="h-28 bg-gradient-to-b from-slate-800 to-transparent absolute top-0 left-0 right-0 w-full z-0"></div>
+            
+            <button onclick="closeModal('downloadModal')" class="absolute top-4 right-4 w-8 h-8 flex items-center justify-center bg-black/40 rounded-full text-slate-400 hover:text-white z-20 backdrop-blur transition-colors">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+            </button>
+            
+            <div class="p-6 pt-10 relative z-10 flex flex-col items-center text-center">
+                <div class="relative mb-3">
+                    <img id="modalIcon" src="" alt="App Icon" class="w-24 h-24 rounded-2xl border-4 border-surface shadow-lg object-cover bg-slate-800">
+                    <div class="absolute -bottom-2 -right-2 bg-emerald-500 rounded-full p-1 border-2 border-surface">
+                        <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                    </div>
+                </div>
+                
+                <h3 id="modalTitle" class="text-2xl font-bold text-white mb-1">App Name</h3>
+                <p id="modalCategory" class="text-slate-400 text-sm mb-4">Category</p>
+                
+                <div class="flex justify-center items-center gap-3 mb-6 w-full px-4">
+                    <div class="flex flex-col items-center bg-slate-900/50 rounded-xl p-2 flex-1 border border-slate-800">
+                        <span class="text-[10px] text-slate-500 uppercase tracking-wider mb-1">Bonus</span>
+                        <span id="modalBonus" class="text-green-400 font-bold text-lg leading-none">₹0</span>
+                    </div>
+                    <div class="flex flex-col items-center bg-slate-900/50 rounded-xl p-2 flex-1 border border-slate-800">
+                        <span class="text-[10px] text-slate-500 uppercase tracking-wider mb-1">Rating</span>
+                        <span class="text-white font-bold text-lg leading-none flex items-center gap-1">
+                            <svg class="w-3.5 h-3.5 text-gold" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                            <span id="modalRating">4.5</span>
+                        </span>
+                    </div>
+                    <div class="flex flex-col items-center bg-slate-900/50 rounded-xl p-2 flex-1 border border-slate-800">
+                        <span class="text-[10px] text-slate-500 uppercase tracking-wider mb-1">Size</span>
+                        <span id="modalSize" class="text-white font-bold text-lg leading-none">--</span>
+                    </div>
+                </div>
+                
+                <div class="w-full bg-emerald-500/10 rounded-xl p-3 mb-6 border border-emerald-500/20 text-left flex items-start gap-3">
+                    <svg class="w-5 h-5 text-emerald-500 shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
                     <div>
-                        <h3 id="modal-app-name" class="text-lg font-black tracking-tight">Yono Slots VIP</h3>
-                        <p class="text-xs text-red-300 font-medium mt-0.5">Version <span id="modal-app-version">4.8.2</span> • Size: <span id="modal-app-size">58.4 MB</span></p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Modal Body Details -->
-            <div class="p-6 space-y-4">
-                <div class="grid grid-cols-2 gap-3">
-                    <div class="bg-red-50 border border-red-100 p-3 rounded-2xl text-center">
-                        <span class="block text-[10px] font-bold text-red-600 uppercase tracking-widest">Sign Up Bonus</span>
-                        <span id="modal-app-bonus" class="text-base font-extrabold text-red-700 mt-0.5 block">₹500 Free</span>
-                    </div>
-                    <div class="bg-slate-50 border border-slate-200 p-3 rounded-2xl text-center">
-                        <span class="block text-[10px] font-bold text-slate-500 uppercase tracking-widest">Min. Withdrawal</span>
-                        <span id="modal-app-withdraw" class="text-base font-extrabold text-slate-800 mt-0.5 block">₹100 Bank</span>
+                        <span class="block text-emerald-400 font-medium text-sm">Security Scan Passed</span>
+                        <span class="block text-slate-400 text-xs mt-0.5">No threats found. Safe to install.</span>
                     </div>
                 </div>
 
-                <!-- Feature Highlights -->
-                <div class="space-y-2 pt-1 text-xs text-slate-600 font-medium">
-                    <div class="flex items-center space-x-2">
-                        <svg class="w-4 h-4 text-emerald-500 flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path></svg>
-                        <span>100% Secure Verified APK (No malware)</span>
-                    </div>
-                    <div class="flex items-center space-x-2">
-                        <svg class="w-4 h-4 text-emerald-500 flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path></svg>
-                        <span>Instant UPI & Bank Transfer Payouts</span>
-                    </div>
-                    <div class="flex items-center space-x-2">
-                        <svg class="w-4 h-4 text-emerald-500 flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path></svg>
-                        <span>24/7 Dedicated Player Support</span>
-                    </div>
-                </div>
-
-                <!-- Action Buttons -->
-                <div class="pt-4 space-y-2">
-                    <button onclick="simulateDownload()" id="modal-download-btn" class="w-full py-3.5 bg-gradient-to-r from-red-600 to-red-700 hover:from-red-500 hover:to-red-600 text-white font-bold rounded-2xl shadow-lg shadow-red-600/30 transition flex items-center justify-center space-x-2">
-                        <svg class="w-5 h-5 animate-bounce" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>
-                        <span id="download-btn-text">Proceed to Download APK</span>
-                    </button>
-                    <button onclick="closeDownloadModal()" class="w-full py-3 bg-slate-100 hover:bg-slate-200 text-slate-700 font-semibold rounded-2xl transition text-sm">
-                        Cancel
-                    </button>
-                </div>
+                <a href="#" id="modalDownloadBtn" class="block w-full py-4 bg-casinoRed hover:bg-casinoRedDark text-white font-bold rounded-xl shadow-lg shadow-casinoRed/30 transition-all flex items-center justify-center gap-2" onclick="simulateDownload(this)">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>
+                    <span>Download Official APK</span>
+                </a>
+                <p class="text-[10px] text-slate-500 mt-3">By downloading, you agree to our terms of service.</p>
             </div>
         </div>
     </div>
 
-    <!-- CUSTOM NOTIFICATION TOAST -->
-    <div id="toast-notification" class="fixed top-20 right-4 z-50 transform translate-x-full transition-transform duration-300 bg-slate-900 text-white px-4 py-3 rounded-2xl shadow-2xl border border-red-500/40 flex items-center space-x-3">
-        <div class="w-8 h-8 rounded-xl bg-red-600 flex items-center justify-center text-white font-bold text-sm">🔔</div>
-        <div>
-            <h4 id="toast-title" class="text-xs font-bold text-white">Notice</h4>
-            <p id="toast-message" class="text-[11px] text-slate-300">Operation successful</p>
+    <!-- Premium Promo Overlay -->
+    <div id="promoModal" class="fixed inset-0 z-[120] flex items-center justify-center bg-black/95 backdrop-blur-md opacity-0 pointer-events-none transition-opacity duration-500 px-4">
+        <div class="modal-content bg-gradient-to-b from-slate-800 to-darkSlate border border-gold/40 rounded-3xl w-full max-w-sm shadow-[0_0_50px_-12px_rgba(251,191,36,0.2)] relative overflow-hidden text-center">
+            
+            <div class="absolute -top-10 -right-10 w-32 h-32 bg-gold/20 rounded-full blur-2xl"></div>
+            
+            <button onclick="closeModal('promoModal')" class="absolute top-3 right-3 w-8 h-8 flex items-center justify-center bg-black/50 rounded-full text-slate-400 hover:text-white z-20 transition-colors">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+            </button>
+            
+            <div class="p-8 relative z-10">
+                <div class="w-24 h-24 mx-auto bg-gradient-to-br from-gold to-orange-500 rounded-2xl rotate-3 flex items-center justify-center mb-6 shadow-xl shadow-gold/20 animate-pulse-slow">
+                    <svg class="w-12 h-12 text-white transform -rotate-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                </div>
+                
+                <div class="inline-block bg-gold/20 border border-gold/30 text-gold text-xs font-bold px-3 py-1 rounded-full mb-3 uppercase tracking-wider">Limited Time Offer</div>
+                <h3 class="text-3xl font-extrabold text-white mb-2">Claim ₹500 Bonus</h3>
+                <p class="text-slate-400 text-sm mb-8 leading-relaxed">Register on today's top sponsored app to receive instant signup cash. Offer expires soon!</p>
+                
+                <button onclick="closeModal('promoModal'); document.querySelector('[data-filter=\'best\']').click(); window.location.hash='all-apps';" class="w-full py-4 bg-gradient-to-r from-gold to-yellow-600 hover:from-yellow-500 hover:to-yellow-700 text-slate-900 font-black rounded-xl shadow-xl shadow-gold/30 transition-all text-lg transform hover:scale-[1.02]">
+                    Reveal Top App Now
+                </button>
+            </div>
         </div>
     </div>
+    
+    <!-- Toast Notification Container -->
+    <div id="toastContainer" class="fixed top-20 right-4 md:right-8 z-[130] flex flex-col gap-3 pointer-events-none w-[calc(100%-2rem)] md:w-auto max-w-sm"></div>
 
-    <!-- JAVASCRIPT LOGIC -->
     <script>
-        // Mobile menu toggle
-        const menuToggle = document.getElementById('menu-toggle');
-        const mobileMenu = document.getElementById('mobile-menu');
-
-        menuToggle.addEventListener('click', () => {
-            mobileMenu.classList.toggle('hidden');
-        });
-
-        // Close mobile menu on link click
-        mobileMenu.querySelectorAll('a').forEach(link => {
-            link.addEventListener('click', () => {
-                mobileMenu.classList.add('hidden');
-            });
-        });
-
-        
-
-        
-
-        // Download Modal logic
-const downloadModal = document.getElementById('download-modal');
-const modalBox = document.getElementById('modal-box');
-const modalAppName = document.getElementById('modal-app-name');
-const modalAppVersion = document.getElementById('modal-app-version');
-const modalAppSize = document.getElementById('modal-app-size');
-const modalAppBonus = document.getElementById('modal-app-bonus');
-const modalAppWithdraw = document.getElementById('modal-app-withdraw');
-const modalAppIcon = document.getElementById('modal-app-icon');
-
-// Variable to store current download URL
-let currentDownloadUrl = '';
-
-function openDownloadModal(name, version, size, bonus, withdraw, iconUrl, downloadUrl) {
-    modalAppName.textContent = name;
-    modalAppVersion.textContent = version;
-    modalAppSize.textContent = size;
-    modalAppBonus.textContent = bonus + " Free";
-    modalAppWithdraw.textContent = withdraw + " UPI";
-    modalAppIcon.src = iconUrl;
-    
-    // Save the download URL
-    currentDownloadUrl = downloadUrl;
-
-    downloadModal.classList.remove('hidden');
-    setTimeout(() => {
-        downloadModal.classList.remove('opacity-0');
-        modalBox.classList.remove('scale-95');
-        modalBox.classList.add('scale-100');
-    }, 10);
-}
-
-function closeDownloadModal() {
-    downloadModal.classList.add('opacity-0');
-    modalBox.classList.remove('scale-100');
-    modalBox.classList.add('scale-95');
-    setTimeout(() => {
-        downloadModal.classList.add('hidden');
-        // Reset button state
-        const btnText = document.getElementById('download-btn-text');
-        if(btnText) btnText.textContent = "Proceed to Download APK";
-    }, 300);
-}
-
-function simulateDownload() {
-    const btnText = document.getElementById('download-btn-text');
-    if(btnText) btnText.textContent = "Downloading Secure APK...";
-    
-    setTimeout(() => {
-        if(btnText) btnText.textContent = "Download Complete!";
-        showToast("Download Successful", "Your APK file has started downloading securely.");
-        
-        // Yahan actual link open ho jayega
-        if (currentDownloadUrl) {
-            window.location.href = currentDownloadUrl;
-        }
-
-        setTimeout(() => {
-            closeDownloadModal();
-        }, 1500);
-    }, 1200);
-}
-
-        function triggerQuickJoin() {
-            showToast("Telegram VIP Channel", "Redirecting to official Telegram channel for exclusive bonus codes!");
-        }
-
-        function showStatusToast() {
-            showToast("Server Status", "All 26 slots & rummy servers operating at 99.9% uptime.");
-        }
-
-        function openLegalModal(title) {
-            showToast(title, "Official policy document verified by compliance team.");
-        }
-
-        // Toast notification helper
-        function showToast(title, message) {
-            const toast = document.getElementById('toast-notification');
-            document.getElementById('toast-title').textContent = title;
-            document.getElementById('toast-message').textContent = message;
-
-            toast.classList.remove('translate-x-full');
-            setTimeout(() => {
-                toast.classList.add('translate-x-full');
-            }, 3500);
-        }
-    </script>
-<script>
-/* =========================================================
-   GMZATE — FINAL DYNAMIC CARD SYSTEM
-   ---------------------------------------------------------
-   DATA     : data.html
-   SEARCH   : Dynamic
-   FILTER   : Dynamic
-   TABS     : Dynamic
-   NUMBER   : Automatic
-   COUNTER  : Automatic
-========================================================= */
-
-
-/* =========================================================
-   GLOBAL FILTER STATE
-========================================================= */
-
-let activeSearch = '';
-let activeCategory = 'all';
-
-
-/* =========================================================
-   GET ALL CURRENTLY LOADED CARDS
-========================================================= */
-
-function getAppCards() {
-
-    return Array.from(
-        document.querySelectorAll(
-            '#scrolling-cards .app-card, #app-cards-container .app-card'
-        )
-    );
-
-}
-
-
-/* =========================================================
-   CHECK CARD VISIBILITY
-========================================================= */
-
-function isCardVisible(card) {
-
-    return (
-        window.getComputedStyle(card).display !== 'none' &&
-        !card.classList.contains('hidden')
-    );
-
-}
-
-
-/* =========================================================
-   AUTOMATIC NUMBERING
-   ---------------------------------------------------------
-   Scrolling cards: 1,2,3...
-   Grid cards:      1,2,3...
-========================================================= */
-
-function updateNoxiNumbering() {
-
-    const containers = [
-
-        document.getElementById('scrolling-cards'),
-
-        document.getElementById('app-cards-container')
-
-    ];
-
-
-    containers.forEach(container => {
-
-        if (!container) return;
-
-
-        let currentNumber = 1;
-
-
-        container
-            .querySelectorAll('.app-card')
-            .forEach(card => {
-
-                const badge =
-                    card.querySelector('.noxi-no');
-
-
-                if (!badge) return;
-
-
-                if (isCardVisible(card)) {
-
-                    badge.textContent =
-                        currentNumber;
-
-                    currentNumber++;
-
-                } else {
-
-                    badge.textContent = '';
-
-                }
-
-            });
-
-    });
-
-}
-
-
-/* =========================================================
-   RESULTS COUNTER
-========================================================= */
-
-function updateResultsCounter() {
-
-    const counter =
-        document.getElementById('results-count');
-
-
-    if (!counter) return;
-
-
-    const visibleCards =
-        getAppCards()
-            .filter(isCardVisible);
-
-
-    counter.textContent =
-        `Showing ${visibleCards.length} verified apps`;
-
-}
-
-
-/* =========================================================
-   APPLY SEARCH + CATEGORY FILTER
-   ---------------------------------------------------------
-   Both work together.
-========================================================= */
-
-function applyCardFilters() {
-
-    const cards = getAppCards();
-
-    let visibleCount = 0;
-
-
-    cards.forEach(card => {
-
-
-        /* -----------------------------------------
-           CARD NAME
-        ----------------------------------------- */
-
-        const name =
-            (
-                card.getAttribute('data-name') || ''
-            ).toLowerCase();
-
-
-        /* -----------------------------------------
-           CARD CATEGORY
-        ----------------------------------------- */
-
-        const categories =
-            (
-                card.getAttribute('data-category') || ''
-            )
-            .toLowerCase()
-            .split(/\s+/)
-            .filter(Boolean);
-
-
-        /* -----------------------------------------
-           SEARCH MATCH
-        ----------------------------------------- */
-
-        const searchMatch =
-            activeSearch === '' ||
-            name.includes(activeSearch);
-
-
-        /* -----------------------------------------
-           CATEGORY MATCH
-        ----------------------------------------- */
-
-        const categoryMatch =
-            activeCategory === 'all' ||
-            categories.includes(activeCategory);
-
-
-        /* -----------------------------------------
-           FINAL RESULT
-        ----------------------------------------- */
-
-        if (
-            searchMatch &&
-            categoryMatch
-        ) {
-
-            card.style.display = 'flex';
-
-            visibleCount++;
-
-        } else {
-
-            card.style.display = 'none';
-
-        }
-
-    });
-
-
-    /* -----------------------------------------
-       UPDATE NUMBER + COUNTER
-    ----------------------------------------- */
-
-    updateNoxiNumbering();
-
-    updateResultsCounter();
-
-}
-
-
-/* =========================================================
-   SEARCH SYSTEM
-========================================================= */
-
-function initializeSearch() {
-
-    const searchInput =
-        document.getElementById(
-            'app-search-input'
-        );
-
-
-    if (!searchInput) return;
-
-
-    /*
-       Prevent duplicate event listener
-    */
-
-    if (
-        searchInput.dataset.searchInitialized === 'true'
-    ) {
-
-        return;
-
-    }
-
-
-    searchInput.dataset.searchInitialized =
-        'true';
-
-
-    searchInput.addEventListener(
-        'input',
-        function(event) {
-
-
-            activeSearch =
-                event.target.value
-                    .toLowerCase()
-                    .trim();
-
-
-            applyCardFilters();
-
-        }
-    );
-
-}
-
-
-/* =========================================================
-   CATEGORY / TAB FILTER
-========================================================= */
-
-function filterCategory(
-    category,
-    btnElement
-) {
-
-
-    /* -----------------------------------------
-       Save selected category
-    ----------------------------------------- */
-
-    activeCategory =
-        String(category || 'all')
-            .toLowerCase()
-            .trim();
-
-
-    /* -----------------------------------------
-       UPDATE ACTIVE TAB
-    ----------------------------------------- */
-
-    document
-        .querySelectorAll('.filter-pill')
-        .forEach(button => {
-
-            button.classList.remove(
-                'bg-red-600',
-                'text-white',
-                'shadow-sm'
-            );
-
-
-            button.classList.add(
-                'bg-slate-100',
-                'text-slate-700'
-            );
-
-        });
-
-
-    if (btnElement) {
-
-        btnElement.classList.remove(
-            'bg-slate-100',
-            'text-slate-700'
-        );
-
-
-        btnElement.classList.add(
-            'bg-red-600',
-            'text-white',
-            'shadow-sm'
-        );
-
-    }
-
-
-    /* -----------------------------------------
-       APPLY FILTER
-    ----------------------------------------- */
-
-    applyCardFilters();
-
-}
-
-
-/* =========================================================
-   CARD SYSTEM INITIALIZER
-========================================================= */
-
-function initializeCardSystem() {
-
-
-    /* Search */
-    initializeSearch();
-
-
-    /* Initial filtering */
-    applyCardFilters();
-
-
-    /* -----------------------------------------
-       OBSERVE DYNAMIC CARDS
-    ----------------------------------------- */
-
-    getAppCards().forEach(card => {
-
-
-        /*
-           Don't attach observer twice
-        */
-
-        if (
-            card.dataset.noxiObserver === 'true'
-        ) {
-
-            return;
-
-        }
-
-
-        card.dataset.noxiObserver = 'true';
-
-
-        const observer =
-            new MutationObserver(
-                function() {
-
-                    updateNoxiNumbering();
-
-                    updateResultsCounter();
-
-                }
-            );
-
-
-        observer.observe(
-            card,
-            {
-                attributes: true,
-
-                attributeFilter: [
-                    'style',
-                    'class'
-                ]
-            }
-        );
-
-    });
-
-}
-
-
-/* =========================================================
-   FILTER BUTTON SAFETY
-   ---------------------------------------------------------
-   If another tab system changes visibility,
-   numbering/counter refresh automatically.
-========================================================= */
-
-document.addEventListener(
-    'click',
-    function(event) {
-
-
-        const filterButton =
-            event.target.closest(
-                '.filter-pill'
-            );
-
-
-        const tabButton =
-            event.target.closest(
-                '.tab'
-            );
-
-
-        if (
-            filterButton ||
-            tabButton
-        ) {
-
-            setTimeout(
-                function() {
-
-                    updateNoxiNumbering();
-
-                    updateResultsCounter();
-
-                },
-                50
-            );
-
-        }
-
-    }
-);
-
-
-
-
-</script>
-  <script src='https://cdn.jsdelivr.net/gh/refilate-spec/Ags-ads@main/Ags-link-store.js'/>
-
-  <!-- =========================================================
-     PREMIUM POPUP v2 (UPDATED)
-========================================================= -->
-
-<style>
-.nxpop-overlay{
-  position:fixed;
-  inset:0;
-  z-index:999999;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  padding:18px;
-  background:rgba(3,5,10,.78);
-  backdrop-filter:blur(10px);
-  -webkit-backdrop-filter:blur(10px);
-  opacity:0;
-  visibility:hidden;
-  transition:.35s ease;
-}
-
-.nxpop-overlay.active{
-  opacity:1;
-  visibility:visible;
-}
-
-.nxpop-box{
-  position:relative;
-  width:100%;
-  max-width:420px;
-  overflow:hidden;
-  border:1px solid rgba(255,255,255,.14);
-  border-radius:24px;
-  background:
-    radial-gradient(circle at 15% 0%,rgba(0,195,255,.16),transparent 35%),
-    radial-gradient(circle at 100% 100%,rgba(255,0,90,.13),transparent 35%),
-    #0d1017;
-  box-shadow:
-    0 30px 100px rgba(0,0,0,.75),
-    0 0 50px rgba(0,180,255,.08);
-  color:#fff;
-  transform:translateY(35px) scale(.9);
-  transition:.45s cubic-bezier(.2,.8,.2,1);
-}
-
-.nxpop-overlay.active .nxpop-box{
-  transform:translateY(0) scale(1);
-}
-
-/* MEDIA & FLOATING ELEMENTS */
-
-.nxpop-media{
-  position:relative;
-  height:210px;
-  overflow:hidden;
-}
-
-.nxpop-media img{
-  width:100%;
-  height:100%;
-  object-fit:cover;
-  display:block;
-  transform:scale(1.02);
-}
-
-.nxpop-media:after{
-  content:"";
-  position:absolute;
-  inset:0;
-  background:
-    linear-gradient(to bottom,transparent 35%,#0d1017 100%);
-}
-
-/* IMAGE BADGE (TOP LEFT) */
-.nxpop-img-badge {
-  position: absolute;
-  top: 13px;
-  left: 13px;
-  z-index: 5;
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  padding: 6px 12px;
-  background: rgba(0, 0, 0, 0.6);
-  border: 1px solid rgba(255, 255, 255, 0.15);
-  backdrop-filter: blur(8px);
-  border-radius: 50px;
-  color: #00d9ff;
-  font-size: 10px;
-  font-weight: 800;
-  letter-spacing: .8px;
-  text-transform: uppercase;
-}
-
-.nxpop-img-badge svg {
-  width: 12px;
-  height: 12px;
-  fill: currentColor;
-}
-
-/* TIMER PILL (TOP RIGHT) */
-.nxpop-timer-pill {
-  position: absolute;
-  top: 13px;
-  right: 56px;
-  z-index: 5;
-  display: flex;
-  align-items: center;
-  gap: 5px;
-  padding: 6px 10px;
-  background: rgba(0, 0, 0, 0.6);
-  border: 1px solid rgba(255, 255, 255, 0.15);
-  backdrop-filter: blur(8px);
-  border-radius: 50px;
-  color: #aeb5c2;
-  font-size: 10px;
-  font-weight: 600;
-}
-
-.nxpop-timer-pill svg {
-  width: 12px;
-  height: 12px;
-  stroke: #00d9ff;
-  fill: none;
-  stroke-width: 2;
-}
-
-.nxpop-timer-pill b {
-  color: #fff;
-}
-
-/* CLOSE */
-
-.nxpop-close{
-  position:absolute;
-  top:13px;
-  right:13px;
-  z-index:10;
-  width:36px;
-  height:36px;
-  border:1px solid rgba(255,255,255,.2);
-  border-radius:50%;
-  background:rgba(0,0,0,.55);
-  color:#fff;
-  cursor:pointer;
-  backdrop-filter:blur(8px);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition:.25s;
-}
-
-.nxpop-close svg {
-  width: 16px;
-  height: 16px;
-  stroke: currentColor;
-  stroke-width: 2;
-  fill: none;
-  transition: .25s;
-}
-
-.nxpop-close:hover{
-  background:#ff3158;
-  border-color:#ff3158;
-  transform:rotate(90deg);
-}
-
-/* CONTENT */
-
-.nxpop-content{
-  position:relative;
-  margin-top:-10px;
-  padding:0 23px 23px;
-  z-index:2;
-}
-
-.nxpop-title{
-  margin:0 0 8px;
-  font-size:27px;
-  line-height:1.15;
-  font-weight:900;
-  letter-spacing:-.5px;
-}
-
-.nxpop-title span{
-  background:linear-gradient(90deg,#00d9ff,#7c5cff,#ff4f81);
-  -webkit-background-clip:text;
-  background-clip:text;
-  color:transparent;
-}
-
-.nxpop-desc{
-  margin:0 0 18px;
-  color:#aeb5c2;
-  font-size:13px;
-  line-height:1.65;
-}
-
-/* FEATURE ROW */
-
-.nxpop-features{
-  display:flex;
-  gap:7px;
-  margin-bottom:18px;
-}
-
-.nxpop-feature{
-  flex:1;
-  padding:9px 5px;
-  border:1px solid rgba(255,255,255,.08);
-  border-radius:11px;
-  background:rgba(255,255,255,.035);
-  text-align:center;
-  color:#cbd1db;
-  font-size:10px;
-}
-
-.nxpop-feature b{
-  display:block;
-  margin-bottom:2px;
-  color:#fff;
-  font-size:12px;
-}
-
-/* PREMIUM BUTTON */
-
-.nxpop-btn{
-  position: relative;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  gap:10px;
-  width:100%;
-  min-height:50px;
-  border:0;
-  border-radius:14px;
-  background: linear-gradient(135deg, #00cfff 0%, #4772ff 50%, #9b4dff 100%);
-  color:#fff;
-  text-decoration:none;
-  font-size:14px;
-  font-weight:800;
-  box-shadow:0 10px 25px rgba(71,114,255,.35);
-  transition:all .3s ease;
-  overflow: hidden;
-}
-
-.nxpop-btn::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(135deg, #9b4dff 0%, #4772ff 50%, #00cfff 100%);
-  opacity: 0;
-  transition: opacity .3s ease;
-}
-
-.nxpop-btn span, .nxpop-btn svg {
-  position: relative;
-  z-index: 2;
-}
-
-.nxpop-btn:hover::before{
-  opacity: 1;
-}
-
-.nxpop-btn:hover{
-  transform:translateY(-2px);
-  box-shadow:0 15px 35px rgba(71,114,255,.5);
-}
-
-.nxpop-btn-arrow{
-  width: 18px;
-  height: 18px;
-  stroke: currentColor;
-  stroke-width: 2.5;
-  fill: none;
-  transition:.25s;
-}
-
-.nxpop-btn:hover .nxpop-btn-arrow{
-  transform:translateX(5px);
-}
-
-/* LATER */
-
-.nxpop-later{
-  display:block;
-  margin-top:14px;
-  color:#737b89;
-  text-align:center;
-  font-size:11px;
-  cursor:pointer;
-  transition: color .2s;
-}
-
-.nxpop-later:hover{
-  color:#fff;
-}
-
-/* MOBILE */
-
-@media(max-width:480px){
-  .nxpop-overlay{
-    padding:12px;
-  }
-  .nxpop-box{
-    border-radius:21px;
-  }
-  .nxpop-media{
-    height:180px;
-  }
-  .nxpop-content{
-    padding:0 18px 19px;
-  }
-  .nxpop-title{
-    font-size:23px;
-  }
-}
-</style>
-
-
-<!-- =========================================================
-     POPUP HTML
-========================================================= -->
-
-<div class="nxpop-overlay" id="nxPop">
-
-  <div class="nxpop-box">
-
-    <!-- Close Button with SVG -->
-    <button class="nxpop-close" id="nxPopClose" aria-label="Close Popup">
-      <svg viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
-    </button>
-
-    <div class="nxpop-media">
-
-      <!-- Top Left Custom Badge with SVG -->
-      <div class="nxpop-img-badge">
-        <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-        <span>VIP Access</span>
-      </div>
-
-      <!-- Top Right Timer Pill with SVG -->
-      <div class="nxpop-timer-pill">
-        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
-        <b id="nxPopTimer">15</b>s
-      </div>
-
-      <img src="https://via.placeholder.com/900x500" alt="Featured">
-
-    </div>
-
-    <div class="nxpop-content">
-
-      <h2 class="nxpop-title">
-        Discover <span>Something New</span>
-      </h2>
-
-      <p class="nxpop-desc">
-        Explore our latest collection, premium tools,
-        offers and useful resources — all in one place.
-      </p>
-
-      <div class="nxpop-features">
-        <div class="nxpop-feature">
-          <b>⚡ Fast</b>
-          Instant Access
-        </div>
-        <div class="nxpop-feature">
-          <b>★ Premium</b>
-          Quality Content
-        </div>
-        <div class="nxpop-feature">
-          <b>✓ Trusted</b>
-          Easy & Safe
-        </div>
-      </div>
-
-      <a href="https://example.com" class="nxpop-btn" target="_blank" rel="noopener">
-        <span>Explore Now</span>
-        <svg class="nxpop-btn-arrow" viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
-      </a>
-
-      <span class="nxpop-later" id="nxPopLater">
-        Maybe later
-      </span>
-
-    </div>
-
-  </div>
-
-</div>
-
-
-<script>
-(function(){
-
-  const popup = document.getElementById("nxPop");
-  const close = document.getElementById("nxPopClose");
-  const later = document.getElementById("nxPopLater");
-  const timerText = document.getElementById("nxPopTimer");
-
-  /* SETTINGS */
-  const SHOW_AFTER = 2500;
-  const AUTO_CLOSE = 15;
-  const STORAGE_KEY = "nxpop_last_closed";
-  const COOLDOWN_HOURS = 12;
-
-  let timer;
-  let seconds = AUTO_CLOSE;
-
-  /* CHECK 12 HOUR COOLDOWN */
-  function shouldShowPopup() {
-    const lastClosed = localStorage.getItem(STORAGE_KEY);
-    if (!lastClosed) return true;
-
-    const elapsedHours = (Date.now() - parseInt(lastClosed, 10)) / (1000 * 60 * 60);
-    return elapsedHours >= COOLDOWN_HOURS;
-  }
-
-  /* OPEN */
-  function openPopup(){
-    if (!shouldShowPopup()) return;
-
-    popup.classList.add("active");
-    seconds = AUTO_CLOSE;
-    timerText.textContent = seconds;
-
-    clearInterval(timer);
-    timer = setInterval(function(){
-      seconds--;
-      timerText.textContent = seconds;
-      if(seconds <= 0){
-        closePopup();
-      }
-    }, 1000);
-  }
-
-  /* CLOSE & SAVE TIMESTAMP */
-  function closePopup(){
-    popup.classList.remove("active");
-    clearInterval(timer);
-    localStorage.setItem(STORAGE_KEY, Date.now().toString());
-  }
-
-  /* EVENTS */
-  close.addEventListener("click", closePopup);
-  later.addEventListener("click", closePopup);
-
-  popup.addEventListener("click", function(e){
-    if(e.target === popup){
-      closePopup();
-    }
-  });
-
-  document.addEventListener("keydown", function(e){
-    if(e.key === "Escape"){
-      closePopup();
-    }
-  });
-
-  /* SHOW */
-  setTimeout(openPopup, SHOW_AFTER);
-
-})();
-</script>
-<!-- FLOATING SHARE BUTTON -->
-<button id="floatingShareBtn"
-        class="fixed right-4 bottom-40 sm:bottom-6 z-[9999] w-12 h-12 sm:w-14 sm:h-14 rounded-full
-               bg-red-600 text-white shadow-xl shadow-red-600/30
-               flex items-center justify-center
-               hover:bg-red-700 hover:scale-110 active:scale-95
-               transition-all duration-300"
-        aria-label="Share this page"
-        title="Share">
-
-    <svg xmlns="http://www.w3.org/2000/svg"
-         width="23" height="23"
-         viewBox="0 0 24 24"
-         fill="none"
-         stroke="currentColor"
-         stroke-width="2"
-         stroke-linecap="round"
-         stroke-linejoin="round">
-        <circle cx="18" cy="5" r="3"></circle>
-        <circle cx="6" cy="12" r="3"></circle>
-        <circle cx="18" cy="19" r="3"></circle>
-        <line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line>
-        <line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line>
-    </svg>
-</button>
-
-<!-- SHARE TOAST -->
-<div id="shareToast"
-     class="fixed left-1/2 bottom-5 -translate-x-1/2 z-[10000]
-            px-4 py-2.5 rounded-xl bg-slate-900 text-white text-sm font-semibold
-            shadow-xl opacity-0 pointer-events-none translate-y-3
-            transition-all duration-300">
-    Link copied!
-</div>
-
-<script>
-(function () {
-
-    const shareBtn = document.getElementById("floatingShareBtn");
-    const toast = document.getElementById("shareToast");
-
-    function showToast(message) {
-        toast.textContent = message;
-
-        toast.classList.remove(
-            "opacity-0",
-            "translate-y-3"
-        );
-
-        setTimeout(() => {
-            toast.classList.add(
-                "opacity-0",
-                "translate-y-3"
-            );
-        }, 1800);
-    }
-
-    shareBtn.addEventListener("click", async function () {
-
-        const shareData = {
-            title: document.title,
-            text: "Check out this page!",
-            url: window.location.href
+        // =========================================================
+        // 1. DATA LAYER (Simulating external data.js)
+        // =========================================================
+        // In production, this data would be fetched or loaded via a separate script tag.
+        const mockExternalData = {
+            scrollingData: [
+                { id: 's1', name: 'Yono Slots Pro', icon: 'https://placehold.co/150x150/1e293b/fbbf24?text=Slots', bonus: '₹500', rating: 4.9, category: 'Casino' },
+                { id: 's2', name: 'Teen Patti Master', icon: 'https://placehold.co/150x150/1e293b/10b981?text=TP', bonus: '₹51', rating: 4.8, category: 'Card Game' },
+                { id: 's3', name: 'Rummy Modern', icon: 'https://placehold.co/150x150/1e293b/ef4444?text=RM', bonus: '₹41', rating: 4.7, category: 'Rummy' },
+                { id: 's4', name: 'Yono Win 777', icon: 'https://placehold.co/150x150/1e293b/8b5cf6?text=Win', bonus: '₹100', rating: 4.6, category: 'Slots' },
+                { id: 's5', name: 'Ace Rummy', icon: 'https://placehold.co/150x150/1e293b/3b82f6?text=Ace', bonus: '₹30', rating: 4.5, category: 'Rummy' },
+            ],
+            gridData: [
+                { id: 'g1', name: 'Yono Rummy Club', icon: 'https://placehold.co/150x150/0f172a/ef4444?text=Club', category: 'Rummy', bonus: '₹51', tags: ['all', 'rummy', 'yono', 'best'], size: '42 MB', rating: 4.8, downloads: '1.2M+' },
+                { id: 'g2', name: 'Spin Winner VIP', icon: 'https://placehold.co/150x150/0f172a/fbbf24?text=Spin', category: 'Casino', bonus: '₹100', tags: ['all', 'best'], size: '38 MB', rating: 4.6, downloads: '500K+' },
+                { id: 'g3', name: 'Teen Patti Gold', icon: 'https://placehold.co/150x150/0f172a/10b981?text=Gold', category: 'Card Game', bonus: '₹41', tags: ['all', 'rummy', 'best'], size: '55 MB', rating: 4.9, downloads: '5M+' },
+                { id: 'g4', name: 'Yono Arcade Pro', icon: 'https://placehold.co/150x150/0f172a/3b82f6?text=Arc', category: 'Arcade', bonus: '₹10', tags: ['all', 'yono', 'new'], size: '28 MB', rating: 4.3, downloads: '100K+' },
+                { id: 'g5', name: 'Slots Meta 777', icon: 'https://placehold.co/150x150/0f172a/8b5cf6?text=777', category: 'Slots', bonus: '₹200', tags: ['all', 'new'], size: '60 MB', rating: 4.7, downloads: '2M+' },
+                { id: 'g6', name: 'Rummy Nabob', icon: 'https://placehold.co/150x150/0f172a/ec4899?text=Nab', category: 'Rummy', bonus: '₹41', tags: ['all', 'rummy'], size: '40 MB', rating: 4.5, downloads: '800K+' },
+                { id: 'g7', name: 'Yono Teen Patti', icon: 'https://placehold.co/150x150/0f172a/14b8a6?text=YTP', category: 'Card Game', bonus: '₹51', tags: ['all', 'rummy', 'yono', 'best'], size: '50 MB', rating: 4.8, downloads: '1.5M+' },
+                { id: 'g8', name: 'Happy Ace Casino', icon: 'https://placehold.co/150x150/0f172a/f97316?text=Ace', category: 'Casino', bonus: '₹30', tags: ['all', 'new'], size: '45 MB', rating: 4.4, downloads: '300K+' },
+                { id: 'g9', name: 'Rummy Wealth', icon: 'https://placehold.co/150x150/0f172a/06b6d4?text=RW', category: 'Rummy', bonus: '₹41', tags: ['all', 'rummy'], size: '35 MB', rating: 4.5, downloads: '600K+' },
+                { id: 'g10', name: 'Yono Games Hub', icon: 'https://placehold.co/150x150/0f172a/f43f5e?text=YGH', category: 'All-in-One', bonus: '₹500', tags: ['all', 'yono', 'best', 'new'], size: '65 MB', rating: 4.9, downloads: '3M+' },
+            ]
         };
 
-        /* Native Share */
-        if (navigator.share) {
-            try {
-                await navigator.share(shareData);
-            } catch (error) {
-                // User closed share menu
+        // Simulating the global variables provided by data.js
+        window.scrollingData = mockExternalData.scrollingData;
+        window.gridData = mockExternalData.gridData;
+
+        // =========================================================
+        // 2. STATE & DOM REFERENCES
+        // =========================================================
+        const state = {
+            currentFilter: 'all',
+            searchQuery: ''
+        };
+
+        const dom = {
+            sliderContainer: document.getElementById('sliderContainer'),
+            gridContainer: document.getElementById('gridContainer'),
+            searchInput: document.getElementById('searchInput'),
+            filterBtns: document.querySelectorAll('.filter-btn'),
+            resultsCounter: document.querySelector('#resultsCounter span'),
+            emptyState: document.getElementById('emptyState'),
+            currentYear: document.getElementById('currentYear'),
+            menuBtn: document.getElementById('menuBtn'),
+            closeMenuBtn: document.getElementById('closeMenuBtn'),
+            mobileMenu: document.getElementById('mobileMenu')
+        };
+
+        // Set Copyright Year
+        if (dom.currentYear) dom.currentYear.textContent = new Date().getFullYear();
+
+        // =========================================================
+        // 3. RENDER ENGINE
+        // =========================================================
+        
+        // Render Horizontal Recommendations Slider
+        function renderSlider(data) {
+            if (!dom.sliderContainer) return;
+            
+            const html = data.map(app => `
+                <div class="snap-start shrink-0 w-40 bg-surface rounded-2xl p-4 border border-slate-700 flex flex-col items-center text-center hover:border-casinoRed/50 transition-all cursor-pointer group shadow-lg shadow-black/20" onclick="openDownloadModal(${JSON.stringify(app).replace(/"/g, '&quot;')})">
+                    <div class="relative w-20 h-20 mb-3">
+                        <img src="${app.icon}" alt="${app.name}" class="w-full h-full rounded-2xl object-cover bg-slate-800 shadow-md transform group-hover:scale-105 transition-transform duration-300">
+                        <div class="absolute -top-2 -right-2 bg-casinoRed text-white text-[9px] font-bold px-1.5 py-0.5 rounded-full border border-surface shadow">Hot</div>
+                    </div>
+                    <h4 class="text-sm font-bold text-white mb-1 truncate w-full">${app.name}</h4>
+                    <span class="text-[10px] text-slate-400 mb-2 truncate w-full">${app.category}</span>
+                    <div class="flex items-center justify-between w-full mt-auto">
+                        <div class="text-[11px] bg-green-500/10 text-green-400 px-2 py-1 rounded font-semibold border border-green-500/20 w-full">Bonus ${app.bonus}</div>
+                    </div>
+                </div>
+            `).join('');
+            
+            dom.sliderContainer.innerHTML = html;
+        }
+
+        // Render Main Grid Directory (with mandated animation/structure requirements)
+        function renderGrid(data) {
+            if (!dom.gridContainer) return;
+            
+            if (data.length === 0) {
+                dom.gridContainer.innerHTML = '';
+                dom.emptyState.classList.remove('hidden');
+                updateResultsCounter(0);
+                return;
+            }
+            
+            dom.emptyState.classList.add('hidden');
+
+            const html = data.map((app, index) => {
+                // Determine tag badges
+                let badgeHtml = '';
+                if (app.tags.includes('new')) {
+                    badgeHtml = '<span class="px-1.5 py-[2px] bg-blue-500 text-white text-[9px] font-bold rounded uppercase tracking-wider">New</span>';
+                } else if (app.tags.includes('best')) {
+                    badgeHtml = '<span class="px-1.5 py-[2px] bg-casinoRed text-white text-[9px] font-bold rounded uppercase tracking-wider">Top</span>';
+                }
+
+                return `
+                <div class="app-card bg-surface rounded-2xl p-4 flex gap-4 items-center border border-slate-700 group cursor-pointer" onclick="openDownloadModal(${JSON.stringify(app).replace(/"/g, '&quot;')})" style="animation: fadeIn 0.3s ease-out forwards; animation-delay: ${index * 0.05}s; opacity: 0;">
+                    <!-- Left: Number & Icon -->
+                    <div class="relative shrink-0">
+                        <span class="app-card-number absolute -top-2 -left-2 w-6 h-6 bg-slate-800 text-slate-300 text-[11px] font-bold rounded-full flex items-center justify-center border border-slate-600 z-10 shadow-md group-hover:bg-casinoRed group-hover:text-white group-hover:border-casinoRed transition-colors">
+                            #
+                        </span>
+                        <img src="${app.icon}" alt="${app.name}" class="w-16 h-16 sm:w-20 sm:h-20 rounded-2xl object-cover bg-slate-900 shadow-inner group-hover:shadow-lg transition-shadow">
+                    </div>
+                    
+                    <!-- Middle: Details -->
+                    <div class="flex-1 min-w-0 flex flex-col justify-center">
+                        <div class="flex items-center gap-2 mb-1">
+                            <h4 class="text-base font-bold text-white truncate group-hover:text-casinoRed transition-colors">${app.name}</h4>
+                            ${badgeHtml}
+                        </div>
+                        
+                        <div class="flex flex-wrap items-center gap-x-2 gap-y-1 mb-2">
+                            <span class="text-xs text-slate-400">${app.category}</span>
+                            <span class="w-1 h-1 rounded-full bg-slate-600 hidden sm:block"></span>
+                            <span class="text-[10px] sm:text-xs text-slate-500 flex items-center gap-1">
+                                <svg class="w-3 h-3 text-gold" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                                ${app.rating}
+                            </span>
+                            <span class="w-1 h-1 rounded-full bg-slate-600 hidden sm:block"></span>
+                            <span class="text-[10px] sm:text-xs text-slate-500">${app.size}</span>
+                        </div>
+                        
+                        <div class="text-xs font-semibold text-green-400 bg-green-500/10 px-2 py-1 rounded inline-flex w-max border border-green-500/20">
+                            Bonus: ${app.bonus}
+                        </div>
+                    </div>
+                    
+                    <!-- Right: Action (Desktop) -->
+                    <div class="hidden sm:flex shrink-0 pl-2">
+                        <div class="w-10 h-10 rounded-full bg-slate-800 text-slate-400 flex items-center justify-center border border-slate-700 group-hover:bg-casinoRed group-hover:text-white group-hover:border-casinoRed transition-all">
+                            <svg class="w-5 h-5 ml-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>
+                        </div>
+                    </div>
+                    
+                    <!-- Right Action (Mobile) - Absolute positioning for cleaner look -->
+                    <div class="sm:hidden absolute right-4 top-1/2 -translate-y-1/2">
+                         <div class="w-8 h-8 rounded-full bg-slate-800 text-slate-400 flex items-center justify-center border border-slate-700 group-hover:bg-casinoRed group-hover:text-white group-hover:border-casinoRed transition-all">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                        </div>
+                    </div>
+                </div>
+            `}).join('');
+            
+            dom.gridContainer.innerHTML = html;
+            
+            // Invoke mandated helper functions after rendering
+            updateNoxiNumbering();
+            updateResultsCounter(data.length);
+        }
+
+        // =========================================================
+        // 4. CORE ENGINE LOGIC (Filtering, Counters, Numbering)
+        // =========================================================
+        
+        // Mandated function: Dynamically update card numbers based on visual index
+        function updateNoxiNumbering() {
+            const numbers = document.querySelectorAll('.app-card-number');
+            numbers.forEach((el, index) => {
+                el.textContent = index + 1;
+            });
+        }
+
+        // Mandated function: Update the text counter for results
+        function updateResultsCounter(count) {
+            if (dom.resultsCounter) {
+                // Add a small bounce animation when counter updates
+                dom.resultsCounter.parentElement.classList.add('scale-105', 'text-casinoRed');
+                dom.resultsCounter.textContent = count;
+                
+                setTimeout(() => {
+                    dom.resultsCounter.parentElement.classList.remove('scale-105', 'text-casinoRed');
+                }, 300);
+            }
+        }
+
+        // Mandated function: Master filter applying search and tags
+        function applyCardFilters() {
+            let filteredData = window.gridData || [];
+
+            // Apply Search Query
+            if (state.searchQuery) {
+                const q = state.searchQuery.toLowerCase();
+                filteredData = filteredData.filter(app => 
+                    app.name.toLowerCase().includes(q) || 
+                    app.category.toLowerCase().includes(q) ||
+                    (app.tags && app.tags.some(tag => tag.toLowerCase().includes(q)))
+                );
             }
 
-            return;
+            // Apply Tag Filter (Pills)
+            if (state.currentFilter && state.currentFilter !== 'all') {
+                filteredData = filteredData.filter(app => 
+                    app.tags && app.tags.includes(state.currentFilter)
+                );
+            }
+
+            // Render the results
+            renderGrid(filteredData);
         }
 
-        /* Copy Link Fallback */
-        try {
-
-            await navigator.clipboard.writeText(
-                window.location.href
-            );
-
-            showToast("Link copied!");
-
-        } catch (error) {
-
-            /* Older browser fallback */
-            const input = document.createElement("input");
-
-            input.value = window.location.href;
-            document.body.appendChild(input);
-
-            input.select();
-            document.execCommand("copy");
-
-            input.remove();
-
-            showToast("Link copied!");
-
+        // Helper: Reset all filters
+        function resetFilters() {
+            if(dom.searchInput) dom.searchInput.value = '';
+            state.searchQuery = '';
+            
+            // Trigger click on 'all' pill
+            const allBtn = document.querySelector('[data-filter="all"]');
+            if(allBtn) allBtn.click();
+            else {
+                state.currentFilter = 'all';
+                applyCardFilters();
+            }
         }
 
-    });
-
-})();
-</script>
-
-<script src="./data.js"></script>
-<script>
-/* =========================================================
-   DIRECT EMBEDDED TEMPLATE CARD SYSTEM (CORS Proof)
-========================================================= */
-document.addEventListener("DOMContentLoaded", () => {
-    // 1. Templates ko directly HTML string ke roop mein define kiya hai (No fetch() needed)
-    const scrollingCardTemplate = `
-        <div class="app-card bg-white rounded-2xl border border-slate-200/80 shadow-sm hover:shadow-md transition-all duration-300 p-4 relative overflow-hidden flex flex-col justify-between flex-shrink-0 w-[330px] sm:w-[380px] snap-start" data-category="{{category}}" data-name="{{name}}">
-            <div class="absolute top-0 left-0 bg-red-600 text-white font-extrabold text-xs px-3 py-1 rounded-br-xl shadow-sm z-10">
-                <span class="noxi-no"></span>
-            </div>
-            <div class="flex items-start space-x-4 pt-2">
-                <div class="relative flex-shrink-0">
-                    <div class="w-16 h-16 sm:w-20 sm:h-20 rounded-2xl bg-gradient-to-tr from-blue-500 via-indigo-600 to-purple-600 p-0.5 shadow-md">
-                        <div class="w-full h-full bg-slate-900 rounded-[14px] overflow-hidden">
-                            <img src="{{icon}}" alt="{{name}}" class="w-full h-full object-cover" loading="lazy">
-                        </div>
-                    </div>
-                    <span class="absolute -bottom-1 -right-1 bg-emerald-500 text-white text-[9px] font-bold px-1.5 py-0.5 rounded-full shadow border border-white">{{rating}}★</span>
-                </div>
-                <div class="flex-1 min-w-0">
-                    <div class="flex items-center justify-between gap-2">
-                        <h3 class="text-base sm:text-lg font-bold text-slate-900 truncate">{{name}}</h3>
-                        <span class="text-[11px] font-medium text-slate-400 bg-slate-100 px-2 py-0.5 rounded whitespace-nowrap">{{size}}</span>
-                    </div>
-                    <p class="text-xs text-slate-500 font-medium mt-0.5">Version {{version}} • Verified App</p>
-                    <div class="mt-2.5 space-y-1">
-                        <div class="flex items-center text-xs font-semibold text-red-600"><span class="mr-1.5">✦</span>{{feature1}}</div>
-                        <div class="flex items-center text-xs font-medium text-slate-700"><span class="mr-1.5">✓</span>{{feature2}}</div>
-                    </div>
-                </div>
-            </div>
-            <div class="mt-4 pt-3 border-t border-slate-100 flex items-center justify-between">
-                <div class="flex items-center space-x-1 text-[11px] text-emerald-600 font-semibold">
-                    <span class="w-2 h-2 rounded-full bg-emerald-500"></span>
-                    <span>{{status}}</span>
-                </div>
-                <button type="button" data-download-button class="px-5 py-2.5 bg-gradient-to-r from-slate-900 to-slate-800 hover:from-red-600 hover:to-red-700 text-white font-semibold text-xs sm:text-sm rounded-full shadow-md shadow-slate-900/20 transition-all flex items-center space-x-2">
-                    <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg>
-                    <span>{{button}}</span>
-                </button>
-            </div>
-        </div>
-    `;
-
-    const gridCardTemplate = `
-        <div class="app-card bg-white rounded-2xl border border-slate-200/80 shadow-sm hover:shadow-md transition-all duration-300 p-4 relative overflow-hidden flex flex-col justify-between" data-category="{{category}}" data-name="{{name}}">
-            <div class="absolute top-0 left-0 bg-red-600 text-white font-extrabold text-xs px-3 py-1 rounded-br-xl shadow-sm z-10">
-                <span class="noxi-no"></span>
-            </div>
-            <div class="flex items-start space-x-4 pt-2">
-                <div class="relative flex-shrink-0">
-                    <div class="w-16 h-16 sm:w-20 sm:h-20 rounded-2xl bg-gradient-to-tr from-blue-500 via-indigo-600 to-purple-600 p-0.5 shadow-md">
-                        <div class="w-full h-full bg-slate-900 rounded-[14px] overflow-hidden">
-                            <img src="{{icon}}" alt="{{name}}" class="w-full h-full object-cover" loading="lazy">
-                        </div>
-                    </div>
-                    <span class="absolute -bottom-1 -right-1 bg-emerald-500 text-white text-[9px] font-bold px-1.5 py-0.5 rounded-full shadow border border-white">{{rating}}★</span>
-                </div>
-                <div class="flex-1 min-w-0">
-                    <div class="flex items-center justify-between gap-2">
-                        <h3 class="text-base sm:text-lg font-bold text-slate-900 truncate">{{name}}</h3>
-                        <span class="text-[11px] font-medium text-slate-400 bg-slate-100 px-2 py-0.5 rounded whitespace-nowrap">{{size}}</span>
-                    </div>
-                    <p class="text-xs text-slate-500 font-medium mt-0.5">Official Version {{version}} • Verified APK</p>
-                    <div class="mt-2.5 space-y-1">
-                        <div class="flex items-center text-xs font-semibold text-red-600"><span class="mr-1.5">🎁</span>{{bonus}} Free Bonus</div>
-                        <div class="flex items-center text-xs font-medium text-slate-700"><span class="mr-1.5">💳</span>Min. Withdraw: {{withdraw}}</div>
-                    </div>
-                </div>
-            </div>
-            <div class="mt-4 pt-3 border-t border-slate-100 flex items-center justify-between">
-                <div class="flex items-center space-x-1 text-[11px] text-emerald-600 font-semibold">
-                    <span class="w-2 h-2 rounded-full bg-emerald-500"></span>
-                    <span>{{status}}</span>
-                </div>
-                <button type="button" data-download-button class="px-5 py-2.5 bg-gradient-to-r from-slate-900 to-slate-800 hover:from-red-600 hover:to-red-700 text-white font-semibold text-xs sm:text-sm rounded-full shadow-md shadow-slate-900/20 transition-all flex items-center space-x-2">
-                    <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg>
-                    <span>{{button}}</span>
-                </button>
-            </div>
-        </div>
-    `;
-
-    // 2. Render Function
-    function renderCards(dataArray, templateStr, containerId) {
-        const container = document.getElementById(containerId);
-        if (!container) return;
-        if (!Array.isArray(dataArray)) {
-            console.warn(`Data array for ${containerId} is missing or invalid.`);
-            return;
-        }
-
-        container.innerHTML = "";
-
-        dataArray.forEach(item => {
-            let cardHTML = templateStr;
-            Object.keys(item).forEach(key => {
-                const value = item[key] ?? '';
-                const regex = new RegExp(`{{${key}}}`, 'g');
-                cardHTML = cardHTML.replace(regex, String(value));
-            });
-
-            const wrapper = document.createElement('div');
-            wrapper.innerHTML = cardHTML.trim();
-            const card = wrapper.firstElementChild;
-            if (!card) return;
-
-            // Modal Trigger / Download action setup
-            const downloadBtn = card.querySelector('[data-download-button]');
-            if (downloadBtn) {
-                downloadBtn.addEventListener('click', () => {
-                    if (typeof openDownloadModal === 'function') {
-                        openDownloadModal(
-                            item.name || '',
-                            item.version || '',
-                            item.size || '',
-                            item.bonus || 'Free',
-                            item.withdraw || 'Free',
-                            item.icon || '',
-                            item.download || '#'
-                        );
-                    } else {
-                        window.location.href = item.download || '#';
-                    }
+        // =========================================================
+        // 5. UI INTERACTIONS & EVENT LISTENERS
+        // =========================================================
+        
+        function setupEventListeners() {
+            // Search Input Event
+            if (dom.searchInput) {
+                dom.searchInput.addEventListener('input', (e) => {
+                    state.searchQuery = e.target.value.trim();
+                    applyCardFilters();
                 });
             }
 
-            container.appendChild(card);
+            // Filter Pills Click Events
+            dom.filterBtns.forEach(btn => {
+                btn.addEventListener('click', (e) => {
+                    // Reset styling on all pills
+                    dom.filterBtns.forEach(b => {
+                        b.classList.remove('bg-casinoRed', 'border-casinoRed', 'text-white', 'shadow-lg', 'shadow-casinoRed/20', 'active-filter');
+                        b.classList.add('bg-surface', 'border-slate-700', 'text-slate-300');
+                    });
+                    
+                    // Apply active styling to clicked pill
+                    const clicked = e.currentTarget;
+                    clicked.classList.remove('bg-surface', 'border-slate-700', 'text-slate-300');
+                    clicked.classList.add('bg-casinoRed', 'border-casinoRed', 'text-white', 'shadow-lg', 'shadow-casinoRed/20', 'active-filter');
+                    
+                    // Update state and run master filter function
+                    state.currentFilter = clicked.dataset.filter;
+                    applyCardFilters();
+                    
+                    // Smooth scroll to grid if below fold
+                    const gridSection = document.getElementById('all-apps');
+                    if(gridSection && window.scrollY > gridSection.offsetTop) {
+                        gridSection.scrollIntoView({behavior: 'smooth'});
+                    }
+                });
+            });
+            
+            // Mobile Menu Toggle
+            if (dom.menuBtn && dom.mobileMenu && dom.closeMenuBtn) {
+                const toggleMenu = () => {
+                    const isClosed = dom.mobileMenu.classList.contains('translate-x-full');
+                    if (isClosed) {
+                        dom.mobileMenu.classList.remove('translate-x-full');
+                        document.body.style.overflow = 'hidden';
+                    } else {
+                        dom.mobileMenu.classList.add('translate-x-full');
+                        document.body.style.overflow = '';
+                    }
+                };
+                
+                dom.menuBtn.addEventListener('click', toggleMenu);
+                dom.closeMenuBtn.addEventListener('click', toggleMenu);
+                
+                // Close menu on link click
+                dom.mobileMenu.querySelectorAll('a').forEach(link => {
+                    link.addEventListener('click', () => {
+                        dom.mobileMenu.classList.add('translate-x-full');
+                        document.body.style.overflow = '';
+                    });
+                });
+            }
+            
+            // Close Modals on Outside Click
+            document.querySelectorAll('.fixed.inset-0').forEach(modal => {
+                modal.addEventListener('click', (e) => {
+                    // Only close if clicking the backdrop, not the content
+                    if (e.target === modal) {
+                        closeModal(modal.id);
+                    }
+                });
+            });
+        }
+
+        // =========================================================
+        // 6. MODALS, DOWNLOADS & TOAST SYSTEM
+        // =========================================================
+        
+        // Open Download Details Modal
+        function openDownloadModal(appData) {
+            // Populate data securely
+            document.getElementById('modalIcon').src = appData.icon || 'https://placehold.co/150/1e293b/ef4444';
+            document.getElementById('modalTitle').textContent = appData.name;
+            document.getElementById('modalCategory').textContent = appData.category || 'App';
+            document.getElementById('modalBonus').textContent = appData.bonus || '₹0';
+            document.getElementById('modalRating').textContent = appData.rating || '4.5';
+            document.getElementById('modalSize').textContent = appData.size || 'Varies with device';
+            
+            // Show Modal with animation
+            const modal = document.getElementById('downloadModal');
+            modal.classList.add('modal-active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        // Generic Modal Closer
+        function closeModal(modalId) {
+            const modal = document.getElementById(modalId);
+            if (modal) {
+                modal.classList.remove('modal-active');
+                
+                // Only re-enable scrolling if no other modals are active
+                const activeModals = document.querySelectorAll('.modal-active');
+                if(activeModals.length === 0) {
+                    document.body.style.overflow = '';
+                }
+            }
+        }
+
+        // Simulate APK Download Process
+        function simulateDownload(btnElement) {
+            const originalHTML = btnElement.innerHTML;
+            
+            // Loading state
+            btnElement.innerHTML = `
+                <svg class="animate-spin -ml-1 mr-2 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                    <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                    <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                </svg>
+                <span>Preparing APK...</span>
+            `;
+            btnElement.classList.add('opacity-80', 'pointer-events-none');
+            
+            // Simulate network delay
+            setTimeout(() => {
+                btnElement.innerHTML = originalHTML;
+                btnElement.classList.remove('opacity-80', 'pointer-events-none');
+                closeModal('downloadModal');
+                
+                // Show success toast
+                showToast('APK download started successfully. Check notifications.', 'success');
+                
+                // Optional: trigger actual download logic here
+                // window.location.href = "path/to/apk";
+                
+            }, 1800);
+        }
+
+        // Toast Notification Generator
+        function showToast(message, type = 'info') {
+            const container = document.getElementById('toastContainer');
+            if(!container) return;
+            
+            const toast = document.createElement('div');
+            
+            // Styling based on type
+            let bgClass = 'bg-slate-800/95 backdrop-blur-md border-slate-700';
+            let icon = `<svg class="w-5 h-5 text-blue-400 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>`;
+            
+            if (type === 'success') {
+                icon = `<svg class="w-5 h-5 text-emerald-400 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>`;
+            } else if (type === 'warning') {
+                icon = `<svg class="w-5 h-5 text-gold shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path></svg>`;
+            }
+            
+            toast.className = `flex items-center gap-3 p-4 rounded-xl border shadow-2xl shadow-black/50 pointer-events-auto transform translate-y-[-20px] opacity-0 transition-all duration-300 ${bgClass}`;
+            toast.innerHTML = `
+                ${icon}
+                <p class="text-sm text-white font-medium flex-1">${message}</p>
+                <button onclick="this.parentElement.remove()" class="text-slate-400 hover:text-white shrink-0 ml-2">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+                </button>
+            `;
+            
+            container.appendChild(toast);
+            
+            // Animate in
+            requestAnimationFrame(() => {
+                toast.style.transform = 'translateY(0)';
+                toast.style.opacity = '1';
+            });
+            
+            // Auto remove
+            setTimeout(() => {
+                if(toast.parentElement) {
+                    toast.style.opacity = '0';
+                    toast.style.transform = 'translateY(-10px) scale(0.95)';
+                    setTimeout(() => toast.remove(), 300);
+                }
+            }, 4000);
+        }
+
+        // Promotional Popup Logic with Cooldown
+        function handlePromoPopup() {
+            const PROMO_KEY = 'yonoPromoHubSeen';
+            const COOLDOWN_HOURS = 12;
+            const lastSeen = localStorage.getItem(PROMO_KEY);
+            
+            const shouldShow = !lastSeen || 
+                (new Date().getTime() - parseInt(lastSeen)) > (COOLDOWN_HOURS * 60 * 60 * 1000);
+
+            if (shouldShow) {
+                // Delay appearance for better UX
+                setTimeout(() => {
+                    const promoModal = document.getElementById('promoModal');
+                    if(promoModal) {
+                        promoModal.classList.add('modal-active');
+                        document.body.style.overflow = 'hidden';
+                        localStorage.setItem(PROMO_KEY, new Date().getTime().toString());
+                    }
+                }, 3500);
+            }
+        }
+
+        // Simulate Live Feed Toasts (Social Proof)
+        function initSocialProofFeed() {
+            const names = ["Rahul", "Vikram", "Amit", "Priya", "Sneha", "Karan"];
+            const apps = ["Yono Rummy", "Spin Winner", "Teen Patti Gold", "Slots Meta"];
+            
+            setInterval(() => {
+                // 30% chance to show a toast every interval to not be annoying
+                if(Math.random() > 0.7) {
+                    const randomName = names[Math.floor(Math.random() * names.length)];
+                    const randomApp = apps[Math.floor(Math.random() * apps.length)];
+                    const randomAmt = Math.floor(Math.random() * 400) + 100;
+                    
+                    showToast(`<strong>${randomName}</strong> just claimed ₹${randomAmt} bonus on ${randomApp}!`, 'success');
+                }
+            }, 12000); // Check every 12 seconds
+        }
+
+        // =========================================================
+        // 7. INITIALIZATION BOOTSTRAP
+        // =========================================================
+        document.addEventListener('DOMContentLoaded', () => {
+            // 1. Initial Data Rendering
+            renderSlider(window.scrollingData || []);
+            
+            // 2. Initial Filter Application (renders grid)
+            applyCardFilters(); 
+            
+            // 3. Setup Listeners
+            setupEventListeners();
+            
+            // 4. Trigger delayed components
+            handlePromoPopup();
+            
+            // 5. Start subtle background features
+            initSocialProofFeed();
+            
+            // Optional: Initial welcome toast
+            setTimeout(() => {
+                showToast('Welcome to Yono VIP Hub! Directory updated today.', 'info');
+            }, 1000);
         });
-    }
 
-    // 3. Execute rendering using data.js variables
-    if (typeof scrollingData !== 'undefined') {
-        renderCards(scrollingData, scrollingCardTemplate, 'scrolling-cards');
-    } else {
-        console.error("scrollingData is not defined in data.js!");
-    }
-
-    if (typeof gridData !== 'undefined') {
-        renderCards(gridData, gridCardTemplate, 'app-cards-container');
-    } else {
-        console.error("gridData is not defined in data.js!");
-    }
-
-    // 4. Trigger auxiliary helper functions if available
-    if (typeof updateNoxiNumbering === 'function') updateNoxiNumbering();
-    if (typeof updateResultsCounter === 'function') updateResultsCounter();
-    if (typeof initializeCardSystem === 'function') initializeCardSystem();
-    if (typeof applyCardFilters === 'function') applyCardFilters();
-
-    console.log("Cards rendered successfully without external template dependency!");
-});
-</script>
-
-
-  </body>
+    </script>
+</body>
 </html>
