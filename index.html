@@ -615,53 +615,9 @@
             });
         });
 
-        // Search filtering logic
-        const searchInput = document.getElementById('app-search-input');
-        function getappCards() {
-    return document.querySelectorAll('.app-card');
-        }
-        const resultsCount = document.getElementById('results-count');
+        
 
-        searchInput.addEventListener('input', (e) => {
-            const query = e.target.value.toLowerCase().trim();
-            let visibleCount = 0;
-
-            getappCards().forEach(card => {
-                const name = card.getAttribute('data-name');
-                if (name.includes(query)) {
-                    card.style.display = 'flex';
-                    visibleCount++;
-                } else {
-                    card.style.display = 'none';
-                }
-            });
-
-            resultsCount.textContent = `Showing ${visibleCount} verified apps`;
-        });
-
-        // Category Filter Pills logic
-        function filterCategory(category, btnElement) {
-            // Update active pill styling
-            document.querySelectorAll('.filter-pill').forEach(pill => {
-                pill.classList.remove('bg-red-600', 'text-white', 'shadow-sm');
-                pill.classList.add('bg-slate-100', 'text-slate-700');
-            });
-            btnElement.classList.remove('bg-slate-100', 'text-slate-700');
-            btnElement.classList.add('bg-red-600', 'text-white', 'shadow-sm');
-
-            let visibleCount = 0;
-            getappCards().forEach(card => {
-                const categories = card.getAttribute('data-category');
-                if (category === 'all' || categories.includes(category)) {
-                    card.style.display = 'flex';
-                    visibleCount++;
-                } else {
-                    card.style.display = 'none';
-                }
-            });
-
-            resultsCount.textContent = `Showing ${visibleCount} verified apps`;
-        }
+        
 
         // Download Modal logic
 const downloadModal = document.getElementById('download-modal');
@@ -750,54 +706,612 @@ function simulateDownload() {
             }, 3500);
         }
     </script>
-  <script>
-  function initializeNumbering() {
-    function updateNoxiNumbering() {
-        const visibleCards = document.querySelectorAll('.app-card');
-        let currentIndex = 1;
+<script>
+/* =========================================================
+   GMZATE — FINAL DYNAMIC CARD SYSTEM
+   ---------------------------------------------------------
+   DATA     : data.html
+   SEARCH   : Dynamic
+   FILTER   : Dynamic
+   TABS     : Dynamic
+   NUMBER   : Automatic
+   COUNTER  : Automatic
+========================================================= */
 
-        visibleCards.forEach(card => {
-            // Check karein ki card screen par dikh raha hai ya nahi
-            const isHidden = window.getComputedStyle(card).display === 'none' || card.classList.contains('hidden');
-            
-            const badge = card.querySelector('.noxi-no');
-            if (badge) {
-                if (!isHidden) {
-                    badge.textContent = currentIndex;
-                    currentIndex++;
+
+/* =========================================================
+   GLOBAL FILTER STATE
+========================================================= */
+
+let activeSearch = '';
+let activeCategory = 'all';
+
+
+/* =========================================================
+   GET ALL CURRENTLY LOADED CARDS
+========================================================= */
+
+function getAppCards() {
+
+    return Array.from(
+        document.querySelectorAll(
+            '#scrolling-cards .app-card, #app-cards-container .app-card'
+        )
+    );
+
+}
+
+
+/* =========================================================
+   CHECK CARD VISIBILITY
+========================================================= */
+
+function isCardVisible(card) {
+
+    return (
+        window.getComputedStyle(card).display !== 'none' &&
+        !card.classList.contains('hidden')
+    );
+
+}
+
+
+/* =========================================================
+   AUTOMATIC NUMBERING
+   ---------------------------------------------------------
+   Scrolling cards: 1,2,3...
+   Grid cards:      1,2,3...
+========================================================= */
+
+function updateNoxiNumbering() {
+
+    const containers = [
+
+        document.getElementById('scrolling-cards'),
+
+        document.getElementById('app-cards-container')
+
+    ];
+
+
+    containers.forEach(container => {
+
+        if (!container) return;
+
+
+        let currentNumber = 1;
+
+
+        container
+            .querySelectorAll('.app-card')
+            .forEach(card => {
+
+                const badge =
+                    card.querySelector('.noxi-no');
+
+
+                if (!badge) return;
+
+
+                if (isCardVisible(card)) {
+
+                    badge.textContent =
+                        currentNumber;
+
+                    currentNumber++;
+
                 } else {
-                    badge.textContent = '';
-                }
-            }
-        });
-    }
 
-    // 1. Page load hone par run hoga
+                    badge.textContent = '';
+
+                }
+
+            });
+
+    });
+
+}
+
+
+/* =========================================================
+   RESULTS COUNTER
+========================================================= */
+
+function updateResultsCounter() {
+
+    const counter =
+        document.getElementById('results-count');
+
+
+    if (!counter) return;
+
+
+    const visibleCards =
+        getAppCards()
+            .filter(isCardVisible);
+
+
+    counter.textContent =
+        `Showing ${visibleCards.length} verified apps`;
+
+}
+
+
+/* =========================================================
+   APPLY SEARCH + CATEGORY FILTER
+   ---------------------------------------------------------
+   Both work together.
+========================================================= */
+
+function applyCardFilters() {
+
+    const cards = getAppCards();
+
+    let visibleCount = 0;
+
+
+    cards.forEach(card => {
+
+
+        /* -----------------------------------------
+           CARD NAME
+        ----------------------------------------- */
+
+        const name =
+            (
+                card.getAttribute('data-name') || ''
+            ).toLowerCase();
+
+
+        /* -----------------------------------------
+           CARD CATEGORY
+        ----------------------------------------- */
+
+        const categories =
+            (
+                card.getAttribute('data-category') || ''
+            )
+            .toLowerCase()
+            .split(/\s+/)
+            .filter(Boolean);
+
+
+        /* -----------------------------------------
+           SEARCH MATCH
+        ----------------------------------------- */
+
+        const searchMatch =
+            activeSearch === '' ||
+            name.includes(activeSearch);
+
+
+        /* -----------------------------------------
+           CATEGORY MATCH
+        ----------------------------------------- */
+
+        const categoryMatch =
+            activeCategory === 'all' ||
+            categories.includes(activeCategory);
+
+
+        /* -----------------------------------------
+           FINAL RESULT
+        ----------------------------------------- */
+
+        if (
+            searchMatch &&
+            categoryMatch
+        ) {
+
+            card.style.display = 'flex';
+
+            visibleCount++;
+
+        } else {
+
+            card.style.display = 'none';
+
+        }
+
+    });
+
+
+    /* -----------------------------------------
+       UPDATE NUMBER + COUNTER
+    ----------------------------------------- */
+
     updateNoxiNumbering();
 
-    // 2. Observer: Yeh khud monitor karega ki kab cards hide/show hue (Tabs change hone par)
-    const observer = new MutationObserver(function(mutations) {
-        mutations.forEach(function(mutation) {
-            if (mutation.attributeName === 'style' || mutation.attributeName === 'class') {
-                updateNoxiNumbering();
-            }
-        });
-    });
+    updateResultsCounter();
 
-    // Saare cards par nazar rakhega
-    document.querySelectorAll('.app-card').forEach(card => {
-        observer.observe(card, { attributes: true });
-    });
+}
 
-    // 3. Agar aapke tabs click par koi specific event listener hai toh yeh extra safety ke liye hai:
-    document.addEventListener('click', function(e) {
-        // Agar kisi tab ya filter button par click hua ho toh thoda delay dekar update kar do
-        if (e.target.closest('button') || e.target.closest('.tab')) {
-            setTimeout(updateNoxiNumbering, 50);
+
+/* =========================================================
+   SEARCH SYSTEM
+========================================================= */
+
+function initializeSearch() {
+
+    const searchInput =
+        document.getElementById(
+            'app-search-input'
+        );
+
+
+    if (!searchInput) return;
+
+
+    /*
+       Prevent duplicate event listener
+    */
+
+    if (
+        searchInput.dataset.searchInitialized === 'true'
+    ) {
+
+        return;
+
+    }
+
+
+    searchInput.dataset.searchInitialized =
+        'true';
+
+
+    searchInput.addEventListener(
+        'input',
+        function(event) {
+
+
+            activeSearch =
+                event.target.value
+                    .toLowerCase()
+                    .trim();
+
+
+            applyCardFilters();
+
         }
+    );
+
+}
+
+
+/* =========================================================
+   CATEGORY / TAB FILTER
+========================================================= */
+
+function filterCategory(
+    category,
+    btnElement
+) {
+
+
+    /* -----------------------------------------
+       Save selected category
+    ----------------------------------------- */
+
+    activeCategory =
+        String(category || 'all')
+            .toLowerCase()
+            .trim();
+
+
+    /* -----------------------------------------
+       UPDATE ACTIVE TAB
+    ----------------------------------------- */
+
+    document
+        .querySelectorAll('.filter-pill')
+        .forEach(button => {
+
+            button.classList.remove(
+                'bg-red-600',
+                'text-white',
+                'shadow-sm'
+            );
+
+
+            button.classList.add(
+                'bg-slate-100',
+                'text-slate-700'
+            );
+
+        });
+
+
+    if (btnElement) {
+
+        btnElement.classList.remove(
+            'bg-slate-100',
+            'text-slate-700'
+        );
+
+
+        btnElement.classList.add(
+            'bg-red-600',
+            'text-white',
+            'shadow-sm'
+        );
+
+    }
+
+
+    /* -----------------------------------------
+       APPLY FILTER
+    ----------------------------------------- */
+
+    applyCardFilters();
+
+}
+
+
+/* =========================================================
+   CARD SYSTEM INITIALIZER
+========================================================= */
+
+function initializeCardSystem() {
+
+
+    /* Search */
+    initializeSearch();
+
+
+    /* Initial filtering */
+    applyCardFilters();
+
+
+    /* -----------------------------------------
+       OBSERVE DYNAMIC CARDS
+    ----------------------------------------- */
+
+    getAppCards().forEach(card => {
+
+
+        /*
+           Don't attach observer twice
+        */
+
+        if (
+            card.dataset.noxiObserver === 'true'
+        ) {
+
+            return;
+
+        }
+
+
+        card.dataset.noxiObserver = 'true';
+
+
+        const observer =
+            new MutationObserver(
+                function() {
+
+                    updateNoxiNumbering();
+
+                    updateResultsCounter();
+
+                }
+            );
+
+
+        observer.observe(
+            card,
+            {
+                attributes: true,
+
+                attributeFilter: [
+                    'style',
+                    'class'
+                ]
+            }
+        );
+
     });
 
-});
+}
+
+
+/* =========================================================
+   FILTER BUTTON SAFETY
+   ---------------------------------------------------------
+   If another tab system changes visibility,
+   numbering/counter refresh automatically.
+========================================================= */
+
+document.addEventListener(
+    'click',
+    function(event) {
+
+
+        const filterButton =
+            event.target.closest(
+                '.filter-pill'
+            );
+
+
+        const tabButton =
+            event.target.closest(
+                '.tab'
+            );
+
+
+        if (
+            filterButton ||
+            tabButton
+        ) {
+
+            setTimeout(
+                function() {
+
+                    updateNoxiNumbering();
+
+                    updateResultsCounter();
+
+                },
+                50
+            );
+
+        }
+
+    }
+);
+
+
+/* =========================================================
+   DATA.HTML LOADER
+========================================================= */
+
+async function loadCardData() {
+
+    try {
+
+
+        /* -----------------------------------------
+           LOAD DATA.HTML
+        ----------------------------------------- */
+
+        const response =
+            await fetch(
+                './data.html'
+            );
+
+
+        if (!response.ok) {
+
+            throw new Error(
+                'data.html could not be loaded. Status: ' +
+                response.status
+            );
+
+        }
+
+
+        const html =
+            await response.text();
+
+
+        /* -----------------------------------------
+           PARSE HTML
+        ----------------------------------------- */
+
+        const doc =
+            new DOMParser()
+                .parseFromString(
+                    html,
+                    'text/html'
+                );
+
+
+        /* =================================================
+           SCROLLING DATA
+        ================================================= */
+
+        const scrollingData =
+            doc.getElementById(
+                'scrolling-data'
+            );
+
+
+        const scrollingTarget =
+            document.getElementById(
+                'scrolling-cards'
+            );
+
+
+        if (
+            scrollingData &&
+            scrollingTarget
+        ) {
+
+            scrollingTarget.innerHTML =
+                scrollingData.innerHTML;
+
+        }
+
+
+        /* =================================================
+           GRID DATA
+        ================================================= */
+
+        const gridData =
+            doc.getElementById(
+                'grid-data'
+            );
+
+
+        const gridTarget =
+            document.getElementById(
+                'app-cards-container'
+            );
+
+
+        if (
+            gridData &&
+            gridTarget
+        ) {
+
+            gridTarget.innerHTML =
+                gridData.innerHTML;
+
+        }
+
+
+        /* =================================================
+           VERY IMPORTANT
+           CARDS ARE NOW LOADED
+        ================================================= */
+
+        initializeCardSystem();
+
+
+        /* Final refresh */
+
+        updateNoxiNumbering();
+
+        updateResultsCounter();
+
+
+        console.log(
+            'Gmzate:',
+            getAppCards().length,
+            'cards loaded successfully.'
+        );
+
+
+    } catch (error) {
+
+        console.error(
+            'Gmzate Card System Error:',
+            error
+        );
+
+
+        const counter =
+            document.getElementById(
+                'results-count'
+            );
+
+
+        if (counter) {
+
+            counter.textContent =
+                'Unable to load apps';
+
+        }
+
+    }
+
+}
+
+
+/* =========================================================
+   START CARD SYSTEM
+========================================================= */
+
+loadCardData();
 
 </script>
   <script src='https://cdn.jsdelivr.net/gh/refilate-spec/Ags-ads@main/Ags-link-store.js'/>
