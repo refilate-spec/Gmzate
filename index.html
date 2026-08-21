@@ -1161,84 +1161,174 @@ document.addEventListener(
 
 
 /* =========================================================
-   DATA.HTML LOADER
+   DATA.HTML + DATA.JS CARD LOADER
 ========================================================= */
 
 async function loadCardData() {
 
     try {
 
-
         /* -----------------------------------------
            LOAD DATA.HTML
         ----------------------------------------- */
 
-        const response =
-            await fetch(
-                './data.html'
-            );
-
+        const response = await fetch('./data.html');
 
         if (!response.ok) {
-
             throw new Error(
                 'data.html could not be loaded. Status: ' +
                 response.status
             );
+        }
+
+        const html = await response.text();
+
+        const doc = new DOMParser()
+            .parseFromString(html, 'text/html');
+
+
+        /* -----------------------------------------
+           GET TEMPLATES FROM DATA.HTML
+        ----------------------------------------- */
+
+        const scrollingTemplate =
+            doc.getElementById('scrolling-card-template');
+
+        const gridTemplate =
+            doc.getElementById('grid-card-template');
+
+
+        /* -----------------------------------------
+           CARD GENERATOR
+        ----------------------------------------- */
+
+        function generateCards(
+            data,
+            template,
+            container
+        ) {
+
+            if (
+                !Array.isArray(data) ||
+                !template ||
+                !container
+            ) {
+                return;
+            }
+
+
+            container.innerHTML = '';
+
+
+            data.forEach(function(item) {
+
+                let html =
+                    template.innerHTML;
+
+
+                /* Replace {{placeholders}} */
+
+                Object.keys(item).forEach(function(key) {
+
+                    const value =
+                        item[key] ?? '';
+
+
+                    html = html.replace(
+                        new RegExp(
+                            '\\{\\{' +
+                            key +
+                            '\\}\\}',
+                            'g'
+                        ),
+                        String(value)
+                    );
+
+                });
+
+
+                /* Create card */
+
+                const wrapper =
+                    document.createElement('div');
+
+
+                wrapper.innerHTML =
+                    html.trim();
+
+
+                const card =
+                    wrapper.firstElementChild;
+
+
+                if (!card) {
+                    return;
+                }
+
+
+                /* --------------------------------
+                   DOWNLOAD BUTTON
+                -------------------------------- */
+
+                const downloadButton =
+                    card.querySelector(
+                        '[data-download-button]'
+                    );
+
+
+                if (downloadButton) {
+
+                    downloadButton.addEventListener(
+                        'click',
+                        function() {
+
+                            if (
+                                typeof openDownloadModal ===
+                                'function'
+                            ) {
+
+                                openDownloadModal(
+
+                                    item.name || '',
+
+                                    item.version || '',
+
+                                    item.size || '',
+
+                                    item.bonus || 'Free',
+
+                                    item.withdraw || 'Free',
+
+                                    item.icon || '',
+
+                                    item.download || ''
+
+                                );
+
+                            }
+
+                        }
+                    );
+
+                }
+
+
+                /* Add card */
+
+                container.appendChild(card);
+
+            });
 
         }
 
 
-        const html =
-            await response.text();
-
-
         /* -----------------------------------------
-           PARSE HTML
+           TARGETS
         ----------------------------------------- */
-
-        const doc =
-            new DOMParser()
-                .parseFromString(
-                    html,
-                    'text/html'
-                );
-
-
-        /* =================================================
-           SCROLLING DATA
-        ================================================= */
-
-        const scrollingData =
-            doc.getElementById(
-                'scrolling-data'
-            );
-
 
         const scrollingTarget =
             document.getElementById(
                 'scrolling-cards'
-            );
-
-
-        if (
-            scrollingData &&
-            scrollingTarget
-        ) {
-
-            scrollingTarget.innerHTML =
-                scrollingData.innerHTML;
-
-        }
-
-
-        /* =================================================
-           GRID DATA
-        ================================================= */
-
-        const gridData =
-            doc.getElementById(
-                'grid-data'
             );
 
 
@@ -1248,36 +1338,68 @@ async function loadCardData() {
             );
 
 
-        if (
-            gridData &&
+        /* -----------------------------------------
+           GENERATE SCROLLING CARDS
+        ----------------------------------------- */
+
+        generateCards(
+            scrollingData,
+            scrollingTemplate,
+            scrollingTarget
+        );
+
+
+        /* -----------------------------------------
+           GENERATE GRID CARDS
+        ----------------------------------------- */
+
+        generateCards(
+            gridData,
+            gridTemplate,
             gridTarget
+        );
+
+
+        /* -----------------------------------------
+           CARDS ARE NOW READY
+        ----------------------------------------- */
+
+        if (
+            typeof initializeCardSystem ===
+            'function'
         ) {
 
-            gridTarget.innerHTML =
-                gridData.innerHTML;
+            initializeCardSystem();
 
         }
 
 
-        /* =================================================
-           VERY IMPORTANT
-           CARDS ARE NOW LOADED
-        ================================================= */
+        if (
+            typeof updateNoxiNumbering ===
+            'function'
+        ) {
 
-        initializeCardSystem();
+            updateNoxiNumbering();
+
+        }
 
 
-        /* Final refresh */
+        if (
+            typeof updateResultsCounter ===
+            'function'
+        ) {
 
-        updateNoxiNumbering();
+            updateResultsCounter();
 
-        updateResultsCounter();
+        }
 
 
         console.log(
             'Gmzate:',
-            getAppCards().length,
-            'cards loaded successfully.'
+            document.querySelectorAll(
+                '.app-card'
+            ).length,
+            'cards generated successfully.'
         );
 
 
