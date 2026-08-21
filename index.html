@@ -1736,106 +1736,163 @@ document.addEventListener(
 
 })();
 </script>
+
 <script src="./data.js"></script>
 <script>
 /* =========================================================
-   CLEAN & UNIFIED CARD LOADER SYSTEM
+   DIRECT EMBEDDED TEMPLATE CARD SYSTEM (CORS Proof)
 ========================================================= */
-async function initializeGmzateCards() {
-    try {
-        // 1. Fetch data.html template file
-        const response = await fetch('./data.html', { cache: 'no-cache' });
-        if (!response.ok) throw new Error('data.html load nahi ho paya!');
-        
-        const html = await response.text();
-        const doc = new DOMParser().parseFromString(html, 'text/html');
+document.addEventListener("DOMContentLoaded", () => {
+    // 1. Templates ko directly HTML string ke roop mein define kiya hai (No fetch() needed)
+    const scrollingCardTemplate = `
+        <div class="app-card bg-white rounded-2xl border border-slate-200/80 shadow-sm hover:shadow-md transition-all duration-300 p-4 relative overflow-hidden flex flex-col justify-between flex-shrink-0 w-[330px] sm:w-[380px] snap-start" data-category="{{category}}" data-name="{{name}}">
+            <div class="absolute top-0 left-0 bg-red-600 text-white font-extrabold text-xs px-3 py-1 rounded-br-xl shadow-sm z-10">
+                <span class="noxi-no"></span>
+            </div>
+            <div class="flex items-start space-x-4 pt-2">
+                <div class="relative flex-shrink-0">
+                    <div class="w-16 h-16 sm:w-20 sm:h-20 rounded-2xl bg-gradient-to-tr from-blue-500 via-indigo-600 to-purple-600 p-0.5 shadow-md">
+                        <div class="w-full h-full bg-slate-900 rounded-[14px] overflow-hidden">
+                            <img src="{{icon}}" alt="{{name}}" class="w-full h-full object-cover" loading="lazy">
+                        </div>
+                    </div>
+                    <span class="absolute -bottom-1 -right-1 bg-emerald-500 text-white text-[9px] font-bold px-1.5 py-0.5 rounded-full shadow border border-white">{{rating}}★</span>
+                </div>
+                <div class="flex-1 min-w-0">
+                    <div class="flex items-center justify-between gap-2">
+                        <h3 class="text-base sm:text-lg font-bold text-slate-900 truncate">{{name}}</h3>
+                        <span class="text-[11px] font-medium text-slate-400 bg-slate-100 px-2 py-0.5 rounded whitespace-nowrap">{{size}}</span>
+                    </div>
+                    <p class="text-xs text-slate-500 font-medium mt-0.5">Version {{version}} • Verified App</p>
+                    <div class="mt-2.5 space-y-1">
+                        <div class="flex items-center text-xs font-semibold text-red-600"><span class="mr-1.5">✦</span>{{feature1}}</div>
+                        <div class="flex items-center text-xs font-medium text-slate-700"><span class="mr-1.5">✓</span>{{feature2}}</div>
+                    </div>
+                </div>
+            </div>
+            <div class="mt-4 pt-3 border-t border-slate-100 flex items-center justify-between">
+                <div class="flex items-center space-x-1 text-[11px] text-emerald-600 font-semibold">
+                    <span class="w-2 h-2 rounded-full bg-emerald-500"></span>
+                    <span>{{status}}</span>
+                </div>
+                <button type="button" data-download-button class="px-5 py-2.5 bg-gradient-to-r from-slate-900 to-slate-800 hover:from-red-600 hover:to-red-700 text-white font-semibold text-xs sm:text-sm rounded-full shadow-md shadow-slate-900/20 transition-all flex items-center space-x-2">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg>
+                    <span>{{button}}</span>
+                </button>
+            </div>
+        </div>
+    `;
 
-        // 2. Get Templates
-        const scrollingTemplate = doc.getElementById('scrolling-card-template');
-        const gridTemplate = doc.getElementById('grid-card-template');
+    const gridCardTemplate = `
+        <div class="app-card bg-white rounded-2xl border border-slate-200/80 shadow-sm hover:shadow-md transition-all duration-300 p-4 relative overflow-hidden flex flex-col justify-between" data-category="{{category}}" data-name="{{name}}">
+            <div class="absolute top-0 left-0 bg-red-600 text-white font-extrabold text-xs px-3 py-1 rounded-br-xl shadow-sm z-10">
+                <span class="noxi-no"></span>
+            </div>
+            <div class="flex items-start space-x-4 pt-2">
+                <div class="relative flex-shrink-0">
+                    <div class="w-16 h-16 sm:w-20 sm:h-20 rounded-2xl bg-gradient-to-tr from-blue-500 via-indigo-600 to-purple-600 p-0.5 shadow-md">
+                        <div class="w-full h-full bg-slate-900 rounded-[14px] overflow-hidden">
+                            <img src="{{icon}}" alt="{{name}}" class="w-full h-full object-cover" loading="lazy">
+                        </div>
+                    </div>
+                    <span class="absolute -bottom-1 -right-1 bg-emerald-500 text-white text-[9px] font-bold px-1.5 py-0.5 rounded-full shadow border border-white">{{rating}}★</span>
+                </div>
+                <div class="flex-1 min-w-0">
+                    <div class="flex items-center justify-between gap-2">
+                        <h3 class="text-base sm:text-lg font-bold text-slate-900 truncate">{{name}}</h3>
+                        <span class="text-[11px] font-medium text-slate-400 bg-slate-100 px-2 py-0.5 rounded whitespace-nowrap">{{size}}</span>
+                    </div>
+                    <p class="text-xs text-slate-500 font-medium mt-0.5">Official Version {{version}} • Verified APK</p>
+                    <div class="mt-2.5 space-y-1">
+                        <div class="flex items-center text-xs font-semibold text-red-600"><span class="mr-1.5">🎁</span>{{bonus}} Free Bonus</div>
+                        <div class="flex items-center text-xs font-medium text-slate-700"><span class="mr-1.5">💳</span>Min. Withdraw: {{withdraw}}</div>
+                    </div>
+                </div>
+            </div>
+            <div class="mt-4 pt-3 border-t border-slate-100 flex items-center justify-between">
+                <div class="flex items-center space-x-1 text-[11px] text-emerald-600 font-semibold">
+                    <span class="w-2 h-2 rounded-full bg-emerald-500"></span>
+                    <span>{{status}}</span>
+                </div>
+                <button type="button" data-download-button class="px-5 py-2.5 bg-gradient-to-r from-slate-900 to-slate-800 hover:from-red-600 hover:to-red-700 text-white font-semibold text-xs sm:text-sm rounded-full shadow-md shadow-slate-900/20 transition-all flex items-center space-x-2">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg>
+                    <span>{{button}}</span>
+                </button>
+            </div>
+        </div>
+    `;
 
-        if (!scrollingTemplate || !gridTemplate) {
-            throw new Error('Templates nahi mile data.html ke andar!');
+    // 2. Render Function
+    function renderCards(dataArray, templateStr, containerId) {
+        const container = document.getElementById(containerId);
+        if (!container) return;
+        if (!Array.isArray(dataArray)) {
+            console.warn(`Data array for ${containerId} is missing or invalid.`);
+            return;
         }
 
-        // 3. Get Containers in index.html
-        const scrollingContainer = document.getElementById('scrolling-cards');
-        const gridContainer = document.getElementById('app-cards-container');
+        container.innerHTML = "";
 
-        if (!scrollingContainer || !gridContainer) {
-            throw new Error('Containers nahi mile index.html ke andar!');
-        }
-
-        // 4. Card Generation Helper Function
-        function renderCards(dataArray, template, container) {
-            if (!Array.isArray(dataArray)) return;
-            container.innerHTML = '';
-
-            dataArray.forEach(item => {
-                let cardHTML = template.innerHTML;
-
-                // Replace placeholders like {{name}}, {{icon}}, etc.
-                Object.keys(item).forEach(key => {
-                    const value = item[key] ?? '';
-                    const regex = new RegExp(`{{${key}}}`, 'g');
-                    cardHTML = cardHTML.replace(regex, String(value));
-                });
-
-                const wrapper = document.createElement('div');
-                wrapper.innerHTML = cardHTML.trim();
-                const card = wrapper.firstElementChild;
-                if (!card) return;
-
-                // Bind Download Modal Event
-                const downloadBtn = card.querySelector('[data-download-button]');
-                if (downloadBtn) {
-                    downloadBtn.addEventListener('click', () => {
-                        if (typeof openDownloadModal === 'function') {
-                            openDownloadModal(
-                                item.name || '',
-                                item.version || '',
-                                item.size || '',
-                                item.bonus || 'Free',
-                                item.withdraw || 'Free',
-                                item.icon || '',
-                                item.download || ''
-                            );
-                        } else {
-                            window.location.href = item.download || '#';
-                        }
-                    });
-                }
-
-                container.appendChild(card);
+        dataArray.forEach(item => {
+            let cardHTML = templateStr;
+            Object.keys(item).forEach(key => {
+                const value = item[key] ?? '';
+                const regex = new RegExp(`{{${key}}}`, 'g');
+                cardHTML = cardHTML.replace(regex, String(value));
             });
-        }
 
-        // 5. Render both lists using data from data.js
-        if (typeof scrollingData !== 'undefined') {
-            renderCards(scrollingData, scrollingTemplate, scrollingContainer);
-        }
-        if (typeof gridData !== 'undefined') {
-            renderCards(gridData, gridTemplate, gridContainer);
-        }
+            const wrapper = document.createElement('div');
+            wrapper.innerHTML = cardHTML.trim();
+            const card = wrapper.firstElementChild;
+            if (!card) return;
 
-        // 6. Refresh UI components (Numbering, Counters, Filters)
-        if (typeof updateNoxiNumbering === 'function') updateNoxiNumbering();
-        if (typeof updateResultsCounter === 'function') updateResultsCounter();
-        if (typeof initializeCardSystem === 'function') initializeCardSystem();
-        if (typeof applyCardFilters === 'function') applyCardFilters();
+            // Modal Trigger / Download action setup
+            const downloadBtn = card.querySelector('[data-download-button]');
+            if (downloadBtn) {
+                downloadBtn.addEventListener('click', () => {
+                    if (typeof openDownloadModal === 'function') {
+                        openDownloadModal(
+                            item.name || '',
+                            item.version || '',
+                            item.size || '',
+                            item.bonus || 'Free',
+                            item.withdraw || 'Free',
+                            item.icon || '',
+                            item.download || '#'
+                        );
+                    } else {
+                        window.location.href = item.download || '#';
+                    }
+                });
+            }
 
-        console.log('Successfully loaded all cards via data.js & data.html!');
-
-    } catch (error) {
-        console.error('Card Loading Error:', error);
-        const counter = document.getElementById('results-count');
-        if (counter) counter.textContent = 'Failed to load apps';
+            container.appendChild(card);
+        });
     }
-}
 
-// Run on page load
-document.addEventListener('DOMContentLoaded', initializeGmzateCards);
+    // 3. Execute rendering using data.js variables
+    if (typeof scrollingData !== 'undefined') {
+        renderCards(scrollingData, scrollingCardTemplate, 'scrolling-cards');
+    } else {
+        console.error("scrollingData is not defined in data.js!");
+    }
+
+    if (typeof gridData !== 'undefined') {
+        renderCards(gridData, gridCardTemplate, 'app-cards-container');
+    } else {
+        console.error("gridData is not defined in data.js!");
+    }
+
+    // 4. Trigger auxiliary helper functions if available
+    if (typeof updateNoxiNumbering === 'function') updateNoxiNumbering();
+    if (typeof updateResultsCounter === 'function') updateResultsCounter();
+    if (typeof initializeCardSystem === 'function') initializeCardSystem();
+    if (typeof applyCardFilters === 'function') applyCardFilters();
+
+    console.log("Cards rendered successfully without external template dependency!");
+});
 </script>
+
 
   </body>
 </html>
