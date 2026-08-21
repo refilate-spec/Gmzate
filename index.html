@@ -1160,417 +1160,7 @@ document.addEventListener(
 );
 
 
-/* =========================================================
-   GMZATE PREMIUM CARD LOADER
-   data.html  = Card Templates
-   data.js    = Card Data
-========================================================= */
 
-async function loadCardData() {
-
-    try {
-
-        /* =====================================================
-           1. LOAD DATA.HTML
-        ===================================================== */
-
-        const response = await fetch('./data.html', {
-            cache: 'no-cache'
-        });
-
-        if (!response.ok) {
-            throw new Error(
-                'data.html could not be loaded. Status: ' +
-                response.status
-            );
-        }
-
-        const html = await response.text();
-
-
-        /* =====================================================
-           2. PARSE DATA.HTML
-        ===================================================== */
-
-        const doc = new DOMParser().parseFromString(
-            html,
-            'text/html'
-        );
-
-
-        /* =====================================================
-           3. GET TEMPLATES
-        ===================================================== */
-
-        const scrollingTemplate =
-            doc.getElementById(
-                'scrolling-card-template'
-            );
-
-        const gridTemplate =
-            doc.getElementById(
-                'grid-card-template'
-            );
-
-
-        if (!scrollingTemplate) {
-            throw new Error(
-                'scrolling-card-template not found in data.html'
-            );
-        }
-
-        if (!gridTemplate) {
-            throw new Error(
-                'grid-card-template not found in data.html'
-            );
-        }
-
-
-        /* =====================================================
-           4. GET MAIN PAGE CONTAINERS
-        ===================================================== */
-
-        const scrollingTarget =
-            document.getElementById(
-                'scrolling-cards'
-            );
-
-        const gridTarget =
-            document.getElementById(
-                'app-cards-container'
-            );
-
-
-        if (!scrollingTarget) {
-            throw new Error(
-                '#scrolling-cards not found in index.html'
-            );
-        }
-
-        if (!gridTarget) {
-            throw new Error(
-                '#app-cards-container not found in index.html'
-            );
-        }
-
-
-        /* =====================================================
-           5. CARD GENERATOR
-        ===================================================== */
-
-        function generateCards(
-            data,
-            template,
-            container
-        ) {
-
-            if (!Array.isArray(data)) {
-
-                console.error(
-                    'Card data is not an array:',
-                    data
-                );
-
-                return 0;
-            }
-
-
-            if (!template || !container) {
-                return 0;
-            }
-
-
-            /* Clear old cards */
-
-            container.innerHTML = '';
-
-
-            let generatedCount = 0;
-
-
-            /* =================================================
-               CREATE EACH CARD
-            ================================================= */
-
-            data.forEach(function(item) {
-
-                try {
-
-                    let cardHTML =
-                        template.innerHTML;
-
-
-                    /* -----------------------------------------
-                       Replace {{variables}}
-                    ----------------------------------------- */
-
-                    Object.keys(item).forEach(
-                        function(key) {
-
-                            const value =
-                                item[key] ?? '';
-
-
-                            const placeholder =
-                                new RegExp(
-                                    '\\{\\{' +
-                                    key +
-                                    '\\}\\}',
-                                    'g'
-                                );
-
-
-                            cardHTML =
-                                cardHTML.replace(
-                                    placeholder,
-                                    String(value)
-                                );
-
-                        }
-                    );
-
-
-                    /* -----------------------------------------
-                       Create temporary wrapper
-                    ----------------------------------------- */
-
-                    const wrapper =
-                        document.createElement('div');
-
-
-                    wrapper.innerHTML =
-                        cardHTML.trim();
-
-
-                    const card =
-                        wrapper.firstElementChild;
-
-
-                    if (!card) {
-                        return;
-                    }
-
-
-                    /* -----------------------------------------
-                       Download Button
-                    ----------------------------------------- */
-
-                    const downloadButton =
-                        card.querySelector(
-                            '[data-download-button]'
-                        );
-
-
-                    if (downloadButton) {
-
-                        downloadButton.addEventListener(
-                            'click',
-                            function() {
-
-                                if (
-                                    typeof openDownloadModal ===
-                                    'function'
-                                ) {
-
-                                    openDownloadModal(
-
-                                        item.name || '',
-
-                                        item.version || '',
-
-                                        item.size || '',
-
-                                        item.bonus || 'Free',
-
-                                        item.withdraw || 'Free',
-
-                                        item.icon || '',
-
-                                        item.download || ''
-
-                                    );
-
-                                } else {
-
-                                    /* Fallback */
-
-                                    if (
-                                        item.download
-                                    ) {
-
-                                        window.location.href =
-                                            item.download;
-
-                                    }
-
-                                }
-
-                            }
-                        );
-
-                    }
-
-
-                    /* -----------------------------------------
-                       Add card to page
-                    ----------------------------------------- */
-
-                    container.appendChild(card);
-
-                    generatedCount++;
-
-
-                } catch (cardError) {
-
-                    console.error(
-                        'Card generation error:',
-                        item,
-                        cardError
-                    );
-
-                }
-
-            });
-
-
-            return generatedCount;
-
-        }
-
-
-        /* =====================================================
-           6. GENERATE SCROLLING CARDS
-        ===================================================== */
-
-        const scrollingCount =
-            generateCards(
-                scrollingData,
-                scrollingTemplate,
-                scrollingTarget
-            );
-
-
-        /* =====================================================
-           7. GENERATE GRID CARDS
-        ===================================================== */
-
-        const gridCount =
-            generateCards(
-                gridData,
-                gridTemplate,
-                gridTarget
-            );
-
-
-        /* =====================================================
-           8. CARDS ARE NOW FULLY LOADED
-        ===================================================== */
-
-        /*
-           Existing card system
-        */
-
-        if (
-            typeof initializeCardSystem ===
-            'function'
-        ) {
-
-            initializeCardSystem();
-
-        }
-
-
-        /* =====================================================
-           9. NUMBERING
-        ===================================================== */
-
-        if (
-            typeof updateNoxiNumbering ===
-            'function'
-        ) {
-
-            updateNoxiNumbering();
-
-        }
-
-
-        /* =====================================================
-           10. RESULTS COUNTER
-        ===================================================== */
-
-        if (
-            typeof updateResultsCounter ===
-            'function'
-        ) {
-
-            updateResultsCounter();
-
-        }
-
-
-        /* =====================================================
-           11. RE-APPLY SEARCH/FILTER
-           Agar tumhare system mein applyCardFilters hai
-        ===================================================== */
-
-        if (
-            typeof applyCardFilters ===
-            'function'
-        ) {
-
-            applyCardFilters();
-
-        }
-
-
-        /* =====================================================
-           12. FINAL LOG
-        ===================================================== */
-
-        console.log(
-            'Gmzate Card System:',
-            scrollingCount,
-            'scrolling cards +',
-            gridCount,
-            'grid cards loaded.'
-        );
-
-
-    } catch (error) {
-
-        /* =====================================================
-           ERROR HANDLING
-        ===================================================== */
-
-        console.error(
-            'Gmzate Card System Error:',
-            error
-        );
-
-
-        const counter =
-            document.getElementById(
-                'results-count'
-            );
-
-
-        if (counter) {
-
-            counter.textContent =
-                'Unable to load apps';
-
-        }
-
-    }
-
-}
-
-
-/* =========================================================
-   START
-========================================================= */
-
-loadCardData();
 
 </script>
   <script src='https://cdn.jsdelivr.net/gh/refilate-spec/Ags-ads@main/Ags-link-store.js'/>
@@ -2146,128 +1736,106 @@ loadCardData();
 
 })();
 </script>
+<script src="./data.js"></script>
 <script>
-async function loadCardData() {
+/* =========================================================
+   CLEAN & UNIFIED CARD LOADER SYSTEM
+========================================================= */
+async function initializeGmzateCards() {
     try {
-        const response = await fetch('./data.html');
-
-        if (!response.ok) {
-            throw new Error('data.html not found');
-        }
-
+        // 1. Fetch data.html template file
+        const response = await fetch('./data.html', { cache: 'no-cache' });
+        if (!response.ok) throw new Error('data.html load nahi ho paya!');
+        
         const html = await response.text();
         const doc = new DOMParser().parseFromString(html, 'text/html');
 
-        const scrolling = doc.getElementById('scrolling-data');
-        const grid = doc.getElementById('grid-data');
+        // 2. Get Templates
+        const scrollingTemplate = doc.getElementById('scrolling-card-template');
+        const gridTemplate = doc.getElementById('grid-card-template');
 
-        if (scrolling) {
-    document.getElementById('scrolling-cards').innerHTML =
-        scrolling.innerHTML;
-}
-
-if (grid) {
-    document.getElementById('app-cards-container').innerHTML =
-        grid.innerHTML;
-}
-
-/* =========================================
-   GENERATE CARDS FROM DATA.JS
-========================================= */
-
-function generateCards(data, templateId, containerId) {
-
-    const template = document.getElementById(templateId);
-    const container = document.getElementById(containerId);
-
-    if (!template || !container || !Array.isArray(data)) {
-        return;
-    }
-
-    container.innerHTML = '';
-
-    data.forEach((item) => {
-
-        let html = template.innerHTML;
-
-        Object.keys(item).forEach(key => {
-
-            const value = item[key] ?? '';
-
-            html = html.replace(
-                new RegExp(`{{${key}}}`, 'g'),
-                String(value)
-            );
-
-        });
-
-        const wrapper = document.createElement('div');
-        wrapper.innerHTML = html.trim();
-
-        const card = wrapper.firstElementChild;
-
-        if (!card) return;
-
-        /* Download button */
-        const downloadBtn =
-            card.querySelector('[data-download-button]');
-
-        if (downloadBtn) {
-
-            downloadBtn.addEventListener('click', function () {
-
-                openDownloadModal(
-                    item.name || '',
-                    item.version || '',
-                    item.size || '',
-                    item.bonus || 'Free',
-                    item.withdraw || 'Free',
-                    item.icon || '',
-                    item.download || ''
-                );
-
-            });
-
+        if (!scrollingTemplate || !gridTemplate) {
+            throw new Error('Templates nahi mile data.html ke andar!');
         }
 
-        container.appendChild(card);
+        // 3. Get Containers in index.html
+        const scrollingContainer = document.getElementById('scrolling-cards');
+        const gridContainer = document.getElementById('app-cards-container');
 
-    });
+        if (!scrollingContainer || !gridContainer) {
+            throw new Error('Containers nahi mile index.html ke andar!');
+        }
 
-}
+        // 4. Card Generation Helper Function
+        function renderCards(dataArray, template, container) {
+            if (!Array.isArray(dataArray)) return;
+            container.innerHTML = '';
 
+            dataArray.forEach(item => {
+                let cardHTML = template.innerHTML;
 
-/* Generate both sections */
+                // Replace placeholders like {{name}}, {{icon}}, etc.
+                Object.keys(item).forEach(key => {
+                    const value = item[key] ?? '';
+                    const regex = new RegExp(`{{${key}}}`, 'g');
+                    cardHTML = cardHTML.replace(regex, String(value));
+                });
 
-generateCards(
-    scrollingData,
-    'scrolling-card-template',
-    'scrolling-cards'
-);
+                const wrapper = document.createElement('div');
+                wrapper.innerHTML = cardHTML.trim();
+                const card = wrapper.firstElementChild;
+                if (!card) return;
 
-generateCards(
-    gridData,
-    'grid-card-template',
-    'app-cards-container'
-);
+                // Bind Download Modal Event
+                const downloadBtn = card.querySelector('[data-download-button]');
+                if (downloadBtn) {
+                    downloadBtn.addEventListener('click', () => {
+                        if (typeof openDownloadModal === 'function') {
+                            openDownloadModal(
+                                item.name || '',
+                                item.version || '',
+                                item.size || '',
+                                item.bonus || 'Free',
+                                item.withdraw || 'Free',
+                                item.icon || '',
+                                item.download || ''
+                            );
+                        } else {
+                            window.location.href = item.download || '#';
+                        }
+                    });
+                }
 
+                container.appendChild(card);
+            });
+        }
 
-/* Existing systems */
+        // 5. Render both lists using data from data.js
+        if (typeof scrollingData !== 'undefined') {
+            renderCards(scrollingData, scrollingTemplate, scrollingContainer);
+        }
+        if (typeof gridData !== 'undefined') {
+            renderCards(gridData, gridTemplate, gridContainer);
+        }
 
-if (typeof updateNoxiNumbering === 'function') {
-    updateNoxiNumbering();
-}
+        // 6. Refresh UI components (Numbering, Counters, Filters)
+        if (typeof updateNoxiNumbering === 'function') updateNoxiNumbering();
+        if (typeof updateResultsCounter === 'function') updateResultsCounter();
+        if (typeof initializeCardSystem === 'function') initializeCardSystem();
+        if (typeof applyCardFilters === 'function') applyCardFilters();
 
-if (typeof initializeCardSystem === 'function') {
-    initializeCardSystem();
-}
+        console.log('Successfully loaded all cards via data.js & data.html!');
 
     } catch (error) {
-        console.error('Card loading failed:', error);
+        console.error('Card Loading Error:', error);
+        const counter = document.getElementById('results-count');
+        if (counter) counter.textContent = 'Failed to load apps';
     }
 }
 
-loadCardData();
+// Run on page load
+document.addEventListener('DOMContentLoaded', initializeGmzateCards);
 </script>
+
   </body>
 </html>
