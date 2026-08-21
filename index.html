@@ -2104,7 +2104,112 @@ function simulateDownload() {
 
 })();
 </script>
+<!-- FLOATING SHARE BUTTON -->
+<button id="floatingShareBtn"
+        class="fixed right-4 bottom-20 sm:bottom-6 z-[9999] w-12 h-12 sm:w-14 sm:h-14 rounded-full
+               bg-red-600 text-white shadow-xl shadow-red-600/30
+               flex items-center justify-center
+               hover:bg-red-700 hover:scale-110 active:scale-95
+               transition-all duration-300"
+        aria-label="Share this page"
+        title="Share">
 
+    <svg xmlns="http://www.w3.org/2000/svg"
+         width="23" height="23"
+         viewBox="0 0 24 24"
+         fill="none"
+         stroke="currentColor"
+         stroke-width="2"
+         stroke-linecap="round"
+         stroke-linejoin="round">
+        <circle cx="18" cy="5" r="3"></circle>
+        <circle cx="6" cy="12" r="3"></circle>
+        <circle cx="18" cy="19" r="3"></circle>
+        <line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line>
+        <line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line>
+    </svg>
+</button>
+
+<!-- SHARE TOAST -->
+<div id="shareToast"
+     class="fixed left-1/2 bottom-5 -translate-x-1/2 z-[10000]
+            px-4 py-2.5 rounded-xl bg-slate-900 text-white text-sm font-semibold
+            shadow-xl opacity-0 pointer-events-none translate-y-3
+            transition-all duration-300">
+    Link copied!
+</div>
+
+<script>
+(function () {
+
+    const shareBtn = document.getElementById("floatingShareBtn");
+    const toast = document.getElementById("shareToast");
+
+    function showToast(message) {
+        toast.textContent = message;
+
+        toast.classList.remove(
+            "opacity-0",
+            "translate-y-3"
+        );
+
+        setTimeout(() => {
+            toast.classList.add(
+                "opacity-0",
+                "translate-y-3"
+            );
+        }, 1800);
+    }
+
+    shareBtn.addEventListener("click", async function () {
+
+        const shareData = {
+            title: document.title,
+            text: "Check out this page!",
+            url: window.location.href
+        };
+
+        /* Native Share */
+        if (navigator.share) {
+            try {
+                await navigator.share(shareData);
+            } catch (error) {
+                // User closed share menu
+            }
+
+            return;
+        }
+
+        /* Copy Link Fallback */
+        try {
+
+            await navigator.clipboard.writeText(
+                window.location.href
+            );
+
+            showToast("Link copied!");
+
+        } catch (error) {
+
+            /* Older browser fallback */
+            const input = document.createElement("input");
+
+            input.value = window.location.href;
+            document.body.appendChild(input);
+
+            input.select();
+            document.execCommand("copy");
+
+            input.remove();
+
+            showToast("Link copied!");
+
+        }
+
+    });
+
+})();
+</script>
   
   </body>
 </html>
