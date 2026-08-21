@@ -751,9 +751,11 @@
 
     <!-- Horizontal Scroll -->
     <div
-        class="flex gap-4 overflow-x-auto pb-4 snap-x snap-mandatory"
-        style="scrollbar-width:none; -ms-overflow-style:none;"
-    >
+    id="scrolling-cards"
+    class="flex gap-4 overflow-x-auto pb-4 snap-x snap-mandatory"
+    style="scrollbar-width:none; -ms-overflow-style:none;"
+>
+</div>
 
         <!-- APP 1 -->
         <div class="app-card bg-white rounded-2xl border border-slate-200/80 shadow-sm hover:shadow-md transition-all duration-300 p-4 relative overflow-hidden flex flex-col justify-between flex-shrink-0 w-[330px] sm:w-[380px] snap-start">
@@ -1455,14 +1457,16 @@
 
         // Search filtering logic
         const searchInput = document.getElementById('app-search-input');
-        const appCards = document.querySelectorAll('.app-card');
+        function getAppCards() {
+    return document.querySelectorAll('.app-card');
+}
         const resultsCount = document.getElementById('results-count');
 
         searchInput.addEventListener('input', (e) => {
             const query = e.target.value.toLowerCase().trim();
             let visibleCount = 0;
 
-            appCards.forEach(card => {
+            getappCards().forEach(card => {
                 const name = card.getAttribute('data-name');
                 if (name.includes(query)) {
                     card.style.display = 'flex';
@@ -1486,7 +1490,7 @@
             btnElement.classList.add('bg-red-600', 'text-white', 'shadow-sm');
 
             let visibleCount = 0;
-            appCards.forEach(card => {
+            getappCards().forEach(card => {
                 const categories = card.getAttribute('data-category');
                 if (category === 'all' || categories.includes(category)) {
                     card.style.display = 'flex';
@@ -1587,8 +1591,7 @@ function simulateDownload() {
         }
     </script>
   <script>
-  document.addEventListener("DOMContentLoaded", function() {
-    
+  function initializeNumbering() {
     function updateNoxiNumbering() {
         const visibleCards = document.querySelectorAll('.app-card');
         let currentIndex = 1;
@@ -2210,6 +2213,73 @@ function simulateDownload() {
 
 })();
 </script>
-  
+  <script>
+async function loadCardData() {
+
+    try {
+
+        const response = await fetch("data.html");
+
+        if (!response.ok) {
+            throw new Error("data.html load failed");
+        }
+
+        const html = await response.text();
+
+        const doc = new DOMParser()
+            .parseFromString(html, "text/html");
+
+
+        /* =========================================
+           1. LOAD SCROLLING CARDS
+        ========================================= */
+
+        const scrollingData =
+            doc.getElementById("scrolling-data");
+
+        if (scrollingData) {
+
+            document.getElementById("scrolling-cards").innerHTML =
+                scrollingData.innerHTML;
+
+        }
+
+
+        /* =========================================
+           2. LOAD GRID CARDS
+        ========================================= */
+
+        const gridData =
+            doc.getElementById("grid-data");
+
+        if (gridData) {
+
+            document.getElementById("app-cards-container").innerHTML =
+                gridData.innerHTML;
+
+        }
+
+
+        /* =========================================
+           3. CARDS ARE NOW LOADED
+           
+           AB TUMHARA EXISTING CARD JS CHALEGA
+        ========================================= */
+
+        if (typeof initializeCardSystem === "function") {
+            initializeCardSystem();
+        }
+
+
+    } catch (error) {
+
+        console.error("Gmzate card loading error:", error);
+
+    }
+
+}
+
+loadCardData();
+</script>
   </body>
 </html>
