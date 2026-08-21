@@ -2213,70 +2213,39 @@ function simulateDownload() {
 
 })();
 </script>
-  <script>
+<script>
 async function loadCardData() {
-
     try {
-
-        const response = await fetch("data.html");
+        const response = await fetch('./data.html');
 
         if (!response.ok) {
-            throw new Error("data.html load failed");
+            throw new Error('data.html not found');
         }
 
         const html = await response.text();
+        const doc = new DOMParser().parseFromString(html, 'text/html');
 
-        const doc = new DOMParser()
-            .parseFromString(html, "text/html");
+        const scrolling = doc.getElementById('scrolling-data');
+        const grid = doc.getElementById('grid-data');
 
-
-        /* =========================================
-           1. LOAD SCROLLING CARDS
-        ========================================= */
-
-        const scrollingData =
-            doc.getElementById("scrolling-data");
-
-        if (scrollingData) {
-
-            document.getElementById("scrolling-cards").innerHTML =
-                scrollingData.innerHTML;
-
+        if (scrolling) {
+            document.getElementById('scrolling-cards').innerHTML =
+                scrolling.innerHTML;
         }
 
-
-        /* =========================================
-           2. LOAD GRID CARDS
-        ========================================= */
-
-        const gridData =
-            doc.getElementById("grid-data");
-
-        if (gridData) {
-
-            document.getElementById("app-cards-container").innerHTML =
-                gridData.innerHTML;
-
+        if (grid) {
+            document.getElementById('app-cards-container').innerHTML =
+                grid.innerHTML;
         }
 
-
-        /* =========================================
-           3. CARDS ARE NOW LOADED
-           
-           AB TUMHARA EXISTING CARD JS CHALEGA
-        ========================================= */
-
-        if (typeof initializeCardSystem === "function") {
+        // IMPORTANT: cards load hone ke baad
+        if (typeof initializeCardSystem === 'function') {
             initializeCardSystem();
         }
 
-
     } catch (error) {
-
-        console.error("Gmzate card loading error:", error);
-
+        console.error('Card loading failed:', error);
     }
-
 }
 
 loadCardData();
