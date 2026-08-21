@@ -1707,7 +1707,7 @@ loadCardData();
   </div>
 
 </div>
-
+<script src="data.js"></script>
 
 <script>
 (function(){
@@ -1903,19 +1903,105 @@ async function loadCardData() {
         const grid = doc.getElementById('grid-data');
 
         if (scrolling) {
-            document.getElementById('scrolling-cards').innerHTML =
-                scrolling.innerHTML;
+    document.getElementById('scrolling-cards').innerHTML =
+        scrolling.innerHTML;
+}
+
+if (grid) {
+    document.getElementById('app-cards-container').innerHTML =
+        grid.innerHTML;
+}
+
+/* =========================================
+   GENERATE CARDS FROM DATA.JS
+========================================= */
+
+function generateCards(data, templateId, containerId) {
+
+    const template = document.getElementById(templateId);
+    const container = document.getElementById(containerId);
+
+    if (!template || !container || !Array.isArray(data)) {
+        return;
+    }
+
+    container.innerHTML = '';
+
+    data.forEach((item) => {
+
+        let html = template.innerHTML;
+
+        Object.keys(item).forEach(key => {
+
+            const value = item[key] ?? '';
+
+            html = html.replace(
+                new RegExp(`{{${key}}}`, 'g'),
+                String(value)
+            );
+
+        });
+
+        const wrapper = document.createElement('div');
+        wrapper.innerHTML = html.trim();
+
+        const card = wrapper.firstElementChild;
+
+        if (!card) return;
+
+        /* Download button */
+        const downloadBtn =
+            card.querySelector('[data-download-button]');
+
+        if (downloadBtn) {
+
+            downloadBtn.addEventListener('click', function () {
+
+                openDownloadModal(
+                    item.name || '',
+                    item.version || '',
+                    item.size || '',
+                    item.bonus || 'Free',
+                    item.withdraw || 'Free',
+                    item.icon || '',
+                    item.download || ''
+                );
+
+            });
+
         }
 
-        if (grid) {
-            document.getElementById('app-cards-container').innerHTML =
-                grid.innerHTML;
-        }
+        container.appendChild(card);
 
-        // IMPORTANT: cards load hone ke baad
-        if (typeof initializeCardSystem === 'function') {
-            initializeCardSystem();
-        }
+    });
+
+}
+
+
+/* Generate both sections */
+
+generateCards(
+    scrollingData,
+    'scrolling-card-template',
+    'scrolling-cards'
+);
+
+generateCards(
+    gridData,
+    'grid-card-template',
+    'app-cards-container'
+);
+
+
+/* Existing systems */
+
+if (typeof updateNoxiNumbering === 'function') {
+    updateNoxiNumbering();
+}
+
+if (typeof initializeCardSystem === 'function') {
+    initializeCardSystem();
+}
 
     } catch (error) {
         console.error('Card loading failed:', error);
