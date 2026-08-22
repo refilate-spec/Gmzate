@@ -1128,7 +1128,29 @@ document.getElementById('desktop-search')
 
 document.getElementById('mobile-search')
     ?.addEventListener('input', handleSearchInput);
+// =========================================================
+// CLOSE MOBILE SEARCH WHEN CLICKING OUTSIDE
+// =========================================================
 
+document.addEventListener('click', (e) => {
+
+    if (!mobileSearchContainer || !mobileSearchTrigger) return;
+
+    const clickedInsideSearch =
+        mobileSearchContainer.contains(e.target);
+
+    const clickedSearchButton =
+        mobileSearchTrigger.contains(e.target);
+
+    // Outside click → close search
+    if (
+        !clickedInsideSearch &&
+        !clickedSearchButton &&
+        !mobileSearchContainer.classList.contains('hidden')
+    ) {
+        mobileSearchContainer.classList.add('hidden');
+    }
+});
 
 // =========================================================
 // CLEAR BUTTON EVENTS
