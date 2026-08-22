@@ -671,7 +671,7 @@
         ];
 
         window.gridData = [
-            { id: "app_g1", name: "Lucky Spin App", icon: "https://ui-avatars.com/api/?name=LS&background=3b82f6&color=fff&size=200", category: "Bonus", categories: ["Bonus", "New"], rating: "4.2", downloads: "100K+", size: "30 MB", version: "v1.2", bonus: "Free Spins", bonusValue: "10", description: "Daily lucky spins and minor rewards.", tags: ["Spin", "Daily"], verified: false, featured: false, isNew: true, apkUrl: "https://example.com/download/app_g1.apk", updatedAt: "2026-08-15" },
+            { id: "app_g1", name: "Lucky Spin App", icon: "https://ui-avatars.com/api/?name=LS&background=3b82f6&color=fff&size=200", category: "Bonus", categories: ["Bonus", "New"], rating: "4.2", downloads: "100K+", size: "30 MB", version: "v1.2", bonus: "Free Spins", bonusValue: "10", description: "Daily lucky spins and minor rewards.", tags: ["Spin", "Daily"], verified: false, featured: false, isNew: true, apkUrl: "https://example.com/download/app_g1.apk", updatedAt: "2026-08-15" badgeNo: [1, 3, 5]},
             { id: "app_g2", name: "Rummy Gold", icon: "https://ui-avatars.com/api/?name=RG&background=eab308&color=fff&size=200", category: "Rummy", categories: ["Rummy", "Withdraw"], rating: "4.5", downloads: "800K+", size: "48 MB", version: "v2.2", bonus: "Signup", bonusValue: "₹41", description: "Gold standard rummy application.", tags: ["Gold", "Rummy"], verified: true, featured: false, isNew: false, apkUrl: "https://example.com/download/app_g2.apk", updatedAt: "2026-08-10" },
             { id: "app_g3", name: "Auto Clicker Pro", icon: "https://ui-avatars.com/api/?name=AC&background=64748b&color=fff&size=200", category: "Tools", categories: ["Tools"], rating: "4.7", downloads: "5M+", size: "12 MB", version: "v8.0", bonus: "None", bonusValue: "N/A", description: "Utility tool for automating taps.", tags: ["Tool", "Utility"], verified: true, featured: false, isNew: false, apkUrl: "https://example.com/download/app_g3.apk", updatedAt: "2026-07-20" },
             { id: "app_t3", name: "Teen Patti Master", icon: "https://ui-avatars.com/api/?name=TM&background=10b981&color=fff&size=200", category: "Cards", categories: ["Rummy", "Bonus"], rating: "4.9", downloads: "2M+", size: "60 MB", version: "v4.5", bonus: "Daily Reward", bonusValue: "₹50", description: "The ultimate Teen Patti platform. Smooth gameplay.", tags: ["Teen Patti", "Master", "Daily"], verified: true, featured: false, isNew: true, apkUrl: "https://example.com/download/app_t3.apk", updatedAt: "2026-08-21" }, // Intentional duplicate
@@ -1233,6 +1233,101 @@ document.getElementById('mobile-search-clear')
             const recHtml = recent.map(id => renderSmallCard(id)).filter(Boolean).join('');
             recContainer.innerHTML = recHtml || '<div class="text-sm text-slate-500 py-4 italic text-center md:text-left bg-slate-50 dark:bg-surface-900 rounded-xl border border-slate-200 dark:border-slate-800 border-dashed">Apps you view will appear here.</div>';
         }
+        // =========================================================
+// EXTRA BADGE SYSTEM
+// =========================================================
+
+function generateExtraBadges(app) {
+
+    const badgeStyles = {
+
+        1: {
+            text: 'Popular',
+            icon: 'fa-fire',
+            classes: 'bg-orange-500/10 text-orange-500 border-orange-500/20'
+        },
+
+        2: {
+            text: 'Featured',
+            icon: 'fa-star',
+            classes: 'bg-purple-500/10 text-purple-500 border-purple-500/20'
+        },
+
+        3: {
+            text: 'Hot',
+            icon: 'fa-bolt',
+            classes: 'bg-red-500/10 text-red-500 border-red-500/20'
+        },
+
+        4: {
+            text: 'Trending',
+            icon: 'fa-chart-line',
+            classes: 'bg-blue-500/10 text-blue-500 border-blue-500/20'
+        },
+
+        5: {
+            text: 'Top Rated',
+            icon: 'fa-crown',
+            classes: 'bg-brand-gold/10 text-brand-gold border-brand-gold/20'
+        },
+
+        6: {
+            text: 'Editor Choice',
+            icon: 'fa-award',
+            classes: 'bg-emerald-500/10 text-emerald-500 border-emerald-500/20'
+        },
+
+        7: {
+            text: 'Updated',
+            icon: 'fa-rotate',
+            classes: 'bg-cyan-500/10 text-cyan-500 border-cyan-500/20'
+        },
+
+        8: {
+            text: 'Exclusive',
+            icon: 'fa-gem',
+            classes: 'bg-pink-500/10 text-pink-500 border-pink-500/20'
+        },
+
+        9: {
+            text: 'Recommended',
+            icon: 'fa-thumbs-up',
+            classes: 'bg-indigo-500/10 text-indigo-500 border-indigo-500/20'
+        },
+
+        10: {
+            text: 'Best Choice',
+            icon: 'fa-check-double',
+            classes: 'bg-green-500/10 text-green-500 border-green-500/20'
+        }
+
+    };
+
+
+    // App mein badgeNo nahi hai to kuch nahi
+    if (!app.badgeNo) return '';
+
+    // Single number ya multiple numbers dono support
+    const badgeNumbers = Array.isArray(app.badgeNo)
+        ? app.badgeNo
+        : [app.badgeNo];
+
+    return badgeNumbers
+        .map(number => {
+
+            const badge = badgeStyles[number];
+
+            if (!badge) return '';
+
+            return `
+                <span class="px-2 py-1 rounded bg-opacity-10 ${badge.classes} border text-xs font-bold uppercase flex items-center gap-1 whitespace-nowrap">
+                    <i class="fa-solid ${badge.icon}"></i>
+                    ${badge.text}
+                </span>
+            `;
+        })
+        .join('');
+}
 
         // --- 9. MODAL & DOWNLOAD ENGINE ---
         const modal = document.getElementById('app-modal');
@@ -1261,7 +1356,9 @@ document.getElementById('mobile-search-clear')
             updateModalFavIcon(app.id);
 
             // Badges
-            let badgesHtml = '';
+              let badgesHtml = '';
+            badgesHtml += generateExtraBadges(app); // my code badge 4444
+          
             if(app.verified) badgesHtml += `<span class="px-2 py-1 rounded bg-brand-emerald/10 text-brand-emerald border border-brand-emerald/20 text-xs font-bold flex items-center gap-1"><i class="fa-solid fa-shield-check"></i> Verified Listing</span>`;
             if(app.isNew) badgesHtml += `<span class="px-2 py-1 rounded bg-brand-red/10 text-brand-red border border-brand-red/20 text-xs font-bold uppercase">New</span>`;
             badgesHtml += `<span class="px-2 py-1 rounded bg-brand-gold/10 text-brand-gold border border-brand-gold/20 text-xs font-bold uppercase"><i class="fa-solid fa-gift mr-1"></i> ${escapeHTML(app.bonusValue)} Bonus</span>`;
