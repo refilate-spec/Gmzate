@@ -396,27 +396,50 @@
         <div id="modal-backdrop" class="absolute inset-0 bg-slate-900/60 backdrop-blur-sm opacity-0 transition-opacity duration-300"></div>
         
         <!-- Modal Content -->
-        <div id="modal-content" class="glass-card relative w-full max-w-lg rounded-2xl shadow-2xl opacity-0 transform scale-95 transition-all duration-300 max-h-[90vh] flex flex-col overflow-hidden">
-            <!-- Header Image Banner -->
-            <div class="h-20 bg-gradient-to-r from-slate-800 to-slate-900 relative">
-                <button id="modal-close" class="absolute top-4 right-4 w-8 h-8 rounded-full bg-black/30 backdrop-blur-md text-white flex items-center justify-center hover:bg-black/50 transition-colors z-10">
-                    <i class="fas fa-times"></i>
-                </button>
-            </div>
-            
-            <div class="px-6 pb-6 pt-0 flex-1 overflow-y-auto no-scrollbar">
-                <!-- Header Info -->
-                <div class="flex items-start gap-4 -mt-12 relative z-10">
-                    <img id="modal-icon" src="" alt="Icon" class="w-24 h-24 rounded-2xl shadow-lg border-4 border-white dark:border-slate-800 bg-white dark:bg-slate-900 object-cover">
-                    <div class="pt-2 flex-1">
-                        <h3 id="modal-title" class="text-2xl font-bold leading-tight mb-1 text-gray-900 dark:text-white">App Name</h3>
-                        <div class="flex items-center gap-2 text-sm">
-                            <span id="modal-category" class="text-gray-500 dark:text-gray-400">Category</span>
-                            <span class="w-1 h-1 rounded-full bg-gray-300 dark:bg-gray-600"></span>
-                            <span class="text-premium-emerald font-medium"><i class="fas fa-check-circle mr-1"></i>Verified</span>
-                        </div>
-                    </div>
+<div id="modal-content"
+    class="glass-card relative w-full max-w-lg rounded-2xl shadow-2xl opacity-0 transform scale-95 transition-all duration-300 max-h-[90vh] flex flex-col overflow-hidden">
+
+    <!-- Header / Top Bar -->
+    <div class="relative h-14 flex items-center justify-end px-4 shrink-0">
+        <button id="modal-close"
+            class="w-8 h-8 rounded-full bg-black/30 backdrop-blur-md text-white flex items-center justify-center hover:bg-black/50 transition-colors">
+            <i class="fas fa-times"></i>
+        </button>
+    </div>
+
+    <!-- Main Content -->
+    <div class="px-6 pb-6 pt-0 flex-1 overflow-y-auto no-scrollbar">
+
+        <!-- Logo + App Info -->
+        <div class="flex items-start gap-4 mb-7">
+
+            <img id="modal-icon"
+                src=""
+                alt="Icon"
+                class="w-24 h-24 rounded-2xl shadow-lg border-4 border-white dark:border-slate-800 bg-white dark:bg-slate-900 object-cover">
+
+            <div class="pt-2 flex-1 pr-8">
+
+                <h3 id="modal-title"
+                    class="text-2xl font-bold leading-tight mb-1 text-gray-900 dark:text-white">
+                    App Name
+                </h3>
+
+                <div class="flex items-center gap-2 text-sm">
+                    <span id="modal-category"
+                        class="text-gray-500 dark:text-gray-400">
+                        Category
+                    </span>
+
+                    <span class="w-1 h-1 rounded-full bg-gray-300 dark:bg-gray-600"></span>
+
+                    <span class="text-premium-emerald font-medium">
+                        <i class="fas fa-check-circle mr-1"></i>Verified
+                    </span>
                 </div>
+
+            </div>
+        </div>
 
                 <!-- Stats Grid -->
                 <div class="grid grid-cols-4 gap-2 mb-6 text-center bg-gray-50 dark:bg-slate-900/50 rounded-xl p-3 border border-gray-100 dark:border-white/5">
