@@ -1,25 +1,23 @@
 <!DOCTYPE html>
-<html lang="en" class="dark scroll-smooth">
+<html lang="en" class="dark" style="color-scheme: dark;">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
     <title>Yono VIP Hub — Ultimate Premium APK Directory</title>
-    <meta name="description" content="Discover, compare, and download premium verified apps securely. Your ultimate digital marketplace for Yono, Rummy, and Tools.">
-    <meta name="theme-color" content="#0f172a">
+    <meta name="description" content="Discover premium APKs, tools, and apps. Fast, organized, and mobile-first directory.">
     <link rel="canonical" href="https://yonoviphub.com">
-    
-    <!-- Open Graph -->
-    <meta property="og:title" content="Yono VIP Hub — Premium APK Directory">
-    <meta property="og:description" content="Discover your next favorite app securely.">
+    <meta property="og:title" content="Yono VIP Hub — Ultimate Premium APK Directory">
+    <meta property="og:description" content="Discover premium APKs, tools, and apps. Fast, organized, and mobile-first directory.">
     <meta property="og:type" content="website">
+    <meta name="theme-color" content="#0f172a">
     
     <!-- Fonts & Icons -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
-    <!-- Tailwind CSS (CDN) -->
+    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
@@ -27,285 +25,296 @@
             theme: {
                 extend: {
                     fontFamily: {
-                        sans: ['Inter', 'system-ui', 'sans-serif'],
+                        sans: ['Inter', 'system-ui', '-apple-system', 'sans-serif'],
                     },
                     colors: {
-                        slate: {
-                            850: '#151e32',
-                            900: '#0f172a',
-                            950: '#020617',
-                        },
-                        accent: {
+                        brand: {
                             red: '#ef4444',
                             gold: '#f59e0b',
                             emerald: '#10b981',
                             cyan: '#06b6d4',
+                        },
+                        surface: {
+                            900: '#0f172a', // Slate 900
+                            800: '#1e293b', // Slate 800
+                            700: '#334155', // Slate 700
+                            light: '#ffffff',
+                            muted: '#f8fafc', // Slate 50
                         }
                     },
                     boxShadow: {
-                        'glow-emerald': '0 0 15px -3px rgba(16, 185, 129, 0.4)',
-                        'glow-gold': '0 0 15px -3px rgba(245, 158, 11, 0.4)',
                         'glass': '0 4px 30px rgba(0, 0, 0, 0.1)',
-                    },
-                    animation: {
-                        'float': 'float 3s ease-in-out infinite',
-                        'spin-slow': 'spin 8s linear infinite',
-                        'slide-up': 'slideUp 0.3s ease-out forwards',
-                        'fade-in': 'fadeIn 0.2s ease-out forwards',
-                        'scale-in': 'scaleIn 0.2s cubic-bezier(0.16, 1, 0.3, 1) forwards',
-                    },
-                    keyframes: {
-                        float: {
-                            '0%, 100%': { transform: 'translateY(0)' },
-                            '50%': { transform: 'translateY(-5px)' },
-                        },
-                        slideUp: {
-                            '0%': { transform: 'translateY(100%)', opacity: 0 },
-                            '100%': { transform: 'translateY(0)', opacity: 1 },
-                        },
-                        fadeIn: {
-                            '0%': { opacity: 0 },
-                            '100%': { opacity: 1 },
-                        },
-                        scaleIn: {
-                            '0%': { transform: 'scale(0.95) translate(-50%, -50%)', opacity: 0 },
-                            '100%': { transform: 'scale(1) translate(-50%, -50%)', opacity: 1 },
-                        }
+                        'glow': '0 0 20px rgba(245, 158, 11, 0.15)',
                     }
                 }
             }
         }
     </script>
+
     <style>
-        /* Custom CSS */
-        :root {
-            --glass-bg: rgba(255, 255, 255, 0.8);
-            --glass-border: rgba(255, 255, 255, 0.2);
-            --card-hover-translate: -2px;
-        }
-        .dark {
-            --glass-bg: rgba(15, 23, 42, 0.75);
-            --glass-border: rgba(255, 255, 255, 0.05);
+        /* Custom Utilities & Animations */
+        html { scroll-behavior: smooth; }
+        body { 
+            -webkit-tap-highlight-color: transparent; 
+            overflow-x: hidden;
         }
         
-        body {
-            -webkit-tap-highlight-color: transparent;
-            overscroll-behavior-y: none;
-        }
-
-        /* Utilities */
+        /* Hide Scrollbar */
         .hide-scrollbar::-webkit-scrollbar { display: none; }
         .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
         
-        .glass-panel {
-            background: var(--glass-bg);
+        /* Glass Surfaces */
+        .glass-header {
+            background: rgba(15, 23, 42, 0.75);
             backdrop-filter: blur(12px);
             -webkit-backdrop-filter: blur(12px);
-            border: 1px solid var(--glass-border);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        html:not(.dark) .glass-header {
+            background: rgba(255, 255, 255, 0.85);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+        }
+        
+        .glass-panel {
+            background: rgba(30, 41, 59, 0.6);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+        html:not(.dark) .glass-panel {
+            background: rgba(255, 255, 255, 0.7);
+            border: 1px solid rgba(0, 0, 0, 0.08);
+            box-shadow: 0 8px 32px rgba(0,0,0,0.05);
         }
 
-        .line-clamp-2 {
-            display: -webkit-box;
-            -webkit-line-clamp: 2;
-            -webkit-box-orient: vertical;  
-            overflow: hidden;
+        /* Line Clamps */
+        .line-clamp-1 { display: -webkit-box; -webkit-line-clamp: 1; -webkit-box-orient: vertical; overflow: hidden; }
+        .line-clamp-2 { display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+        .line-clamp-3 { display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
+
+        /* Animations */
+        @keyframes fadeInScale {
+            0% { opacity: 0; transform: scale(0.95); }
+            100% { opacity: 1; transform: scale(1); }
+        }
+        @keyframes slideUpFade {
+            0% { opacity: 0; transform: translateY(20px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes toastSlideIn {
+            0% { opacity: 0; transform: translateX(100%); }
+            100% { opacity: 1; transform: translateX(0); }
+        }
+        @keyframes radialPulse {
+            0% { box-shadow: 0 0 0 0 rgba(245, 158, 11, 0.4); }
+            70% { box-shadow: 0 0 0 15px rgba(245, 158, 11, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(245, 158, 11, 0); }
         }
 
-        .card-hover-effect {
-            transition: transform 0.2s ease, box-shadow 0.2s ease;
-        }
-        .card-hover-effect:hover {
-            transform: translateY(var(--card-hover-translate));
-        }
-        .dark .card-hover-effect:hover {
-            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.5), 0 0 10px 0 rgba(255,255,255,0.02) inset;
-        }
+        .animate-fade-scale { animation: fadeInScale 0.2s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+        .animate-slide-up { animation: slideUpFade 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+        .animate-toast { animation: toastSlideIn 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+        .pulse-glow:hover { animation: radialPulse 1.5s infinite; }
 
-        /* Slider specific */
-        .slider-track {
-            transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1);
-        }
+        /* Carousel scroll snap */
+        .snap-x-mandatory { scroll-snap-type: x mandatory; }
+        .snap-center { scroll-snap-align: center; }
+        
+        /* Slider dots */
+        .slider-dot { transition: all 0.3s ease; width: 8px; height: 8px; background: rgba(255,255,255,0.3); border-radius: 50%; }
+        .slider-dot.active { width: 24px; background: #f59e0b; border-radius: 4px; }
+        html:not(.dark) .slider-dot { background: rgba(0,0,0,0.2); }
+        html:not(.dark) .slider-dot.active { background: #f59e0b; }
 
-        /* Modal Overlay lock */
-        body.modal-open {
-            overflow: hidden;
+        /* Responsive Grid fixes */
+        .app-grid-layout {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 12px;
         }
-
-        /* Image Loading Fallback */
-        img.img-loading {
-            background: linear-gradient(90deg, #1e293b 25%, #334155 50%, #1e293b 75%);
-            background-size: 200% 100%;
-            animation: skeleton-loading 1.5s infinite;
-        }
-        .dark img.img-loading {
-            background: linear-gradient(90deg, #0f172a 25%, #1e293b 50%, #0f172a 75%);
-            background-size: 200% 100%;
-            animation: skeleton-loading 1.5s infinite;
-        }
-        @keyframes skeleton-loading {
-            0% { background-position: 200% 0; }
-            100% { background-position: -200% 0; }
-        }
+        @media (min-width: 640px) { .app-grid-layout { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; } }
+        @media (min-width: 1024px) { .app-grid-layout { grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 20px; } }
+        @media (min-width: 1280px) { .app-grid-layout { grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 24px; } }
+        @media (min-width: 1536px) { .app-grid-layout { grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 24px; } }
     </style>
-    
-    <!-- JSON-LD SEO -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "WebSite",
-      "name": "Yono VIP Hub",
-      "url": "https://yonoviphub.com",
-      "potentialAction": {
-        "@type": "SearchAction",
-        "target": "https://yonoviphub.com/#search?q={search_term_string}",
-        "query-input": "required name=search_term_string"
-      }
-    }
-    </script>
 </head>
-<body class="bg-slate-50 text-slate-800 dark:bg-slate-900 dark:text-slate-200 antialiased transition-colors duration-200">
-    <a href="#main-content" class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 z-[9999] bg-accent-emerald text-white px-4 py-2 rounded-lg">Skip to main content</a>
+<body class="bg-surface-muted dark:bg-surface-900 text-slate-800 dark:text-slate-200 antialiased transition-colors duration-300 pb-20 md:pb-0">
 
-    <!-- GLOBAL APP SHELL: Header -->
-    <header id="site-header" class="fixed top-0 w-full z-40 glass-panel border-b border-transparent transition-all duration-300">
-        <div class="max-w-7xl mx-auto px-4 h-16 flex items-center justify-between gap-4">
+    <!-- JSON-LD SEO Container -->
+    <script type="application/ld+json" id="seo-schema"></script>
+
+    <!-- App Shell / Header -->
+    <header class="fixed top-0 left-0 right-0 z-40 glass-header transition-all duration-300" id="site-header">
+        <div class="max-w-[1600px] mx-auto px-4 md:px-6 h-16 flex items-center justify-between">
             <!-- Brand -->
-            <a href="#home" class="flex items-center gap-2 group flex-shrink-0" aria-label="Yono VIP Hub Home">
-                <div class="w-8 h-8 rounded-lg bg-gradient-to-br from-accent-gold to-accent-red flex items-center justify-center text-white font-bold shadow-glow-gold group-hover:scale-105 transition-transform">
+            <a href="#home" class="flex items-center gap-2 md:gap-3 group shrink-0 outline-none focus-visible:ring-2 focus-visible:ring-brand-gold rounded-lg">
+                <div class="w-8 h-8 md:w-10 md:h-10 rounded-xl bg-gradient-to-tr from-brand-red to-brand-gold flex items-center justify-center text-white font-bold text-lg shadow-lg group-hover:scale-105 transition-transform">
                     Y
                 </div>
-                <span class="font-bold text-lg tracking-tight  sm:block">Yono VIP Hub</span>
+                <div>
+                    <h1 class="text-base md:text-lg font-bold leading-tight tracking-tight text-slate-900 dark:text-white">Yono VIP Hub</h1>
+                    <span class="text-[10px] md:text-xs font-medium text-slate-500 dark:text-slate-400 uppercase tracking-wider block">Premium Directory</span>
+                </div>
             </a>
 
-            <!-- Search (Desktop) -->
-            <div class=" md:flex flex-1 max-w-lg relative group">
-                <i class="fa-solid fa-search absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 group-focus-within:text-accent-gold transition-colors"></i>
-                <input type="text" id="desktop-search" placeholder="Search premium apps, categories..." class="w-full bg-slate-200/50 dark:bg-slate-800/50 border border-slate-300/50 dark:border-slate-700/50 rounded-full py-2 pl-10 pr-10 focus:outline-none focus:ring-2 focus:ring-accent-gold/50 text-sm placeholder-slate-500 dark:placeholder-slate-400 w-full transition-all" aria-label="Search apps">
-                <button id="clear-search-btn" class="absolute right-3 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-700 dark:hover:text-white hidden" aria-label="Clear search">
-                    <i class="fa-solid fa-times"></i>
+            <!-- Desktop Search -->
+            <div class="hidden md:flex flex-1 max-w-xl mx-8 relative">
+                <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                    <i class="fa-solid fa-search text-slate-400"></i>
+                </div>
+                <input type="text" id="desktop-search" class="block w-full pl-10 pr-10 py-2.5 border border-slate-200 dark:border-slate-700 rounded-full bg-white dark:bg-surface-800 text-slate-900 dark:text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-brand-gold focus:border-transparent transition-all shadow-sm" placeholder="Search apps, categories, or features...">
+                <button id="desktop-search-clear" class="absolute inset-y-0 right-0 pr-3 flex items-center text-slate-400 hover:text-slate-600 dark:hover:text-slate-200 hidden outline-none" aria-label="Clear search">
+                    <i class="fa-solid fa-xmark"></i>
                 </button>
             </div>
 
-            <!-- Global Actions -->
-            <nav class="flex items-center gap-2 sm:gap-4 flex-shrink-0">
-                <a href="#apps" class="hidden lg:block text-sm font-medium hover:text-accent-gold transition-colors">Directory</a>
-                <a href="#faq" class="hidden lg:block text-sm font-medium hover:text-accent-gold transition-colors">FAQ</a>
-                <button data-action="toggle-theme" class="w-10 h-10 rounded-full bg-slate-200/50 dark:bg-slate-800/50 flex items-center justify-center hover:bg-slate-300/50 dark:hover:bg-slate-700/50 transition-colors" aria-label="Toggle Theme">
+            <!-- Desktop Nav & Actions -->
+            <div class="flex items-center gap-2 md:gap-4 shrink-0">
+                <a href="#apps" class="hidden lg:block text-sm font-medium text-slate-600 dark:text-slate-300 hover:text-brand-gold dark:hover:text-brand-gold transition-colors">Apps</a>
+                <a href="#categories" class="hidden lg:block text-sm font-medium text-slate-600 dark:text-slate-300 hover:text-brand-gold dark:hover:text-brand-gold transition-colors">Categories</a>
+                
+                <button id="theme-toggle" class="w-10 h-10 rounded-full flex items-center justify-center text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors outline-none focus-visible:ring-2 focus-visible:ring-brand-gold" aria-label="Toggle Theme">
                     <i class="fa-solid fa-moon dark:hidden"></i>
-                    <i class="fa-solid fa-sun hidden dark:block text-accent-gold"></i>
+                    <i class="fa-solid fa-sun hidden dark:block"></i>
                 </button>
-                <a href="#support" data-dynamic-href="telegramUrl" target="_blank" rel="noopener noreferrer" class="hidden sm:flex items-center gap-2 bg-[#0088cc]/10 text-[#0088cc] hover:bg-[#0088cc]/20 dark:bg-[#0088cc]/20 dark:text-white dark:hover:bg-[#0088cc]/40 px-4 py-2 rounded-full text-sm font-semibold transition-colors">
-                    <i class="fa-brands fa-telegram"></i> Community
+                
+                <a id="header-support-btn" href="#" target="_blank" rel="noopener noreferrer" class="hidden md:flex items-center gap-2 px-4 py-2 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-200 hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors text-sm font-medium border border-slate-200 dark:border-slate-700 outline-none focus-visible:ring-2 focus-visible:ring-brand-gold">
+                    <i class="fa-brands fa-telegram text-blue-500"></i> Support
                 </a>
-            </nav>
+                
+                <!-- Mobile Search Trigger -->
+                <button id="mobile-search-trigger" class="md:hidden w-10 h-10 rounded-full flex items-center justify-center text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors outline-none">
+                    <i class="fa-solid fa-search"></i>
+                </button>
+            </div>
+        </div>
+        
+        <!-- Mobile Search Bar (Collapsible) -->
+        <div id="mobile-search-container" class="hidden md:hidden px-4 pb-3 pt-1 border-t border-slate-200 dark:border-slate-800 bg-white dark:bg-surface-900">
+            <div class="relative">
+                <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                    <i class="fa-solid fa-search text-slate-400"></i>
+                </div>
+                <input type="text" id="mobile-search" class="block w-full pl-10 pr-10 py-2 border border-slate-200 dark:border-slate-700 rounded-full bg-slate-50 dark:bg-surface-800 text-slate-900 dark:text-white placeholder-slate-400 focus:outline-none focus:border-brand-gold transition-all" placeholder="Search apps...">
+                <button id="mobile-search-clear" class="absolute inset-y-0 right-0 pr-3 flex items-center text-slate-400 hidden outline-none">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
         </div>
     </header>
 
-    <!-- MAIN CONTENT -->
-    <main id="main-content" class="pt-16 pb-24 md:pb-12 min-h-screen">
+    <!-- Main Content -->
+    <main class="pt-16 min-h-screen">
         
         <!-- Hero Section -->
-        <section id="home" class="relative overflow-hidden pt-12 pb-16 lg:pt-20 lg:pb-24">
-            <!-- Background effects -->
-            <div class="absolute inset-0 z-0 pointer-events-none">
-                <div class="absolute top-0 right-1/4 w-96 h-96 bg-accent-gold/5 dark:bg-accent-gold/10 rounded-full blur-[100px] animate-pulse"></div>
-                <div class="absolute bottom-0 left-1/4 w-64 h-64 bg-accent-emerald/5 dark:bg-accent-emerald/10 rounded-full blur-[80px]"></div>
-            </div>
-
-            <div class="max-w-7xl mx-auto px-4 relative z-10 text-center">
-                <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-200 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 text-xs font-semibold mb-6 text-slate-600 dark:text-slate-300 uppercase tracking-wider">
-                    <span class="w-2 h-2 rounded-full bg-accent-emerald animate-pulse"></span>
-                    Premium APK Discovery
-                </div>
-                <h1 class="text-4xl md:text-5xl lg:text-7xl font-extrabold tracking-tight mb-6 leading-tight">
-                    Discover Your Next <br class="hidden sm:block"/> <span class="text-transparent bg-clip-text bg-gradient-to-r from-accent-gold to-accent-red">Favorite App</span>
-                </h1>
-                <p class="text-base md:text-xl text-slate-600 dark:text-slate-400 max-w-2xl mx-auto mb-8 font-light">
-                    The ultimate directory for verified Yono, Rummy, and productivity tools. Secure downloads, live updates, and daily bonuses.
+        <section id="home" class="relative pt-12 pb-16 md:pt-20 md:pb-24 px-4 overflow-hidden">
+            <!-- Decorative background elements -->
+            <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-brand-gold/5 dark:bg-brand-gold/10 rounded-full blur-[100px] pointer-events-none -z-10"></div>
+            
+            <div class="max-w-4xl mx-auto text-center z-10 relative">
+                <span class="inline-block py-1 px-3 rounded-full bg-brand-gold/10 text-brand-gold font-semibold text-xs md:text-sm tracking-widest uppercase mb-4 border border-brand-gold/20">Premium APK Discovery</span>
+                <h2 class="text-4xl md:text-5xl lg:text-6xl font-extrabold text-slate-900 dark:text-white tracking-tight leading-tight mb-6">
+                    Discover Your Next <br class="hidden md:block" /><span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-gold to-brand-red">Favorite App</span>
+                </h2>
+                <p class="text-base md:text-lg text-slate-600 dark:text-slate-400 mb-8 max-w-2xl mx-auto font-medium">
+                    The ultimate directory for verified premium applications. Fast, organized, and designed for mobile. Find tools, games, and bonuses instantly.
                 </p>
-
-                <!-- Mobile Search -->
-                <div class="md:hidden max-w-md mx-auto mb-8 relative">
-                    <i class="fa-solid fa-search absolute left-4 top-1/2 -translate-y-1/2 text-slate-400"></i>
-                    <input type="text" id="mobile-search" placeholder="Search apps..." class="w-full bg-white dark:bg-slate-800 border border-slate-300 dark:border-slate-700 rounded-2xl py-3 pl-12 pr-4 shadow-sm focus:outline-none focus:ring-2 focus:ring-accent-gold/50" aria-label="Search apps">
+                <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+                    <a href="#apps" class="w-full sm:w-auto px-8 py-3.5 rounded-full bg-slate-900 dark:bg-white text-white dark:text-slate-900 font-semibold text-[15px] hover:bg-slate-800 dark:hover:bg-slate-100 transition-all shadow-lg hover:shadow-xl focus-visible:ring-2 focus-visible:ring-brand-gold focus-visible:ring-offset-2 dark:focus-visible:ring-offset-slate-900 outline-none">
+                        Browse Apps
+                    </a>
+                    <a id="hero-telegram-btn" href="#" target="_blank" rel="noopener noreferrer" class="w-full sm:w-auto px-8 py-3.5 rounded-full bg-[#2AABEE]/10 text-[#2AABEE] border border-[#2AABEE]/20 hover:bg-[#2AABEE]/20 font-semibold text-[15px] transition-all flex items-center justify-center gap-2 outline-none focus-visible:ring-2 focus-visible:ring-[#2AABEE]">
+                        <i class="fa-brands fa-telegram text-lg"></i> Join Community
+                    </a>
                 </div>
-
-                <div class="flex flex-wrap justify-center gap-4">
-                    <a href="#apps" class="px-8 py-3.5 rounded-full bg-slate-900 text-white dark:bg-white dark:text-slate-900 font-semibold hover:scale-105 transition-transform shadow-lg">
-                        Browse Directory <i class="fa-solid fa-arrow-right ml-2"></i>
-                    </a>
-                    <a href="#telegram" data-dynamic-href="telegramUrl" target="_blank" rel="noopener noreferrer" class="px-8 py-3.5 rounded-full glass-panel font-semibold hover:bg-slate-200/50 dark:hover:bg-slate-800 transition-colors flex items-center gap-2">
-                        <i class="fa-brands fa-telegram text-[#0088cc]"></i> Join Channel
-                    </a>
+                
+                <div class="mt-10 flex items-center justify-center gap-6 text-sm text-slate-500 dark:text-slate-400">
+                    <div class="flex items-center gap-1"><i class="fa-solid fa-bolt text-brand-gold"></i> Fast</div>
+                    <div class="w-1 h-1 rounded-full bg-slate-300 dark:bg-slate-600"></div>
+                    <div class="flex items-center gap-1"><i class="fa-solid fa-shield-halved text-brand-emerald"></i> Verified Listings</div>
+                    <div class="w-1 h-1 rounded-full bg-slate-300 dark:bg-slate-600"></div>
+                    <div class="flex items-center gap-1"><i class="fa-solid fa-mobile-screen text-slate-400"></i> Mobile First</div>
                 </div>
             </div>
         </section>
 
         <!-- Stats Strip -->
-        <section class="max-w-7xl mx-auto px-4 mb-16 relative z-10">
-            <div class="glass-panel rounded-2xl p-6 md:p-8 grid grid-cols-2 md:grid-cols-4 gap-6 text-center divide-x divide-slate-200/50 dark:divide-slate-700/50">
-                <div>
-                    <div id="stat-apps" class="text-2xl md:text-3xl font-bold text-slate-800 dark:text-white">0</div>
-                    <div class="text-xs md:text-sm text-slate-500 dark:text-slate-400 font-medium mt-1">Apps Listed</div>
+        <section class="max-w-[1600px] mx-auto px-4 md:px-6 mb-12">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-6">
+                <div class="bg-white dark:bg-surface-800 border border-slate-200 dark:border-slate-700 rounded-2xl p-4 md:p-6 text-center shadow-sm">
+                    <div class="text-2xl md:text-3xl font-bold text-slate-900 dark:text-white mb-1" id="stat-apps">0</div>
+                    <div class="text-xs md:text-sm text-slate-500 font-medium">Apps Listed</div>
                 </div>
-                <div>
-                    <div id="stat-categories" class="text-2xl md:text-3xl font-bold text-slate-800 dark:text-white">0</div>
-                    <div class="text-xs md:text-sm text-slate-500 dark:text-slate-400 font-medium mt-1">Categories</div>
+                <div class="bg-white dark:bg-surface-800 border border-slate-200 dark:border-slate-700 rounded-2xl p-4 md:p-6 text-center shadow-sm">
+                    <div class="text-2xl md:text-3xl font-bold text-slate-900 dark:text-white mb-1" id="stat-categories">0</div>
+                    <div class="text-xs md:text-sm text-slate-500 font-medium">Categories</div>
                 </div>
-                <div>
-                    <div id="stat-verified" class="text-2xl md:text-3xl font-bold text-slate-800 dark:text-white">0</div>
-                    <div class="text-xs md:text-sm text-slate-500 dark:text-slate-400 font-medium mt-1">Verified Listings</div>
+                <div class="bg-white dark:bg-surface-800 border border-slate-200 dark:border-slate-700 rounded-2xl p-4 md:p-6 text-center shadow-sm">
+                    <div class="text-2xl md:text-3xl font-bold text-slate-900 dark:text-white mb-1 text-brand-emerald" id="stat-verified">0</div>
+                    <div class="text-xs md:text-sm text-slate-500 font-medium">Verified Listings</div>
                 </div>
-                <div>
-                    <div class="text-2xl md:text-3xl font-bold text-slate-800 dark:text-white">24/7</div>
-                    <div class="text-xs md:text-sm text-slate-500 dark:text-slate-400 font-medium mt-1">Live Updates</div>
+                <div class="bg-white dark:bg-surface-800 border border-slate-200 dark:border-slate-700 rounded-2xl p-4 md:p-6 text-center shadow-sm">
+                    <div class="text-2xl md:text-3xl font-bold text-slate-900 dark:text-white mb-1 text-brand-red" id="stat-new">0</div>
+                    <div class="text-xs md:text-sm text-slate-500 font-medium">New Additions</div>
                 </div>
             </div>
         </section>
 
-        <!-- Style B: Featured Slider -->
-        <section id="featured" class="max-w-7xl mx-auto px-4 mb-16">
+        <!-- Featured Slider (Style B) -->
+        <section id="featured" class="max-w-[1600px] mx-auto px-4 md:px-6 mb-16 hidden">
             <div class="flex items-center justify-between mb-6">
-                <h2 class="text-xl md:text-2xl font-bold flex items-center gap-2">
-                    <i class="fa-solid fa-fire text-accent-red"></i> Featured Picks
-                </h2>
-                <div class="flex gap-2">
-                    <button id="slider-prev" class="w-8 h-8 rounded-full glass-panel flex items-center justify-center hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors" aria-label="Previous slide"><i class="fa-solid fa-chevron-left text-sm"></i></button>
-                    <button id="slider-next" class="w-8 h-8 rounded-full glass-panel flex items-center justify-center hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors" aria-label="Next slide"><i class="fa-solid fa-chevron-right text-sm"></i></button>
-                </div>
+                <h3 class="text-xl md:text-2xl font-bold text-slate-900 dark:text-white flex items-center gap-2">
+                    <i class="fa-solid fa-fire text-brand-red"></i> Premium Featured
+                </h3>
             </div>
             
-            <div class="relative rounded-2xl overflow-hidden glass-panel group" role="region" aria-label="Featured Apps Carousel">
-                <div id="slider-container" class="flex slider-track w-full h-[250px] md:h-[300px]">
+            <div class="relative group rounded-2xl overflow-hidden bg-slate-100 dark:bg-surface-800 border border-slate-200 dark:border-slate-700 shadow-md">
+                <!-- Slider Track -->
+                <div id="slider-track" class="flex transition-transform duration-500 ease-out h-[350px] md:h-[400px]">
                     <!-- Slides injected via JS -->
                 </div>
-                <div id="slider-dots" class="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2 z-10">
+                
+                <!-- Controls -->
+                <button id="slider-prev" class="absolute left-4 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white/20 dark:bg-black/40 backdrop-blur border border-white/10 text-white flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity hover:bg-white/30 dark:hover:bg-black/60 outline-none" aria-label="Previous Slide">
+                    <i class="fa-solid fa-chevron-left"></i>
+                </button>
+                <button id="slider-next" class="absolute right-4 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white/20 dark:bg-black/40 backdrop-blur border border-white/10 text-white flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity hover:bg-white/30 dark:hover:bg-black/60 outline-none" aria-label="Next Slide">
+                    <i class="fa-solid fa-chevron-right"></i>
+                </button>
+                
+                <!-- Dots -->
+                <div id="slider-dots" class="absolute bottom-4 left-0 right-0 flex justify-center gap-2">
                     <!-- Dots injected via JS -->
                 </div>
             </div>
         </section>
 
-        <!-- Style A: Trending Scroller -->
-        <section class="max-w-7xl mx-auto px-4 mb-16">
-            <h2 class="text-xl md:text-2xl font-bold mb-6 flex items-center gap-2">
-                <i class="fa-solid fa-arrow-trend-up text-accent-cyan"></i> Trending Now
-            </h2>
-            <div class="relative -mx-4 px-4 sm:mx-0 sm:px-0">
-                <div id="trending-scroller" class="flex gap-4 overflow-x-auto hide-scrollbar snap-x snap-mandatory pb-4" role="list" aria-label="Trending Apps">
-                    <!-- Trending Cards injected via JS -->
+        <!-- Trending Scroller (Style A) -->
+        <section id="trending" class="max-w-[1600px] mx-auto pl-4 md:pl-6 mb-16 hidden">
+            <h3 class="text-xl md:text-2xl font-bold text-slate-900 dark:text-white flex items-center gap-2 mb-6">
+                <i class="fa-solid fa-chart-line text-brand-gold"></i> Trending Now
+            </h3>
+            <div class="relative">
+                <div id="trending-container" class="flex gap-4 overflow-x-auto hide-scrollbar snap-x-mandatory pb-4 pr-4 md:pr-6">
+                    <!-- Trending cards injected via JS -->
                 </div>
+                <!-- Gradient mask for edge -->
+                <div class="absolute right-0 top-0 bottom-4 w-12 bg-gradient-to-l from-surface-muted dark:from-surface-900 to-transparent pointer-events-none"></div>
             </div>
         </section>
 
-        <!-- Category & Filter System -->
-        <section id="apps" class="max-w-7xl mx-auto px-4 mb-8 sticky top-16 z-30 py-4 glass-panel -mx-4 px-4 sm:mx-0 sm:rounded-2xl transition-shadow shadow-sm">
-            <div class="flex flex-col md:flex-row md:items-center justify-between gap-4">
-                <div id="category-chips" class="flex gap-2 overflow-x-auto hide-scrollbar pb-1">
-                    <!-- Chips injected via JS -->
+        <!-- Dynamic Content Area (Filters, Grid, List) -->
+        <section id="directory" class="max-w-[1600px] mx-auto px-4 md:px-6 mb-16">
+            
+            <!-- Filter Bar -->
+            <div class="sticky top-16 z-30 bg-surface-muted/95 dark:bg-surface-900/95 backdrop-blur-sm py-4 mb-6 border-b border-slate-200 dark:border-slate-800 flex flex-col md:flex-row md:items-center justify-between gap-4">
+                <div class="flex items-center gap-2 overflow-x-auto hide-scrollbar pb-1" id="category-filters">
+                    <!-- Categories injected via JS -->
+                    <button class="filter-btn active px-4 py-2 rounded-full text-sm font-medium whitespace-nowrap bg-slate-900 dark:bg-white text-white dark:text-slate-900 transition-colors outline-none" data-category="All">All Apps</button>
                 </div>
-                <div class="flex items-center gap-2 flex-shrink-0">
-                    <span class="text-sm text-slate-500 font-medium"><i class="fa-solid fa-sort"></i> Sort:</span>
-                    <select id="sort-select" class="bg-slate-100 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 rounded-lg px-3 py-1.5 text-sm font-medium focus:outline-none focus:ring-2 focus:ring-accent-gold/50 cursor-pointer" aria-label="Sort apps">
+                <div class="flex items-center gap-3 shrink-0">
+                    <span class="text-sm text-slate-500 font-medium hidden md:block"><span id="result-count">0</span> results</span>
+                    <select id="sort-select" class="bg-white dark:bg-surface-800 border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-200 text-sm rounded-lg px-3 py-2 outline-none focus:border-brand-gold">
                         <option value="popular">Most Popular</option>
                         <option value="newest">Newest</option>
                         <option value="rating">Highest Rated</option>
@@ -313,903 +322,1219 @@
                     </select>
                 </div>
             </div>
-            <div id="search-feedback" class="hidden mt-4 text-sm font-medium text-accent-gold">
-                <!-- Search feedback text -->
-            </div>
-        </section>
 
-        <!-- Style C & D: Main App Grid / List -->
-        <section class="max-w-7xl mx-auto px-4 mb-16 min-h-[400px]">
-            <div class="flex justify-end mb-4 gap-2 hidden md:flex">
-                <button data-action="set-view" data-view="grid" class="w-8 h-8 rounded glass-panel flex items-center justify-center text-accent-gold transition-colors" aria-label="Grid view"><i class="fa-solid fa-border-all"></i></button>
-                <button data-action="set-view" data-view="list" class="w-8 h-8 rounded glass-panel flex items-center justify-center text-slate-400 hover:text-accent-gold transition-colors" aria-label="List view"><i class="fa-solid fa-list"></i></button>
+            <!-- Search Status (Hidden by default) -->
+            <div id="search-status" class="hidden mb-6 p-4 rounded-xl bg-brand-gold/10 border border-brand-gold/20 text-brand-gold font-medium flex items-center justify-between">
+                <span>Showing results for: <span id="search-term-display" class="font-bold text-slate-900 dark:text-white"></span></span>
+                <button id="clear-search-btn" class="text-sm underline hover:text-slate-900 dark:hover:text-white">Clear</button>
             </div>
-            
-            <div id="main-app-container" class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-3 md:gap-6" role="list">
-                <!-- Grid/List Cards injected via JS -->
+
+            <!-- Grid Layout (Style C) -->
+            <div id="app-grid" class="app-grid-layout">
+                <!-- Grid cards injected via JS -->
             </div>
-            
-            <div id="empty-state" class="hidden flex-col items-center justify-center py-20 text-center">
-                <div class="w-20 h-20 bg-slate-200 dark:bg-slate-800 rounded-full flex items-center justify-center mb-4">
+
+            <!-- List Layout for Search (Style D - Hidden by default) -->
+            <div id="app-list" class="hidden flex-col gap-4">
+                <!-- List cards injected via JS -->
+            </div>
+
+            <!-- Empty State -->
+            <div id="empty-state" class="hidden flex-col items-center justify-center py-16 text-center">
+                <div class="w-20 h-20 rounded-full bg-slate-100 dark:bg-surface-800 flex items-center justify-center mb-4">
                     <i class="fa-solid fa-ghost text-3xl text-slate-400"></i>
                 </div>
-                <h3 class="text-xl font-bold mb-2">No apps found</h3>
-                <p class="text-slate-500 max-w-sm">Try adjusting your filters or search terms to find what you're looking for.</p>
-                <button data-action="clear-filters" class="mt-4 text-accent-gold font-semibold hover:underline">Clear all filters</button>
+                <h4 class="text-lg font-bold text-slate-900 dark:text-white mb-2">No apps found</h4>
+                <p class="text-slate-500 dark:text-slate-400 text-sm max-w-sm">Try adjusting your filters or search term to find what you're looking for.</p>
+                <button id="reset-filters-btn" class="mt-4 px-6 py-2 bg-slate-200 dark:bg-slate-700 hover:bg-slate-300 dark:hover:bg-slate-600 text-slate-800 dark:text-slate-200 font-medium rounded-full transition-colors outline-none">
+                    Reset Filters
+                </button>
             </div>
         </section>
 
-        <!-- Recently Viewed / Favorites -->
-        <section class="max-w-7xl mx-auto px-4 mb-16 grid grid-cols-1 lg:grid-cols-2 gap-8">
+        <!-- Favorites & Recently Viewed -->
+        <section class="max-w-[1600px] mx-auto px-4 md:px-6 mb-16 grid grid-cols-1 md:grid-cols-2 gap-8">
+            <!-- Recently Viewed -->
             <div>
-                <h2 class="text-lg md:text-xl font-bold mb-4 flex items-center gap-2">
-                    <i class="fa-regular fa-clock text-slate-500"></i> Recently Viewed
-                </h2>
+                <h3 class="text-lg md:text-xl font-bold text-slate-900 dark:text-white flex items-center gap-2 mb-4">
+                    <i class="fa-solid fa-clock-rotate-left text-slate-400"></i> Recently Viewed
+                </h3>
                 <div id="recent-container" class="flex flex-col gap-3">
-                    <div class="text-sm text-slate-500 glass-panel p-4 rounded-xl text-center">Apps you open will appear here.</div>
+                    <div class="text-sm text-slate-500 py-4 italic">Apps you view will appear here.</div>
                 </div>
             </div>
+            
+            <!-- Favorites -->
             <div>
-                <h2 class="text-lg md:text-xl font-bold mb-4 flex items-center gap-2">
-                    <i class="fa-solid fa-heart text-accent-red"></i> Favorites
-                </h2>
+                <h3 class="text-lg md:text-xl font-bold text-slate-900 dark:text-white flex items-center gap-2 mb-4">
+                    <i class="fa-solid fa-heart text-brand-red"></i> Your Favorites
+                </h3>
                 <div id="favorites-container" class="flex flex-col gap-3">
-                    <div class="text-sm text-slate-500 glass-panel p-4 rounded-xl text-center">Your favorite apps will appear here.</div>
+                    <div class="text-sm text-slate-500 py-4 italic">Your favorite apps will appear here.</div>
                 </div>
             </div>
         </section>
 
         <!-- FAQ Section -->
-        <section id="faq" class="max-w-3xl mx-auto px-4 mb-16">
-            <h2 class="text-2xl font-bold text-center mb-8">Frequently Asked Questions</h2>
-            <div class="space-y-3" id="faq-accordion">
-                <!-- Injected via JS -->
+        <section id="faq" class="max-w-[1600px] mx-auto px-4 md:px-6 mb-16">
+            <h3 class="text-xl md:text-2xl font-bold text-slate-900 dark:text-white mb-6 text-center">Frequently Asked Questions</h3>
+            <div class="max-w-3xl mx-auto flex flex-col gap-3" id="faq-container">
+                <!-- FAQs injected via JS -->
             </div>
         </section>
 
-        <!-- Responsible Notice -->
-        <section class="max-w-4xl mx-auto px-4 mb-8">
-            <div class="border border-slate-300 dark:border-slate-700 bg-slate-100 dark:bg-slate-800/50 rounded-2xl p-6 text-sm text-slate-600 dark:text-slate-400 text-center">
-                <i class="fa-solid fa-shield-halved text-2xl mb-2 text-slate-400"></i>
-                <h3 class="font-bold text-slate-800 dark:text-slate-200 mb-2">Responsible Use Notice</h3>
-                <p class="mb-2">Yono VIP Hub is an independent directory and information platform. We do not host APK files on our servers and are not affiliated with the developers of the listed applications.</p>
-                <p>Ensure you understand the risks associated with third-party applications. If an app involves real-money gaming, please participate responsibly, understand that financial risk is involved, and strictly adhere to your local laws and age restrictions. Never play beyond your means.</p>
+        <!-- Responsible Gaming Notice -->
+        <section id="notice" class="max-w-[1600px] mx-auto px-4 md:px-6 mb-8 md:mb-16">
+            <div class="p-4 md:p-6 rounded-2xl bg-slate-100 dark:bg-surface-800 border border-slate-200 dark:border-slate-700 text-sm text-slate-600 dark:text-slate-400 text-center shadow-sm">
+                <i class="fa-solid fa-circle-info text-brand-cyan mb-2 text-xl"></i>
+                <h4 class="font-bold text-slate-800 dark:text-slate-200 mb-2">Responsible Information Notice</h4>
+                <p class="max-w-4xl mx-auto leading-relaxed">
+                    Yono VIP Hub is a directory and information platform. We do not host APK files directly and act only as a listing aggregator. 
+                    If any listed applications involve real-money gaming, please understand that such activities involve financial risk and may be addictive. 
+                    Always verify local laws and age restrictions in your jurisdiction before participating. Play responsibly and never spend beyond your means.
+                </p>
             </div>
         </section>
 
     </main>
 
     <!-- Footer -->
-    <footer class="bg-slate-900 border-t border-slate-800 text-slate-400 py-12 md:pb-12 pb-24">
-        <div class="max-w-7xl mx-auto px-4 grid grid-cols-1 md:grid-cols-4 gap-8">
-            <div class="col-span-1 md:col-span-2">
-                <a href="#home" class="flex items-center gap-2 mb-4">
-                    <div class="w-8 h-8 rounded-lg bg-gradient-to-br from-accent-gold to-accent-red flex items-center justify-center text-white font-bold">Y</div>
-                    <span class="font-bold text-lg text-white tracking-tight">Yono VIP Hub</span>
-                </a>
-                <p class="text-sm mb-4 max-w-sm">The ultimate premium directory for finding verified applications safely and quickly. Designed for the modern digital marketplace.</p>
-                <div class="flex gap-4">
-                    <a href="#telegram" data-dynamic-href="telegramUrl" target="_blank" aria-label="Telegram" class="w-10 h-10 rounded-full bg-slate-800 flex items-center justify-center hover:bg-[#0088cc] hover:text-white transition-colors"><i class="fa-brands fa-telegram"></i></a>
-                    <a href="#whatsapp" data-dynamic-href="whatsappUrl" target="_blank" aria-label="WhatsApp" class="w-10 h-10 rounded-full bg-slate-800 flex items-center justify-center hover:bg-[#25D366] hover:text-white transition-colors"><i class="fa-brands fa-whatsapp"></i></a>
+    <footer class="bg-white dark:bg-surface-800 border-t border-slate-200 dark:border-slate-700 pt-12 pb-24 md:pb-12">
+        <div class="max-w-[1600px] mx-auto px-4 md:px-6">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+                <div class="md:col-span-1">
+                    <div class="flex items-center gap-2 mb-4">
+                        <div class="w-8 h-8 rounded-lg bg-gradient-to-tr from-brand-red to-brand-gold flex items-center justify-center text-white font-bold text-sm">Y</div>
+                        <span class="font-bold text-lg text-slate-900 dark:text-white">Yono VIP Hub</span>
+                    </div>
+                    <p class="text-sm text-slate-500 dark:text-slate-400 mb-4">
+                        The ultimate premium directory for discovering organized, verified, and high-quality applications.
+                    </p>
+                </div>
+                <div>
+                    <h4 class="font-bold text-slate-900 dark:text-white mb-4">Navigation</h4>
+                    <ul class="flex flex-col gap-2 text-sm text-slate-500 dark:text-slate-400">
+                        <li><a href="#home" class="hover:text-brand-gold transition-colors">Home</a></li>
+                        <li><a href="#apps" class="hover:text-brand-gold transition-colors">Apps</a></li>
+                        <li><a href="#categories" class="hover:text-brand-gold transition-colors">Categories</a></li>
+                        <li><a href="#faq" class="hover:text-brand-gold transition-colors">FAQ</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-bold text-slate-900 dark:text-white mb-4">Community</h4>
+                    <ul class="flex flex-col gap-2 text-sm text-slate-500 dark:text-slate-400" id="footer-social-links">
+                        <!-- Links injected via SITE_CONFIG -->
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-bold text-slate-900 dark:text-white mb-4">Legal</h4>
+                    <ul class="flex flex-col gap-2 text-sm text-slate-500 dark:text-slate-400" id="footer-legal-links">
+                        <!-- Links injected via SITE_CONFIG -->
+                    </ul>
                 </div>
             </div>
-            <div>
-                <h4 class="text-white font-bold mb-4">Navigation</h4>
-                <ul class="space-y-2 text-sm">
-                    <li><a href="#home" class="hover:text-accent-gold transition-colors">Home</a></li>
-                    <li><a href="#apps" class="hover:text-accent-gold transition-colors">Directory</a></li>
-                    <li><a href="#faq" class="hover:text-accent-gold transition-colors">FAQ</a></li>
-                    <li><a href="#support" data-dynamic-href="supportUrl" target="_blank" class="hover:text-accent-gold transition-colors">Support</a></li>
-                </ul>
+            <div class="pt-8 border-t border-slate-200 dark:border-slate-700 text-center flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-slate-500">
+                <p>&copy; <span id="current-year">2026</span> <span id="footer-site-name">Yono VIP Hub</span>. All rights reserved.</p>
+                <div class="flex gap-4">
+                    <span>Designed for Mobile & Desktop</span>
+                </div>
             </div>
-            <div>
-                <h4 class="text-white font-bold mb-4">Legal</h4>
-                <ul class="space-y-2 text-sm">
-                    <li><a href="#privacy" data-dynamic-href="privacyUrl" class="hover:text-accent-gold transition-colors">Privacy Policy</a></li>
-                    <li><a href="#terms" data-dynamic-href="termsUrl" class="hover:text-accent-gold transition-colors">Terms of Service</a></li>
-                    <li><a href="#disclaimer" data-dynamic-href="disclaimerUrl" class="hover:text-accent-gold transition-colors">Disclaimer</a></li>
-                </ul>
-            </div>
-        </div>
-        <div class="max-w-7xl mx-auto px-4 mt-8 pt-8 border-t border-slate-800 text-xs text-center">
-            &copy; 2026 Yono VIP Hub. All rights reserved.
         </div>
     </footer>
 
     <!-- Mobile Bottom Navigation -->
-    <nav class="md:hidden fixed bottom-0 w-full glass-panel border-t border-slate-200 dark:border-slate-800 z-40 pb-safe">
-        <ul class="flex justify-around items-center h-16 px-2">
-            <li><a href="#home" class="nav-btn flex flex-col items-center gap-1 p-2 text-slate-500 hover:text-accent-gold dark:hover:text-accent-gold active-nav"><i class="fa-solid fa-house text-lg"></i><span class="text-[10px] font-medium">Home</span></a></li>
-            <li><a href="#apps" class="nav-btn flex flex-col items-center gap-1 p-2 text-slate-500 hover:text-accent-gold dark:hover:text-accent-gold"><i class="fa-solid fa-table-cells-large text-lg"></i><span class="text-[10px] font-medium">Apps</span></a></li>
-            <li><button data-action="focus-search" class="nav-btn flex flex-col items-center gap-1 p-2 text-slate-500 hover:text-accent-gold dark:hover:text-accent-gold"><i class="fa-solid fa-magnifying-glass text-lg"></i><span class="text-[10px] font-medium">Search</span></button></li>
-            <li><a href="#telegram" data-dynamic-href="telegramUrl" target="_blank" class="nav-btn flex flex-col items-center gap-1 p-2 text-slate-500 hover:text-[#0088cc]"><i class="fa-brands fa-telegram text-lg"></i><span class="text-[10px] font-medium">Community</span></a></li>
-        </ul>
+    <nav class="md:hidden fixed bottom-0 left-0 right-0 z-40 bg-white dark:bg-surface-800 border-t border-slate-200 dark:border-slate-700 safe-area-bottom px-2 py-2 flex items-center justify-around shadow-[0_-4px_10px_rgba(0,0,0,0.05)] dark:shadow-[0_-4px_10px_rgba(0,0,0,0.2)]">
+        <a href="#home" class="mobile-nav-item flex flex-col items-center justify-center p-2 w-16 text-slate-400 hover:text-slate-900 dark:hover:text-white transition-colors">
+            <i class="fa-solid fa-house mb-1 text-lg"></i>
+            <span class="text-[10px] font-medium">Home</span>
+        </a>
+        <a href="#apps" class="mobile-nav-item flex flex-col items-center justify-center p-2 w-16 text-slate-400 hover:text-slate-900 dark:hover:text-white transition-colors">
+            <i class="fa-solid fa-grid-2 mb-1 text-lg"></i>
+            <span class="text-[10px] font-medium">Apps</span>
+        </a>
+        <button id="mobile-search-nav" class="flex flex-col items-center justify-center p-2 w-16 text-slate-400 hover:text-slate-900 dark:hover:text-white transition-colors outline-none">
+            <i class="fa-solid fa-magnifying-glass mb-1 text-lg"></i>
+            <span class="text-[10px] font-medium">Search</span>
+        </button>
+        <button id="mobile-more-nav" class="flex flex-col items-center justify-center p-2 w-16 text-slate-400 hover:text-slate-900 dark:hover:text-white transition-colors outline-none">
+            <i class="fa-solid fa-bars mb-1 text-lg"></i>
+            <span class="text-[10px] font-medium">More</span>
+        </button>
     </nav>
 
-    <!-- Floating Actions (Desktop) -->
-    <div id="floating-actions" class="fixed bottom-6 right-6 z-30 hidden md:flex flex-col gap-3">
-        <!-- Injected via JS -->
+    <!-- Mobile "More" Drawer -->
+    <div id="mobile-drawer" class="fixed inset-0 z-50 bg-black/60 backdrop-blur-sm hidden flex-col justify-end">
+        <div class="bg-white dark:bg-surface-800 rounded-t-2xl p-6 w-full animate-slide-up transform transition-transform">
+            <div class="flex justify-between items-center mb-6">
+                <h3 class="font-bold text-lg text-slate-900 dark:text-white">Menu</h3>
+                <button id="close-drawer" class="w-8 h-8 rounded-full bg-slate-100 dark:bg-surface-700 flex items-center justify-center text-slate-600 dark:text-slate-300 outline-none">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+            <div class="flex flex-col gap-2">
+                <a href="#categories" class="drawer-link p-3 rounded-xl bg-slate-50 dark:bg-surface-700 text-slate-800 dark:text-slate-200 font-medium flex items-center gap-3">
+                    <i class="fa-solid fa-layer-group w-5 text-center text-brand-gold"></i> Categories
+                </a>
+                <a href="#faq" class="drawer-link p-3 rounded-xl bg-slate-50 dark:bg-surface-700 text-slate-800 dark:text-slate-200 font-medium flex items-center gap-3">
+                    <i class="fa-solid fa-circle-question w-5 text-center text-brand-cyan"></i> FAQ
+                </a>
+                <button id="drawer-theme-toggle" class="p-3 rounded-xl bg-slate-50 dark:bg-surface-700 text-slate-800 dark:text-slate-200 font-medium flex items-center gap-3 text-left outline-none">
+                    <i class="fa-solid fa-moon dark:hidden w-5 text-center"></i>
+                    <i class="fa-solid fa-sun hidden dark:block w-5 text-center text-brand-gold"></i>
+                    <span class="dark:hidden">Dark Mode</span>
+                    <span class="hidden dark:block">Light Mode</span>
+                </button>
+                <div class="h-px bg-slate-200 dark:bg-slate-700 my-2"></div>
+                <div id="drawer-social-links" class="flex flex-col gap-2">
+                    <!-- Drawer Links injected via SITE_CONFIG -->
+                </div>
+            </div>
+        </div>
     </div>
 
     <!-- App Details Modal -->
-    <div id="app-modal" class="fixed inset-0 z-50 hidden" role="dialog" aria-modal="true" aria-labelledby="modal-title">
-        <div class="absolute inset-0 bg-slate-900/80 backdrop-blur-sm modal-backdrop transition-opacity opacity-0"></div>
-        <div class="absolute inset-0 flex items-center justify-center p-4 pointer-events-none">
-            <div class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 w-full max-w-md rounded-3xl shadow-2xl overflow-hidden pointer-events-auto transform scale-95 opacity-0 transition-all modal-content flex flex-col max-h-[90vh]">
+    <div id="app-modal" class="fixed inset-0 z-[60] bg-black/70 backdrop-blur-md hidden flex-col items-center justify-center p-4 md:p-6 opacity-0 transition-opacity duration-300">
+        <div class="bg-white dark:bg-surface-800 w-full max-w-2xl rounded-2xl md:rounded-3xl shadow-2xl overflow-hidden relative flex flex-col max-h-[90vh] scale-95 transition-transform duration-300" id="app-modal-content">
+            
+            <!-- Close Button -->
+            <button id="modal-close" class="absolute top-4 right-4 w-8 h-8 rounded-full bg-slate-100 dark:bg-slate-700 flex items-center justify-center text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-600 transition-colors z-10 outline-none focus-visible:ring-2 focus-visible:ring-brand-gold">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+
+            <div class="overflow-y-auto hide-scrollbar flex-1 relative">
+                <!-- Header Banner -->
+                <div class="h-32 md:h-40 bg-gradient-to-br from-slate-800 to-slate-900 relative">
+                    <div class="absolute inset-0 opacity-20 mix-blend-overlay bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0IiBoZWlnaHQ9IjQiPgo8cmVjdCB3aWR0aD0iNCIgaGVpZ2h0PSI0IiBmaWxsPSIjZmZmIiBmaWxsLW9wYWNpdHk9IjAuMDUiLz4KPC9zdmc+')]"></div>
+                </div>
                 
-                <!-- Modal Header -->
-                <div class="relative h-32 bg-slate-100 dark:bg-slate-800 shrink-0">
-                    <button data-action="close-modal" class="absolute top-4 right-4 w-8 h-8 bg-black/20 hover:bg-black/40 text-white rounded-full flex items-center justify-center backdrop-blur z-10 transition-colors" aria-label="Close modal">
-                        <i class="fa-solid fa-times"></i>
-                    </button>
-                    <!-- Background blur artwork -->
-                    <div id="modal-bg" class="absolute inset-0 bg-cover bg-center opacity-30 blur-md"></div>
-                </div> 
-
-                <!-- Modal Body (Scrollable) -->
-                <div class="px-6 pb-6 pt-0 relative flex-1 overflow-y-auto hide-scrollbar">
-                    <div class="flex justify-between items-end -mt-12 mb-4 relative z-20">
-                        <img id="modal-icon" src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" alt="App Icon" class="w-24 h-24 rounded-2xl shadow-lg border-4 border-white dark:border-slate-900 bg-white dark:bg-slate-800 object-cover">
-                        <div class="flex gap-2">
-                            <button id="modal-fav-btn" data-action="toggle-fav" class="w-10 h-10 rounded-full border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 flex items-center justify-center text-slate-400 hover:text-accent-red transition-colors shadow-sm">
-                                <i class="fa-regular fa-heart text-lg"></i>
-                            </button>
-                            <button data-action="share" class="w-10 h-10 rounded-full border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 flex items-center justify-center text-slate-600 dark:text-slate-300 hover:text-accent-gold transition-colors shadow-sm">
-                                <i class="fa-solid fa-share-nodes text-lg"></i>
-                            </button>
+                <!-- Content Body -->
+                <div class="px-6 pb-6 pt-0 relative -mt-12 md:-mt-16">
+                    <div class="flex flex-col md:flex-row gap-5 md:gap-6 items-start">
+                        <!-- Icon -->
+                        <div class="w-24 h-24 md:w-32 md:h-32 rounded-2xl bg-white dark:bg-surface-700 p-1 shadow-lg shrink-0">
+                            <img id="modal-icon" src="" alt="App Icon" class="w-full h-full object-cover rounded-xl bg-slate-200 dark:bg-slate-800" onerror="handleImageError(this)">
                         </div>
-                    </div>
-
-                    <div class="mb-4">
-                        <div class="flex items-center gap-2 mb-1">
-                            <h2 id="modal-title" class="text-2xl font-bold text-slate-900 dark:text-white tracking-tight">App Name</h2>
-                            <span id="modal-verified" class="hidden text-accent-emerald text-sm" title="Verified Listing"><i class="fa-solid fa-circle-check"></i></span>
-                        </div>
-                        <div class="text-sm text-slate-500 font-medium" id="modal-developer">Yono VIP Hub Directory</div>
-                    </div>
-
-                    <div class="flex items-center gap-4 mb-6 text-sm divide-x divide-slate-200 dark:divide-slate-700">
-                        <div class="flex items-center gap-1 font-bold text-slate-700 dark:text-slate-300">
-                            <span id="modal-rating">4.8</span> <i class="fa-solid fa-star text-accent-gold text-xs"></i>
-                        </div>
-                        <div class="pl-4 text-slate-600 dark:text-slate-400"><span id="modal-downloads" class="font-bold text-slate-700 dark:text-slate-300">1M+</span> DLs</div>
-                        <div class="pl-4 text-slate-600 dark:text-slate-400"><span id="modal-size" class="font-bold text-slate-700 dark:text-slate-300">45MB</span></div>
-                    </div>
-
-                    <div id="modal-bonus-container" class="hidden mb-6 p-3 rounded-xl bg-accent-gold/10 border border-accent-gold/20 flex items-center justify-between">
-                        <div class="flex items-center gap-2 text-accent-gold font-bold">
-                            <i class="fa-solid fa-gift"></i> Sign-up Bonus
-                        </div>
-                        <div id="modal-bonus-val" class="font-extrabold text-lg text-accent-gold">₹0</div>
-                    </div>
-
-                    <div class="mb-6">
-                        <h3 class="font-bold mb-2 text-slate-900 dark:text-white">About this app</h3>
-                        <p id="modal-desc" class="text-sm text-slate-600 dark:text-slate-400 leading-relaxed"></p>
-                    </div>
-
-                    <div id="modal-tags" class="flex flex-wrap gap-2 mb-6">
-                        <!-- Tags injected -->
-                    </div>
-
-                    <div class="text-xs text-slate-500 mb-6 flex justify-between">
-                        <span>Version: <span id="modal-version">v1.0</span></span>
-                        <span>Updated: <span id="modal-updated">Just now</span></span>
-                    </div>
-                </div>
-
-                <!-- Modal Footer (Fixed) -->
-                <div class="p-4 border-t border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800/90 backdrop-blur shrink-0">
-                    <button id="modal-download-btn" data-action="download" class="w-full py-4 rounded-xl bg-accent-emerald hover:bg-emerald-600 text-white font-bold text-lg shadow-glow-emerald transition-all flex items-center justify-center gap-2">
-                        <i class="fa-solid fa-download"></i> Get Application
-                    </button>
-                    <p class="text-[10px] text-center text-slate-500 mt-3 px-4">
-                        Download links are provided for directory purposes. Always review the source before installing.
-                    </p>
-                </div>
-
-            </div>
-        </div>
-    </div>
-
-    <!-- Toast Container -->
-    <div id="toast-container" class="fixed top-20 right-4 md:bottom-6 md:top-auto md:right-6 z-50 flex flex-col gap-2 pointer-events-none" aria-live="polite"></div>
-
-    <!-- Welcome Popup -->
-    <div id="welcome-popup" class="fixed inset-0 z-50 hidden items-center justify-center p-4">
-        <div class="absolute inset-0 bg-slate-900/60 backdrop-blur-sm popup-backdrop"></div>
-        <div class="relative bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 w-full max-w-sm rounded-3xl shadow-2xl p-6 text-center popup-content z-10 scale-95 opacity-0 transition-all">
-            <button data-action="close-popup" class="absolute top-4 right-4 text-slate-400 hover:text-slate-700 dark:hover:text-white transition-colors" aria-label="Close message"><i class="fa-solid fa-times"></i></button>
-            <div class="w-16 h-16 mx-auto rounded-2xl bg-gradient-to-br from-accent-gold to-accent-red flex items-center justify-center text-white font-bold text-2xl mb-4 shadow-glow-gold">Y</div>
-            <h3 class="text-xl font-bold mb-2">Welcome to Yono VIP Hub</h3>
-            <p class="text-sm text-slate-600 dark:text-slate-400 mb-6">Join our official channels to get the fastest updates on new premium listings and exclusive features.</p>
-            <div class="flex flex-col gap-3">
-                <a href="#telegram" data-dynamic-href="telegramUrl" target="_blank" class="w-full py-3 rounded-xl bg-[#0088cc] hover:bg-[#0077b3] text-white font-semibold transition-colors flex items-center justify-center gap-2">
-                    <i class="fa-brands fa-telegram text-lg"></i> Join Telegram
-                </a>
-                <button data-action="close-popup" class="text-sm text-slate-500 font-medium hover:underline">Maybe later</button>
-            </div>
-        </div>
-    </div>
-
-    <!-- ========================================== -->
-    <!-- JAVASCRIPT ENGINE                          -->
-    <!-- ========================================== -->
-    <script>
-        "use strict";
-
-        // --- SITE CONFIG ---
-        const SITE_CONFIG = {
-            siteName: "Yono VIP Hub",
-            telegramUrl: "https://t.me/yonoviphub_official",
-            whatsappUrl: "https://whatsapp.com/channel/yonoviphub",
-            supportUrl: "https://t.me/yonoviphub_support",
-            shareUrl: "https://yonoviphub.com",
-            privacyUrl: "https://yonoviphub.com/privacy",
-            termsUrl: "https://yonoviphub.com/terms",
-            disclaimerUrl: "https://yonoviphub.com/disclaimer",
-            floatingActions: [
-                { id: 'tg', icon: 'fa-brands fa-telegram', urlKey: 'telegramUrl', color: '#0088cc', label: 'Telegram' },
-                { id: 'wa', icon: 'fa-brands fa-whatsapp', urlKey: 'whatsappUrl', color: '#25D366', label: 'WhatsApp' },
-                { id: 'share', icon: 'fa-solid fa-share-nodes', action: 'share', color: '#f59e0b', label: 'Share' }
-            ],
-            faqs: [
-                { q: "Is Yono VIP Hub safe?", a: "We act as a directory providing information and structured links to verified third-party applications. Always review app permissions before installing." },
-                { q: "How often are links updated?", a: "Our system is updated daily. Check the 'Updated' badge on listings to see the latest version information." },
-                { q: "What does the 'Verified' badge mean?", a: "It indicates that the app link has been tested and points to a confirmed source, not a fake or phishing site." },
-                { q: "How do I claim bonuses?", a: "Bonuses are provided directly by the app operators. Download the app, register a new account, and follow their specific in-app instructions." }
-            ]
-        };
-
-        // --- APP DATA ---
-        const RAW_DATA = [
-            { id: 'app1', name: 'Yono VIP Plus', icon: 'https://placehold.co/128/1e293b/f59e0b?text=YV', category: 'Yono', categories: ['Yono', 'Bonus'], rating: 4.9, downloads: '2.5M+', size: '48 MB', version: 'v3.2.0', bonus: true, bonusValue: '₹500', description: 'The premier Yono experience with exclusive VIP tables and lightning-fast withdrawals.', tags: ['VIP', 'Card', 'Multiplayer'], verified: true, featured: true, isNew: false, apkUrl: 'https://example.com/download/app1', updatedAt: '2026-08-21' },
-            { id: 'app2', name: 'Rummy Master Pro', icon: 'https://placehold.co/128/7f1d1d/ffffff?text=RM', category: 'Rummy', categories: ['Rummy', 'Withdraw'], rating: 4.7, downloads: '1.8M+', size: '35 MB', version: 'v1.5.4', bonus: true, bonusValue: '₹100', description: 'Classic rummy redefined. Smooth UI, instant matchmaking, and 24/7 support.', tags: ['Classic', 'Instant'], verified: true, featured: false, isNew: true, apkUrl: 'https://example.com/download/app2', updatedAt: '2026-08-22' },
-            { id: 'app3', name: 'Slots Wealth', icon: 'https://placehold.co/128/14532d/ffffff?text=SW', category: 'Bonus', categories: ['Bonus', 'New'], rating: 4.5, downloads: '800K+', size: '60 MB', version: 'v2.0.1', bonus: true, bonusValue: '₹1000', description: 'A massive collection of modern slot experiences with daily spin bonuses.', tags: ['Slots', 'Daily'], verified: false, featured: true, isNew: true, apkUrl: 'https://example.com/download/app3', updatedAt: '2026-08-20' },
-            { id: 'app4', name: 'Yono Tools HD', icon: 'https://placehold.co/128/312e81/ffffff?text=YT', category: 'Tools', categories: ['Tools'], rating: 4.2, downloads: '500K+', size: '15 MB', version: 'v1.1.0', bonus: false, bonusValue: '', description: 'Utility application for tracking statistics and managing multiple accounts safely.', tags: ['Utility', 'Tracker'], verified: true, featured: false, isNew: false, apkUrl: 'https://example.com/download/app4', updatedAt: '2026-08-15' },
-            { id: 'app5', name: 'Teen Patti Gold', icon: 'https://placehold.co/128/9a3412/ffffff?text=TP', category: 'Rummy', categories: ['Rummy', 'Bonus'], rating: 4.8, downloads: '5M+', size: '55 MB', version: 'v4.1.2', bonus: true, bonusValue: '₹200', description: 'The golden standard of Teen Patti. Join millions of players online.', tags: ['Teen Patti', 'Social'], verified: true, featured: true, isNew: false, apkUrl: 'https://example.com/download/app5', updatedAt: '2026-08-19' },
-            { id: 'app6', name: 'Cash Rush', icon: 'https://placehold.co/128/064e3b/ffffff?text=CR', category: 'Withdraw', categories: ['Withdraw', 'New'], rating: 4.6, downloads: '300K+', size: '42 MB', version: 'v1.0.5', bonus: true, bonusValue: '₹50', description: 'Focuses entirely on instant UPI withdrawals and fast-paced micro games.', tags: ['Fast', 'UPI'], verified: true, featured: false, isNew: true, apkUrl: 'https://example.com/download/app6', updatedAt: '2026-08-22' },
-            { id: 'app7', name: 'Yono Classic', icon: 'https://placehold.co/128/1e293b/ffffff?text=YC', category: 'Yono', categories: ['Yono'], rating: 4.4, downloads: '1M+', size: '38 MB', version: 'v2.8.0', bonus: false, bonusValue: '', description: 'The original platform. Stable, reliable, and uses very little data.', tags: ['Classic', 'Lite'], verified: true, featured: false, isNew: false, apkUrl: 'https://example.com/download/app7', updatedAt: '2026-07-30' },
-            { id: 'app8', name: 'Bonus Hunter', icon: 'https://placehold.co/128/831843/f59e0b?text=BH', category: 'Bonus', categories: ['Bonus', 'Tools'], rating: 4.1, downloads: '150K+', size: '20 MB', version: 'v1.0.1', bonus: false, bonusValue: '', description: 'An aggregator tool that notifies you when new sign-up bonuses go live.', tags: ['Aggregator', 'Alerts'], verified: false, featured: false, isNew: true, apkUrl: 'https://example.com/download/app8', updatedAt: '2026-08-21' }
-        ];
-
-        const CATEGORIES = ['All', 'Yono', 'Rummy', 'Bonus', 'Withdraw', 'New', 'Tools'];
-
-        // --- STATE ---
-        const STATE = {
-            apps: RAW_DATA,
-            favorites: JSON.parse(localStorage.getItem('yono_favs')) || [],
-            recent: JSON.parse(localStorage.getItem('yono_recent')) || [],
-            currentCategory: 'All',
-            searchQuery: '',
-            sortBy: 'popular', // popular, newest, rating, bonus
-            viewMode: 'grid' // grid, list
-        };
-
-        // --- UTILS ---
-        const $ = (selector) => document.querySelector(selector);
-        const $$ = (selector) => document.querySelectorAll(selector);
-        
-        const isSafeUrl = (url) => {
-            try { const u = new URL(url); return u.protocol === 'https:' || u.protocol === 'http:'; }
-            catch(e) { return false; }
-        };
-
-        const numVal = (str) => {
-            if(typeof str === 'number') return str;
-            let n = parseFloat(str.replace(/[^0-9.]/g, ''));
-            if(str.includes('M')) n *= 1000000;
-            if(str.includes('K')) n *= 1000;
-            return isNaN(n) ? 0 : n;
-        };
-
-        const getApp = (id) => STATE.apps.find(a => a.id === id);
-
-        // --- IMAGE FALLBACK ENGINE ---
-        const handleImageError = (img) => {
-            if(!img.dataset.failed) {
-                img.dataset.failed = "true";
-                img.src = 'data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect width="100" height="100" fill="%23334155"/><text x="50" y="55" font-family="sans-serif" font-size="20" font-weight="bold" fill="%2394a3b8" text-anchor="middle">APP</text></svg>';
-                img.classList.remove('img-loading');
-            }
-        };
-
-        // --- HTML GENERATORS ---
-        const getStarHtml = (rating) => `<i class="fa-solid fa-star text-accent-gold text-[10px] md:text-xs"></i> <span class="text-xs md:text-sm font-bold text-slate-700 dark:text-slate-200">${rating}</span>`;
-        const getBonusHtml = (val) => val ? `<span class="bg-accent-gold/10 text-accent-gold border border-accent-gold/20 text-[10px] font-bold px-1.5 py-0.5 rounded">${val}</span>` : '';
-        const getVerifiedHtml = (v) => v ? `<i class="fa-solid fa-circle-check text-accent-emerald text-xs ml-1" title="Verified"></i>` : '';
-
-        // Style A: Trending Card
-        const createTrendingCard = (app) => `
-            <div data-app-id="${app.id}" data-action="open-modal" class="card-hover-effect flex-shrink-0 w-[240px] glass-panel rounded-2xl p-4 cursor-pointer snap-center group relative overflow-hidden">
-                ${app.isNew ? `<div class="absolute top-0 right-0 bg-accent-red text-white text-[9px] font-bold px-2 py-0.5 rounded-bl-lg z-10">NEW</div>` : ''}
-                <div class="flex items-center gap-3 mb-3 relative z-10">
-                    <img src="${app.icon}" alt="${app.name}" class="w-12 h-12 rounded-xl object-cover shadow-sm bg-slate-800 img-loading" onload="this.classList.remove('img-loading')" onerror="handleImageError(this)">
-                    <div class="flex-1 min-w-0">
-                        <h3 class="font-bold text-sm truncate text-slate-900 dark:text-white">${app.name}${getVerifiedHtml(app.verified)}</h3>
-                        <div class="text-xs text-slate-500 truncate">${app.downloads} DLs</div>
-                    </div>
-                </div>
-                <div class="flex items-center justify-between relative z-10">
-                    <div class="flex items-center gap-1">${getStarHtml(app.rating)}</div>
-                    ${getBonusHtml(app.bonusValue)}
-                </div>
-            </div>
-        `;
-
-        // Style B: Featured Slide
-        const createFeaturedSlide = (app) => `
-            <div data-app-id="${app.id}" data-action="open-modal" class="w-full h-full flex-shrink-0 relative cursor-pointer group">
-                <div class="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/60 to-transparent z-10"></div>
-                <div class="absolute inset-0 opacity-40 group-hover:opacity-60 transition-opacity blur-sm scale-110">
-                    <img src="${app.icon}" class="w-full h-full object-cover">
-                </div>
-                <div class="absolute bottom-0 left-0 w-full p-6 md:p-8 z-20 flex items-end justify-between gap-4">
-                    <div class="flex items-center gap-4">
-                        <img src="${app.icon}" alt="${app.name}" class="w-16 h-16 md:w-20 md:h-20 rounded-2xl shadow-xl border-2 border-white/10 img-loading" onload="this.classList.remove('img-loading')" onerror="handleImageError(this)">
-                        <div>
-                            <div class="inline-block px-2 py-0.5 rounded bg-white/20 backdrop-blur text-[10px] font-bold text-white uppercase tracking-wider mb-1">${app.category}</div>
-                            <h3 class="text-2xl md:text-3xl font-extrabold text-white mb-1 drop-shadow-md">${app.name}${getVerifiedHtml(app.verified)}</h3>
-                            <div class="flex items-center gap-3 text-sm text-slate-300">
-                                <span class="flex items-center gap-1 text-accent-gold"><i class="fa-solid fa-star"></i> ${app.rating}</span>
-                                <span>${app.downloads}</span>
+                        
+                        <!-- Title & Meta -->
+                        <div class="flex-1 pt-2 md:pt-16 w-full">
+                            <div class="flex items-start justify-between gap-4">
+                                <div>
+                                    <h2 id="modal-name" class="text-2xl md:text-3xl font-bold text-slate-900 dark:text-white leading-tight mb-1">App Name</h2>
+                                    <p id="modal-developer" class="text-brand-gold font-medium text-sm md:text-base">Verified Publisher</p>
+                                </div>
+                                <button id="modal-fav-btn" class="w-10 h-10 rounded-full bg-slate-100 dark:bg-surface-700 flex items-center justify-center text-slate-400 hover:text-brand-red transition-colors outline-none" data-app-id="">
+                                    <i class="fa-regular fa-heart text-xl"></i>
+                                </button>
+                            </div>
+                            
+                            <!-- Badges -->
+                            <div class="flex flex-wrap gap-2 mt-4" id="modal-badges">
+                                <!-- Badges injected -->
                             </div>
                         </div>
                     </div>
-                    <button class="hidden md:flex bg-accent-emerald hover:bg-emerald-600 text-white px-6 py-2.5 rounded-full font-bold shadow-glow-emerald transition-all items-center gap-2">
-                        Get App <i class="fa-solid fa-download"></i>
+
+                    <!-- Stats Row -->
+                    <div class="grid grid-cols-4 gap-2 md:gap-4 my-6 py-4 border-y border-slate-200 dark:border-slate-700 text-center divide-x divide-slate-200 dark:divide-slate-700">
+                        <div>
+                            <div class="text-sm font-bold text-slate-900 dark:text-white flex items-center justify-center gap-1"><span id="modal-rating">0</span> <i class="fa-solid fa-star text-brand-gold text-[10px]"></i></div>
+                            <div class="text-[10px] md:text-xs text-slate-500">Rating</div>
+                        </div>
+                        <div>
+                            <div class="text-sm font-bold text-slate-900 dark:text-white" id="modal-downloads">0</div>
+                            <div class="text-[10px] md:text-xs text-slate-500">Downloads</div>
+                        </div>
+                        <div>
+                            <div class="text-sm font-bold text-slate-900 dark:text-white" id="modal-size">0MB</div>
+                            <div class="text-[10px] md:text-xs text-slate-500">Size</div>
+                        </div>
+                        <div>
+                            <div class="text-sm font-bold text-slate-900 dark:text-white truncate px-1" id="modal-version">v1.0</div>
+                            <div class="text-[10px] md:text-xs text-slate-500">Version</div>
+                        </div>
+                    </div>
+
+                    <!-- Description -->
+                    <div class="mb-6">
+                        <h3 class="text-sm font-bold text-slate-900 dark:text-white mb-2 uppercase tracking-wide">About this app</h3>
+                        <p id="modal-desc" class="text-sm md:text-base text-slate-600 dark:text-slate-300 leading-relaxed">
+                            Description goes here...
+                        </p>
+                    </div>
+
+                    <!-- Tags -->
+                    <div class="mb-8">
+                        <div class="flex flex-wrap gap-2" id="modal-tags">
+                            <!-- Tags injected -->
+                        </div>
+                        <div class="mt-4 text-xs text-slate-400 flex items-center gap-1">
+                            <i class="fa-solid fa-clock-rotate-left"></i> Last updated: <span id="modal-updated">Just now</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Sticky Bottom Action -->
+            <div class="p-4 md:p-6 bg-slate-50 dark:bg-surface-900 border-t border-slate-200 dark:border-slate-800">
+                
+                <!-- Download Status Panel (Hidden initially) -->
+                <div id="download-status-panel" class="hidden flex-col items-center justify-center p-3 mb-4 rounded-xl bg-slate-100 dark:bg-surface-800 border border-slate-200 dark:border-slate-700">
+                    <div class="flex items-center gap-3 mb-2">
+                        <i id="download-spinner" class="fa-solid fa-circle-notch fa-spin text-brand-gold text-xl"></i>
+                        <span id="download-status-text" class="font-bold text-slate-900 dark:text-white text-sm">Preparing...</span>
+                    </div>
+                    <div class="w-full bg-slate-200 dark:bg-slate-700 rounded-full h-1.5 overflow-hidden">
+                        <div id="download-progress-bar" class="bg-brand-gold h-1.5 rounded-full w-0 transition-all duration-300"></div>
+                    </div>
+                </div>
+
+                <div class="text-xs text-slate-500 text-center mb-3">
+                    <i class="fa-solid fa-shield-check text-brand-emerald"></i> Download links are provided for directory purposes. Always review source permissions.
+                </div>
+                <button id="modal-download-btn" class="w-full py-4 rounded-xl bg-gradient-to-r from-brand-gold to-brand-gold/90 text-white font-bold text-lg hover:shadow-glow transition-all outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-brand-gold dark:focus-visible:ring-offset-surface-900">
+                    Download APK
+                </button>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Floating Actions -->
+    <div class="fixed right-4 bottom-20 md:bottom-6 z-40 flex flex-col gap-3" id="floating-actions">
+        <!-- Buttons injected via SITE_CONFIG -->
+    </div>
+
+    <!-- Toast Container -->
+    <div id="toast-container" class="fixed top-20 right-4 md:right-6 z-[70] flex flex-col gap-2 pointer-events-none w-72"></div>
+
+    <!-- Welcome Popup (localStorage controlled) -->
+    <div id="welcome-popup" class="fixed inset-0 z-[80] bg-black/60 backdrop-blur-sm hidden flex-col items-center justify-center p-4">
+        <div class="bg-white dark:bg-surface-800 w-full max-w-sm rounded-2xl shadow-2xl p-6 relative text-center animate-fade-scale">
+            <button id="popup-close" class="absolute top-3 right-3 w-8 h-8 rounded-full bg-slate-100 dark:bg-slate-700 flex items-center justify-center text-slate-500 hover:text-slate-900 dark:hover:text-white outline-none">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+            <div class="w-16 h-16 rounded-2xl bg-gradient-to-tr from-brand-red to-brand-gold mx-auto flex items-center justify-center text-white text-3xl mb-4 shadow-lg">
+                <i class="fa-solid fa-gift"></i>
+            </div>
+            <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-2">Welcome to Yono VIP Hub!</h3>
+            <p class="text-sm text-slate-600 dark:text-slate-400 mb-6">Join our official Telegram channel for exclusive premium app updates, early access, and support.</p>
+            <a id="popup-telegram" href="#" target="_blank" rel="noopener noreferrer" class="block w-full py-3 rounded-xl bg-[#2AABEE] text-white font-bold mb-3 hover:bg-[#229ED9] transition-colors">
+                <i class="fa-brands fa-telegram mr-2"></i> Join Telegram
+            </a>
+            <button id="popup-later" class="text-sm font-medium text-slate-500 hover:text-slate-800 dark:hover:text-slate-300">Maybe Later</button>
+        </div>
+    </div>
+
+
+    <!-- ========================================== -->
+    <!-- JAVASCRIPT APPLICATION ENGINE              -->
+    <!-- ========================================== -->
+    <script>
+        // --- 1. SITE CONFIGURATION ---
+        const SITE_CONFIG = {
+            siteName: "Yono VIP Hub",
+            telegramUrl: "https://t.me/yonoviphub",
+            whatsappUrl: "https://wa.me/1234567890",
+            supportUrl: "mailto:support@yonoviphub.com",
+            shareUrl: window.location.href,
+            privacyUrl: "/privacy.html",
+            termsUrl: "/terms.html",
+            disclaimerUrl: "/disclaimer.html",
+            canonicalUrl: "https://yonoviphub.com",
+            popupIntervalHours: 12
+        };
+
+        const FLOATING_ACTIONS = [
+            { id: 'btn-share', icon: 'fa-solid fa-share-nodes', color: 'bg-slate-800 dark:bg-slate-700', text: 'white', action: 'share' },
+            { id: 'btn-tg', icon: 'fa-brands fa-telegram', color: 'bg-[#2AABEE]', text: 'white', link: SITE_CONFIG.telegramUrl },
+            { id: 'btn-wa', icon: 'fa-brands fa-whatsapp', color: 'bg-[#25D366]', text: 'white', link: SITE_CONFIG.whatsappUrl }
+        ];
+
+        const FAQ_DATA = [
+            { q: "Is Yono VIP Hub free to use?", a: "Yes, the directory is completely free to browse. We curate the best applications and provide direct informational listings." },
+            { q: "Are the download links safe?", a: "We list APK URLs as provided by publishers. While we check for basic URL validity, we do not perform malware scanning. Always review permissions before installing any app." },
+            { q: "How do I update an app?", a: "Check back on our site to find the latest version listed. You will need to download the new APK and install it over the existing app." },
+            { q: "What does 'Verified Listing' mean?", a: "It means the listing details, description, and source URL have been reviewed by our team for accuracy as a directory entry, not as a security guarantee." }
+        ];
+
+        // --- 2. RAW APPLICATION DATA ---
+        // Simulating data provided from separate arrays
+        window.scrollingData = [
+            { id: "app_t1", name: "Yono Slots Pro", icon: "https://ui-avatars.com/api/?name=YS&background=0f172a&color=f59e0b&size=200", category: "Yono", categories: ["Yono", "Bonus"], rating: "4.8", downloads: "500K+", size: "45 MB", version: "v2.1", bonus: "Welcome Bonus", bonusValue: "₹500", description: "Premium Yono experience with fast withdrawals and daily bonuses.", tags: ["Slots", "Yono", "Fast"], verified: true, featured: false, isNew: false, apkUrl: "https://example.com/download/app_t1.apk", updatedAt: "2026-08-20" },
+            { id: "app_t2", name: "Rummy Wealth", icon: "https://ui-avatars.com/api/?name=RW&background=ef4444&color=fff&size=200", category: "Rummy", categories: ["Rummy", "Withdraw"], rating: "4.6", downloads: "1M+", size: "52 MB", version: "v3.0", bonus: "First Deposit", bonusValue: "100%", description: "Classic Rummy with modern UI and secure multi-player tables.", tags: ["Cards", "Classic", "Secure"], verified: true, featured: false, isNew: false, apkUrl: "https://example.com/download/app_t2.apk", updatedAt: "2026-08-18" },
+            { id: "app_t3", name: "Teen Patti Master", icon: "https://ui-avatars.com/api/?name=TM&background=10b981&color=fff&size=200", category: "Cards", categories: ["Rummy", "Bonus"], rating: "4.9", downloads: "2M+", size: "60 MB", version: "v4.5", bonus: "Daily Reward", bonusValue: "₹50", description: "The ultimate Teen Patti platform. Smooth gameplay.", tags: ["Teen Patti", "Master", "Daily"], verified: true, featured: false, isNew: true, apkUrl: "https://example.com/download/app_t3.apk", updatedAt: "2026-08-21" }
+        ];
+
+        window.sliderData = [
+            { id: "app_s1", name: "Yono VIP Elite", icon: "https://ui-avatars.com/api/?name=YE&background=f59e0b&color=0f172a&size=400", category: "Yono", categories: ["Yono", "Premium"], rating: "5.0", downloads: "2.5M+", size: "75 MB", version: "v5.0.1", bonus: "VIP Access", bonusValue: "₹1000", description: "The crown jewel of the Yono ecosystem. Features ultra-fast processing, exclusive tables, and VIP support 24/7. Designed specifically for high-volume users.", tags: ["Elite", "VIP", "Exclusive"], verified: true, featured: true, isNew: false, apkUrl: "https://example.com/download/app_s1.apk", updatedAt: "2026-08-22" },
+            { id: "app_t1", name: "Yono Slots Pro", icon: "https://ui-avatars.com/api/?name=YS&background=0f172a&color=f59e0b&size=400", category: "Yono", categories: ["Yono", "Bonus"], rating: "4.8", downloads: "500K+", size: "45 MB", version: "v2.1", bonus: "Welcome Bonus", bonusValue: "₹500", description: "Premium Yono experience with fast withdrawals and daily bonuses.", tags: ["Slots", "Yono", "Fast"], verified: true, featured: true, isNew: false, apkUrl: "https://example.com/download/app_t1.apk", updatedAt: "2026-08-20" } // Intentional duplicate to test deduplication
+        ];
+
+        window.gridData = [
+            { id: "app_g1", name: "Lucky Spin App", icon: "https://ui-avatars.com/api/?name=LS&background=3b82f6&color=fff&size=200", category: "Bonus", categories: ["Bonus", "New"], rating: "4.2", downloads: "100K+", size: "30 MB", version: "v1.2", bonus: "Free Spins", bonusValue: "10", description: "Daily lucky spins and minor rewards.", tags: ["Spin", "Daily"], verified: false, featured: false, isNew: true, apkUrl: "https://example.com/download/app_g1.apk", updatedAt: "2026-08-15" },
+            { id: "app_g2", name: "Rummy Gold", icon: "https://ui-avatars.com/api/?name=RG&background=eab308&color=fff&size=200", category: "Rummy", categories: ["Rummy", "Withdraw"], rating: "4.5", downloads: "800K+", size: "48 MB", version: "v2.2", bonus: "Signup", bonusValue: "₹41", description: "Gold standard rummy application.", tags: ["Gold", "Rummy"], verified: true, featured: false, isNew: false, apkUrl: "https://example.com/download/app_g2.apk", updatedAt: "2026-08-10" },
+            { id: "app_g3", name: "Auto Clicker Pro", icon: "https://ui-avatars.com/api/?name=AC&background=64748b&color=fff&size=200", category: "Tools", categories: ["Tools"], rating: "4.7", downloads: "5M+", size: "12 MB", version: "v8.0", bonus: "None", bonusValue: "N/A", description: "Utility tool for automating taps.", tags: ["Tool", "Utility"], verified: true, featured: false, isNew: false, apkUrl: "https://example.com/download/app_g3.apk", updatedAt: "2026-07-20" },
+            { id: "app_t3", name: "Teen Patti Master", icon: "https://ui-avatars.com/api/?name=TM&background=10b981&color=fff&size=200", category: "Cards", categories: ["Rummy", "Bonus"], rating: "4.9", downloads: "2M+", size: "60 MB", version: "v4.5", bonus: "Daily Reward", bonusValue: "₹50", description: "The ultimate Teen Patti platform. Smooth gameplay.", tags: ["Teen Patti", "Master", "Daily"], verified: true, featured: false, isNew: true, apkUrl: "https://example.com/download/app_t3.apk", updatedAt: "2026-08-21" }, // Intentional duplicate
+            { id: "app_g4", name: "Yono 777", icon: "https://ui-avatars.com/api/?name=Y7&background=8b5cf6&color=fff&size=200", category: "Yono", categories: ["Yono", "Withdraw"], rating: "4.6", downloads: "300K+", size: "55 MB", version: "v1.9", bonus: "Deposit", bonusValue: "50%", description: "New Yono platform with fast UPI.", tags: ["Yono", "777", "UPI"], verified: true, featured: false, isNew: true, apkUrl: "https://example.com/download/app_g4.apk", updatedAt: "2026-08-19" },
+            { id: "app_g5", name: "Card Analyzer", icon: "https://ui-avatars.com/api/?name=CA&background=14b8a6&color=fff&size=200", category: "Tools", categories: ["Tools", "New"], rating: "3.9", downloads: "50K+", size: "18 MB", version: "v1.0", bonus: "None", bonusValue: "N/A", description: "Helper tool for statistics.", tags: ["Stats", "Helper"], verified: false, featured: false, isNew: true, apkUrl: "https://example.com/download/app_g5.apk", updatedAt: "2026-08-22" }
+        ];
+
+        // --- 3. DATABASE ENGINE ---
+        const APP_MAP = new Map();
+        let APP_DATABASE = [];
+        let CATEGORIES = new Set(["All"]);
+
+        function deduplicateData() {
+            const allRaw = [...window.scrollingData, ...window.sliderData, ...window.gridData];
+            allRaw.forEach(app => {
+                if (!APP_MAP.has(app.id)) {
+                    APP_MAP.set(app.id, app);
+                    APP_DATABASE.push(app);
+                    
+                    // Extract categories
+                    if(app.categories) {
+                        app.categories.forEach(c => CATEGORIES.add(c));
+                    } else if (app.category) {
+                        CATEGORIES.add(app.category);
+                    }
+                }
+            });
+            // Ensure predefined categories exist
+            ["Yono", "Rummy", "Bonus", "Withdraw", "New", "Tools"].forEach(c => CATEGORIES.add(c));
+        }
+
+        function getAppById(id) {
+            return APP_MAP.get(id);
+        }
+
+        // --- 4. UTILITY FUNCTIONS ---
+        function escapeHTML(str) {
+            if (!str) return '';
+            return str.toString().replace(/[&<>'"]/g, 
+                tag => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', "'": '&#39;', '"': '&quot;' }[tag] || tag)
+            );
+        }
+
+        function isSafeUrl(url) {
+            try {
+                const parsed = new URL(url);
+                return parsed.protocol === 'https:' || parsed.protocol === 'http:';
+            } catch (e) {
+                return false;
+            }
+        }
+
+        // Image fallback handler (attached globally)
+        window.handleImageError = function(img) {
+            img.onerror = null; // prevent infinite loop
+            const name = img.getAttribute('data-app-name') || 'App';
+            const initial = name.charAt(0).toUpperCase();
+            img.src = `https://ui-avatars.com/api/?name=${initial}&background=1e293b&color=fff&size=200`;
+        };
+
+        // --- 5. RENDER ENGINE ---
+        function renderTrendingCards() {
+            const container = document.getElementById('trending-container');
+            if(!container) return;
+            
+            const trendingApps = APP_DATABASE.filter(a => window.scrollingData.some(s => s.id === a.id));
+            if(trendingApps.length > 0) {
+                document.getElementById('trending').classList.remove('hidden');
+                container.innerHTML = trendingApps.map(app => `
+                    <div class="app-card shrink-0 w-64 p-3 bg-white dark:bg-surface-800 rounded-xl border border-slate-200 dark:border-slate-700 shadow-sm cursor-pointer hover:border-brand-gold/50 transition-colors group" data-app-id="${app.id}">
+                        <div class="flex items-center gap-3 mb-3">
+                            <img src="${escapeHTML(app.icon)}" data-app-name="${escapeHTML(app.name)}" onerror="handleImageError(this)" class="w-12 h-12 rounded-lg object-cover bg-slate-100" alt="${escapeHTML(app.name)}">
+                            <div class="flex-1 min-w-0">
+                                <h4 class="font-bold text-slate-900 dark:text-white truncate text-sm group-hover:text-brand-gold transition-colors">${escapeHTML(app.name)}</h4>
+                                <div class="flex items-center gap-2 text-[10px] md:text-xs text-slate-500">
+                                    <span class="flex items-center"><i class="fa-solid fa-star text-brand-gold mr-0.5 text-[8px]"></i>${app.rating}</span>
+                                    <span>${escapeHTML(app.downloads)}</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="flex items-center justify-between">
+                            <span class="text-xs font-medium px-2 py-1 rounded bg-brand-gold/10 text-brand-gold border border-brand-gold/20 truncate max-w-[120px]">${escapeHTML(app.bonusValue)} Bonus</span>
+                            <button class="text-xs font-bold px-3 py-1.5 rounded-lg bg-slate-900 dark:bg-white text-white dark:text-slate-900 hover:bg-slate-800 dark:hover:bg-slate-200 transition-colors outline-none pointer-events-none">Get</button>
+                        </div>
+                    </div>
+                `).join('');
+            }
+        }
+
+        function createGridCardHTML(app) {
+            const isVerifiedHTML = app.verified ? `<i class="fa-solid fa-shield-check text-brand-emerald" title="Verified Listing"></i>` : '';
+            const newBadgeHTML = app.isNew ? `<span class="absolute top-2 left-2 px-1.5 py-0.5 bg-brand-red text-white text-[9px] font-bold uppercase rounded shadow-sm z-10">New</span>` : '';
+            
+            return `
+                <div class="app-card flex flex-col bg-white dark:bg-surface-800 rounded-xl border border-slate-200 dark:border-slate-700 shadow-sm overflow-hidden hover:border-brand-gold/40 hover:shadow-md transition-all cursor-pointer group" data-app-id="${app.id}">
+                    <div class="relative pt-4 px-4 flex justify-center">
+                        ${newBadgeHTML}
+                        <img src="${escapeHTML(app.icon)}" data-app-name="${escapeHTML(app.name)}" onerror="handleImageError(this)" class="w-16 h-16 md:w-20 md:h-20 rounded-2xl object-cover bg-slate-100 shadow-sm group-hover:scale-105 transition-transform duration-300" alt="${escapeHTML(app.name)}">
+                    </div>
+                    <div class="p-3 md:p-4 flex flex-col flex-1 text-center">
+                        <div class="flex items-center justify-center gap-1 mb-1">
+                            <h4 class="font-bold text-slate-900 dark:text-white truncate text-sm md:text-base group-hover:text-brand-gold transition-colors">${escapeHTML(app.name)}</h4>
+                            ${isVerifiedHTML}
+                        </div>
+                        <span class="text-[10px] md:text-xs text-slate-500 mb-2 truncate">${escapeHTML(app.category)} • ${app.size}</span>
+                        
+                        <div class="flex items-center justify-center gap-3 text-xs font-medium text-slate-700 dark:text-slate-300 mb-3 bg-slate-50 dark:bg-surface-900 py-1.5 rounded-lg border border-slate-100 dark:border-slate-700">
+                            <span class="flex items-center"><i class="fa-solid fa-star text-brand-gold mr-1 text-[10px]"></i>${app.rating}</span>
+                            <div class="w-px h-3 bg-slate-300 dark:bg-slate-600"></div>
+                            <span>${escapeHTML(app.version)}</span>
+                        </div>
+                        
+                        <div class="mt-auto">
+                            <button class="w-full py-2 md:py-2.5 rounded-lg bg-slate-100 dark:bg-surface-700 text-slate-900 dark:text-white font-bold text-xs md:text-sm group-hover:bg-brand-gold group-hover:text-white transition-colors outline-none pointer-events-none">
+                                View Details
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            `;
+        }
+
+        function createListCardHTML(app) {
+            const isVerifiedHTML = app.verified ? `<i class="fa-solid fa-shield-check text-brand-emerald"></i>` : '';
+            return `
+                <div class="app-card flex flex-col sm:flex-row items-center gap-4 p-4 bg-white dark:bg-surface-800 rounded-xl border border-slate-200 dark:border-slate-700 shadow-sm hover:border-brand-gold/40 transition-all cursor-pointer group" data-app-id="${app.id}">
+                    <img src="${escapeHTML(app.icon)}" data-app-name="${escapeHTML(app.name)}" onerror="handleImageError(this)" class="w-16 h-16 rounded-xl object-cover bg-slate-100 shrink-0" alt="${escapeHTML(app.name)}">
+                    <div class="flex-1 min-w-0 text-center sm:text-left">
+                        <div class="flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-2 mb-1">
+                            <h4 class="font-bold text-slate-900 dark:text-white text-base group-hover:text-brand-gold transition-colors">${escapeHTML(app.name)}</h4>
+                            <div class="flex items-center justify-center sm:justify-start gap-1 text-sm">${isVerifiedHTML}</div>
+                        </div>
+                        <p class="text-xs text-slate-500 mb-2 line-clamp-1">${escapeHTML(app.description)}</p>
+                        <div class="flex flex-wrap items-center justify-center sm:justify-start gap-2 text-[10px] md:text-xs">
+                            <span class="bg-slate-100 dark:bg-surface-900 px-2 py-1 rounded text-slate-600 dark:text-slate-300"><i class="fa-solid fa-star text-brand-gold mr-1"></i>${app.rating}</span>
+                            <span class="bg-slate-100 dark:bg-surface-900 px-2 py-1 rounded text-slate-600 dark:text-slate-300"><i class="fa-solid fa-download mr-1"></i>${escapeHTML(app.downloads)}</span>
+                            <span class="bg-brand-gold/10 border border-brand-gold/20 text-brand-gold px-2 py-1 rounded font-medium">${escapeHTML(app.bonusValue)} Bonus</span>
+                        </div>
+                    </div>
+                    <button class="w-full sm:w-auto px-6 py-2.5 rounded-lg bg-slate-900 dark:bg-white text-white dark:text-slate-900 font-bold text-sm hover:bg-brand-gold hover:text-white dark:hover:bg-brand-gold dark:hover:text-white transition-colors outline-none shrink-0 pointer-events-none">
+                        Details
                     </button>
                 </div>
-            </div>
-        `;
+            `;
+        }
 
-        // Style C: Grid Card
-        const createGridCard = (app) => `
-            <div data-app-id="${app.id}" data-action="open-modal" class="card-hover-effect glass-panel rounded-2xl p-3 md:p-4 cursor-pointer flex flex-col h-full group relative overflow-hidden">
-                ${app.bonusValue ? `<div class="absolute top-2 right-2 bg-gradient-to-r from-accent-gold to-yellow-400 text-slate-900 text-[10px] font-extrabold px-1.5 py-0.5 rounded shadow-sm z-10">${app.bonusValue}</div>` : ''}
-                <img src="${app.icon}" alt="${app.name}" class="w-14 h-14 md:w-16 md:h-16 mx-auto rounded-2xl object-cover shadow-sm mb-3 bg-slate-800 img-loading group-hover:scale-105 transition-transform" onload="this.classList.remove('img-loading')" onerror="handleImageError(this)">
-                <div class="text-center flex-1 flex flex-col">
-                    <h3 class="font-bold text-sm md:text-base text-slate-900 dark:text-white leading-tight mb-1 line-clamp-1" title="${app.name}">${app.name}${getVerifiedHtml(app.verified)}</h3>
-                    <div class="text-[10px] md:text-xs text-slate-500 mb-2">${app.category} • ${app.size}</div>
-                    <div class="mt-auto flex items-center justify-between bg-slate-200/50 dark:bg-slate-800/50 rounded-lg p-1.5 md:p-2">
-                        <div class="flex items-center gap-1">${getStarHtml(app.rating)}</div>
-                        <i class="fa-solid fa-download text-slate-400 group-hover:text-accent-emerald transition-colors"></i>
-                    </div>
-                </div>
-            </div>
-        `;
+        function renderStats() {
+            const verifiedCount = APP_DATABASE.filter(a => a.verified).length;
+            const newCount = APP_DATABASE.filter(a => a.isNew).length;
+            document.getElementById('stat-apps').textContent = APP_DATABASE.length;
+            document.getElementById('stat-categories').textContent = CATEGORIES.size;
+            document.getElementById('stat-verified').textContent = verifiedCount;
+            document.getElementById('stat-new').textContent = newCount;
+        }
 
-        // Style D: List Card
-        const createListCard = (app) => `
-            <div data-app-id="${app.id}" data-action="open-modal" class="card-hover-effect glass-panel rounded-2xl p-4 cursor-pointer flex items-center gap-4 group w-full mb-3 last:mb-0">
-                <img src="${app.icon}" alt="${app.name}" class="w-16 h-16 md:w-20 md:h-20 rounded-2xl object-cover shadow-sm bg-slate-800 img-loading" onload="this.classList.remove('img-loading')" onerror="handleImageError(this)">
-                <div class="flex-1 min-w-0">
-                    <div class="flex justify-between items-start mb-1">
-                        <h3 class="font-bold text-base md:text-lg text-slate-900 dark:text-white truncate pr-2">${app.name}${getVerifiedHtml(app.verified)}</h3>
-                        ${getBonusHtml(app.bonusValue)}
-                    </div>
-                    <div class="text-xs text-slate-500 mb-2 truncate">${app.category} • ${app.downloads} • ${app.size}</div>
-                    <p class="text-xs md:text-sm text-slate-600 dark:text-slate-400 line-clamp-1 md:line-clamp-2">${app.description}</p>
-                </div>
-                <div class="hidden sm:flex flex-col items-center justify-center pl-4 border-l border-slate-200 dark:border-slate-700 min-w-[80px]">
-                    <div class="text-lg font-bold text-slate-900 dark:text-white">${app.rating}</div>
-                    <div class="text-[10px] text-accent-gold"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star-half-stroke"></i></div>
-                </div>
-            </div>
-        `;
-
-        // Style E: Compact Related Card
-        const createCompactCard = (app) => `
-            <div data-app-id="${app.id}" data-action="open-modal" class="glass-panel p-3 rounded-xl flex items-center gap-3 cursor-pointer hover:bg-slate-200/50 dark:hover:bg-slate-800 transition-colors">
-                <img src="${app.icon}" class="w-10 h-10 rounded-lg object-cover bg-slate-800 img-loading" onload="this.classList.remove('img-loading')" onerror="handleImageError(this)">
-                <div class="flex-1 min-w-0">
-                    <h4 class="text-sm font-bold truncate text-slate-900 dark:text-white">${app.name}</h4>
-                    <div class="text-[10px] text-slate-500 flex items-center gap-2">
-                        <span><i class="fa-solid fa-star text-accent-gold"></i> ${app.rating}</span>
-                        <span>${app.category}</span>
-                    </div>
-                </div>
-            </div>
-        `;
-
-        // --- RENDER ENGINE ---
-        const renderCategoryChips = () => {
-            const container = $('#category-chips');
-            container.innerHTML = CATEGORIES.map(c => `
-                <button data-action="category-filter" data-cat="${c}" class="px-4 py-1.5 rounded-full text-sm font-semibold whitespace-nowrap transition-all border ${STATE.currentCategory === c ? 'bg-slate-900 text-white border-slate-900 dark:bg-white dark:text-slate-900 dark:border-white shadow-sm' : 'bg-transparent text-slate-600 border-slate-300 hover:bg-slate-200 dark:text-slate-300 dark:border-slate-700 dark:hover:bg-slate-800'}">${c}</button>
-            `).join('');
-        };
-
-        const updateGrid = () => {
-            let filtered = STATE.apps.filter(app => {
-                const matchCat = STATE.currentCategory === 'All' || app.categories.includes(STATE.currentCategory) || (STATE.currentCategory==='New' && app.isNew);
-                const matchSearch = app.name.toLowerCase().includes(STATE.searchQuery.toLowerCase()) || app.tags.some(t => t.toLowerCase().includes(STATE.searchQuery.toLowerCase()));
-                return matchCat && matchSearch;
-            });
-
-            // Sorting
-            filtered.sort((a, b) => {
-                if(STATE.sortBy === 'newest') return new Date(b.updatedAt) - new Date(a.updatedAt);
-                if(STATE.sortBy === 'rating') return b.rating - a.rating;
-                if(STATE.sortBy === 'bonus') return numVal(b.bonusValue) - numVal(a.bonusValue);
-                // default popular
-                return numVal(b.downloads) - numVal(a.downloads);
-            });
-
-            const container = $('#main-app-container');
-            const emptyState = $('#empty-state');
-            const searchFb = $('#search-feedback');
-
-            if(filtered.length === 0) {
-                container.innerHTML = '';
-                container.classList.add('hidden');
-                emptyState.classList.remove('hidden');
-            } else {
-                emptyState.classList.add('hidden');
-                container.classList.remove('hidden');
-                
-                if(STATE.viewMode === 'list') {
-                    container.className = 'flex flex-col';
-                    container.innerHTML = filtered.map(createListCard).join('');
-                } else {
-                    container.className = 'grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-3 md:gap-6';
-                    container.innerHTML = filtered.map(createGridCard).join('');
-                }
-            }
-
-            if(STATE.searchQuery) {
-                searchFb.textContent = `Found ${filtered.length} result${filtered.length!==1?'s':''} for "${STATE.searchQuery}"`;
-                searchFb.classList.remove('hidden');
-            } else {
-                searchFb.classList.add('hidden');
-            }
-        };
-
-        const renderLists = () => {
-            // Trending (Sort by downloads desc, limit 8)
-            const trending = [...STATE.apps].sort((a,b)=>numVal(b.downloads)-numVal(a.downloads)).slice(0,8);
-            $('#trending-scroller').innerHTML = trending.map(createTrendingCard).join('');
-
-            // Favorites & Recent
-            const favContainer = $('#favorites-container');
-            if(STATE.favorites.length > 0) {
-                const favApps = STATE.favorites.map(id => getApp(id)).filter(Boolean);
-                favContainer.innerHTML = favApps.map(createCompactCard).join('');
-            } else {
-                favContainer.innerHTML = `<div class="text-sm text-slate-500 glass-panel p-4 rounded-xl text-center">Your favorite apps will appear here.</div>`;
-            }
-
-            const recContainer = $('#recent-container');
-            if(STATE.recent.length > 0) {
-                const recApps = STATE.recent.map(id => getApp(id)).filter(Boolean);
-                recContainer.innerHTML = recApps.map(createCompactCard).join('');
-            } else {
-                recContainer.innerHTML = `<div class="text-sm text-slate-500 glass-panel p-4 rounded-xl text-center">Apps you open will appear here.</div>`;
-            }
-        };
-
-        const updateStats = () => {
-            $('#stat-apps').textContent = STATE.apps.length;
-            $('#stat-categories').textContent = CATEGORIES.length - 1; // excl 'All'
-            $('#stat-verified').textContent = STATE.apps.filter(a => a.verified).length;
-        };
-
-        // --- SLIDER ENGINE ---
-        let currentSlide = 0;
-        let slideInterval;
-        const initSlider = () => {
-            const featured = STATE.apps.filter(a => a.featured);
-            if(!featured.length) return;
-
-            const container = $('#slider-container');
-            const dots = $('#slider-dots');
+        function renderCategories() {
+            const container = document.getElementById('category-filters');
+            if(!container) return;
             
-            container.innerHTML = featured.map(createFeaturedSlide).join('');
-            dots.innerHTML = featured.map((_, i) => `<button data-index="${i}" class="slider-dot w-2 h-2 rounded-full transition-all ${i===0?'bg-white w-4':'bg-white/50 hover:bg-white/80'}"></button>`).join('');
+            // Generate HTML (Keep "All" first)
+            let html = `<button class="filter-btn active px-4 py-2 rounded-full text-sm font-medium whitespace-nowrap bg-slate-900 dark:bg-white text-white dark:text-slate-900 transition-colors outline-none" data-category="All">All Apps</button>`;
+            
+            const sortedCats = Array.from(CATEGORIES).filter(c => c !== "All").sort();
+            sortedCats.forEach(cat => {
+                html += `<button class="filter-btn px-4 py-2 rounded-full text-sm font-medium whitespace-nowrap bg-white dark:bg-surface-800 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-700 hover:border-brand-gold transition-colors outline-none" data-category="${escapeHTML(cat)}">${escapeHTML(cat)}</button>`;
+            });
+            container.innerHTML = html;
 
-            const goToSlide = (idx) => {
-                currentSlide = (idx + featured.length) % featured.length;
-                container.style.transform = `translateX(-${currentSlide * 100}%)`;
-                $$('.slider-dot').forEach((d, i) => {
-                    d.className = `slider-dot w-2 h-2 rounded-full transition-all ${i===currentSlide?'bg-white w-4 shadow-glow-gold':'bg-white/50 hover:bg-white/80'}`;
+            // Bind events
+            container.querySelectorAll('.filter-btn').forEach(btn => {
+                btn.addEventListener('click', (e) => {
+                    container.querySelectorAll('.filter-btn').forEach(b => {
+                        b.className = "filter-btn px-4 py-2 rounded-full text-sm font-medium whitespace-nowrap bg-white dark:bg-surface-800 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-700 hover:border-brand-gold transition-colors outline-none";
+                    });
+                    const target = e.currentTarget;
+                    target.className = "filter-btn active px-4 py-2 rounded-full text-sm font-medium whitespace-nowrap bg-slate-900 dark:bg-white text-white dark:text-slate-900 transition-colors outline-none border border-transparent";
+                    
+                    currentCategory = target.getAttribute('data-category');
+                    executeSearchAndFilter();
+                });
+            });
+        }
+
+        // --- 6. SLIDER ENGINE ---
+        let currentSlide = 0;
+        let sliderInterval;
+
+        function renderSlider() {
+            const container = document.getElementById('featured');
+            const track = document.getElementById('slider-track');
+            const dotsContainer = document.getElementById('slider-dots');
+            
+            const featuredApps = APP_DATABASE.filter(a => window.sliderData.some(s => s.id === a.id));
+            if(featuredApps.length === 0) return;
+            
+            container.classList.remove('hidden');
+            
+            track.innerHTML = featuredApps.map(app => `
+                <div class="w-full flex-shrink-0 flex flex-col md:flex-row app-card cursor-pointer" data-app-id="${app.id}">
+                    <div class="flex-1 p-6 md:p-10 flex flex-col justify-center relative z-10 order-2 md:order-1">
+                        <span class="inline-block py-1 px-3 rounded text-[10px] md:text-xs font-bold uppercase tracking-wider bg-brand-gold text-white mb-3 w-max">Featured</span>
+                        <h3 class="text-3xl md:text-4xl font-extrabold text-slate-900 dark:text-white mb-2 leading-tight">${escapeHTML(app.name)}</h3>
+                        <p class="text-sm md:text-base text-slate-600 dark:text-slate-300 mb-6 line-clamp-2 md:line-clamp-3 max-w-md">${escapeHTML(app.description)}</p>
+                        
+                        <div class="flex flex-wrap gap-4 mb-6 text-sm font-medium">
+                            <div class="flex items-center gap-1.5 bg-white dark:bg-surface-900 px-3 py-1.5 rounded-lg border border-slate-200 dark:border-slate-700 shadow-sm"><i class="fa-solid fa-star text-brand-gold"></i> <span class="text-slate-900 dark:text-white">${app.rating}</span></div>
+                            <div class="flex items-center gap-1.5 bg-white dark:bg-surface-900 px-3 py-1.5 rounded-lg border border-slate-200 dark:border-slate-700 shadow-sm"><i class="fa-solid fa-download text-slate-400"></i> <span class="text-slate-900 dark:text-white">${escapeHTML(app.downloads)}</span></div>
+                            <div class="flex items-center gap-1.5 bg-brand-gold/10 px-3 py-1.5 rounded-lg border border-brand-gold/20"><i class="fa-solid fa-gift text-brand-gold"></i> <span class="text-brand-gold">${escapeHTML(app.bonusValue)}</span></div>
+                        </div>
+                        
+                        <div class="flex gap-3 mt-auto md:mt-0">
+                            <button class="px-6 py-2.5 rounded-full bg-slate-900 dark:bg-white text-white dark:text-slate-900 font-bold text-sm hover:scale-105 transition-transform outline-none pointer-events-none shadow-lg">View Details</button>
+                        </div>
+                    </div>
+                    
+                    <div class="w-full md:w-[45%] h-48 md:h-full relative overflow-hidden order-1 md:order-2 bg-gradient-to-br from-slate-800 to-slate-900 flex items-center justify-center p-6">
+                        <div class="absolute inset-0 bg-brand-gold/20 blur-[60px] rounded-full scale-150"></div>
+                        <img src="${escapeHTML(app.icon)}" data-app-name="${escapeHTML(app.name)}" onerror="handleImageError(this)" alt="${escapeHTML(app.name)}" class="w-32 h-32 md:w-56 md:h-56 object-cover rounded-3xl shadow-2xl z-10 bg-slate-100 group-hover:scale-105 transition-transform duration-500">
+                    </div>
+                </div>
+            `).join('');
+
+            dotsContainer.innerHTML = featuredApps.map((_, i) => `<button class="slider-dot ${i===0 ? 'active' : ''}" aria-label="Go to slide ${i+1}" data-index="${i}"></button>`).join('');
+
+            // Controls
+            const updateSlider = () => {
+                track.style.transform = `translateX(-${currentSlide * 100}%)`;
+                dotsContainer.querySelectorAll('.slider-dot').forEach((dot, i) => {
+                    dot.classList.toggle('active', i === currentSlide);
                 });
             };
 
-            $('#slider-prev').onclick = () => { goToSlide(currentSlide - 1); resetInterval(); };
-            $('#slider-next').onclick = () => { goToSlide(currentSlide + 1); resetInterval(); };
+            const nextSlide = () => { currentSlide = (currentSlide + 1) % featuredApps.length; updateSlider(); };
+            const prevSlide = () => { currentSlide = (currentSlide - 1 + featuredApps.length) % featuredApps.length; updateSlider(); };
+
+            document.getElementById('slider-next').addEventListener('click', (e) => { e.stopPropagation(); nextSlide(); startAutoSlide(); });
+            document.getElementById('slider-prev').addEventListener('click', (e) => { e.stopPropagation(); prevSlide(); startAutoSlide(); });
             
-            $$('.slider-dot').forEach(btn => {
-                btn.onclick = () => { goToSlide(parseInt(btn.dataset.index)); resetInterval(); }
+            dotsContainer.querySelectorAll('.slider-dot').forEach(dot => {
+                dot.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    currentSlide = parseInt(dot.getAttribute('data-index'));
+                    updateSlider();
+                    startAutoSlide();
+                });
             });
 
-            const startInterval = () => slideInterval = setInterval(() => goToSlide(currentSlide + 1), 5000);
-            const resetInterval = () => { clearInterval(slideInterval); startInterval(); };
+            // Pause on hover/interaction
+            const startAutoSlide = () => {
+                clearInterval(sliderInterval);
+                const mediaQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
+                if(!mediaQuery.matches) {
+                    sliderInterval = setInterval(nextSlide, 5000);
+                }
+            };
             
-            // Pause on hover/touch
-            const sliderRegion = container.parentElement;
-            sliderRegion.onmouseenter = () => clearInterval(slideInterval);
-            sliderRegion.onmouseleave = startInterval;
-            sliderRegion.ontouchstart = () => clearInterval(slideInterval);
-            sliderRegion.ontouchend = startInterval;
+            const stopAutoSlide = () => clearInterval(sliderInterval);
 
-            startInterval();
-        };
-
-        // --- MODAL & DOWNLOAD ENGINE ---
-        let activeApp = null;
-        const openModal = (id) => {
-            const app = getApp(id);
-            if(!app) return;
-            activeApp = app;
-
-            // Add to recent
-            STATE.recent = [id, ...STATE.recent.filter(x => x !== id)].slice(0, 5);
-            try { localStorage.setItem('yono_recent', JSON.stringify(STATE.recent)); } catch(e){}
-            renderLists();
-
-            // Populate Modal
-            $('#modal-icon').src = app.icon;
-            $('#modal-bg').style.backgroundImage = `url(${app.icon})`;
-            $('#modal-title').textContent = app.name;
-            $('#modal-verified').style.display = app.verified ? 'inline-block' : 'none';
-            $('#modal-rating').textContent = app.rating;
-            $('#modal-downloads').textContent = app.downloads;
-            $('#modal-size').textContent = app.size;
-            $('#modal-desc').textContent = app.description;
-            $('#modal-version').textContent = app.version;
-            $('#modal-updated').textContent = new Date(app.updatedAt).toLocaleDateString('en-US', {month:'short', day:'numeric', year:'numeric'});
+            container.addEventListener('mouseenter', stopAutoSlide);
+            container.addEventListener('mouseleave', startAutoSlide);
+            container.addEventListener('touchstart', stopAutoSlide, {passive: true});
+            container.addEventListener('touchend', startAutoSlide, {passive: true});
             
-            if(app.bonusValue) {
-                $('#modal-bonus-container').classList.remove('hidden');
-                $('#modal-bonus-container').classList.add('flex');
-                $('#modal-bonus-val').textContent = app.bonusValue;
+            // Tab visibility
+            document.addEventListener('visibilitychange', () => {
+                if (document.hidden) stopAutoSlide(); else startAutoSlide();
+            });
+
+            startAutoSlide();
+        }
+
+        // --- 7. FILTER & SEARCH ENGINE ---
+        let searchTerm = "";
+        let currentCategory = "All";
+        let currentSort = "popular";
+        let debounceTimer;
+
+        function executeSearchAndFilter() {
+            const gridContainer = document.getElementById('app-grid');
+            const listContainer = document.getElementById('app-list');
+            const emptyState = document.getElementById('empty-state');
+            const searchStatus = document.getElementById('search-status');
+            const searchDisplay = document.getElementById('search-term-display');
+            const resultCount = document.getElementById('result-count');
+
+            let filtered = APP_DATABASE.filter(app => {
+                const matchesSearch = searchTerm === "" || 
+                    app.name.toLowerCase().includes(searchTerm) || 
+                    app.description.toLowerCase().includes(searchTerm) ||
+                    (app.tags && app.tags.some(t => t.toLowerCase().includes(searchTerm))) ||
+                    app.category.toLowerCase().includes(searchTerm);
+                
+                const matchesCategory = currentCategory === "All" || 
+                    (app.categories && app.categories.includes(currentCategory)) || 
+                    app.category === currentCategory;
+
+                return matchesSearch && matchesCategory;
+            });
+
+            // Sort
+            filtered.sort((a, b) => {
+                if (currentSort === "rating") return parseFloat(b.rating) - parseFloat(a.rating);
+                if (currentSort === "newest") return new Date(b.updatedAt) - new Date(a.updatedAt);
+                if (currentSort === "bonus") return parseInt(b.bonusValue.replace(/\D/g,'')||0) - parseInt(a.bonusValue.replace(/\D/g,'')||0);
+                // Popular (fake based on downloads string parse for demo)
+                const downA = parseInt(a.downloads.replace(/\D/g, '')) * (a.downloads.includes('M') ? 1000000 : 1000);
+                const downB = parseInt(b.downloads.replace(/\D/g, '')) * (b.downloads.includes('M') ? 1000000 : 1000);
+                return downB - downA;
+            });
+
+            resultCount.textContent = filtered.length;
+
+            if (searchTerm !== "") {
+                searchStatus.classList.remove('hidden');
+                searchStatus.classList.add('flex');
+                searchDisplay.textContent = searchTerm;
+                // Switch to List View for Search
+                gridContainer.classList.add('hidden');
+                listContainer.classList.remove('hidden');
+                listContainer.classList.add('flex');
+                
+                if (filtered.length > 0) {
+                    emptyState.classList.add('hidden');
+                    emptyState.classList.remove('flex');
+                    listContainer.innerHTML = filtered.map(app => createListCardHTML(app)).join('');
+                } else {
+                    listContainer.innerHTML = '';
+                    emptyState.classList.remove('hidden');
+                    emptyState.classList.add('flex');
+                }
             } else {
-                $('#modal-bonus-container').classList.add('hidden');
-                $('#modal-bonus-container').classList.remove('flex');
+                searchStatus.classList.add('hidden');
+                searchStatus.classList.remove('flex');
+                // Switch to Grid View for browsing
+                listContainer.classList.add('hidden');
+                listContainer.classList.remove('flex');
+                gridContainer.classList.remove('hidden');
+                
+                if (filtered.length > 0) {
+                    emptyState.classList.add('hidden');
+                    emptyState.classList.remove('flex');
+                    gridContainer.innerHTML = filtered.map(app => createGridCardHTML(app)).join('');
+                } else {
+                    gridContainer.innerHTML = '';
+                    emptyState.classList.remove('hidden');
+                    emptyState.classList.add('flex');
+                }
+            }
+        }
+
+        function handleSearchInput(e) {
+            clearTimeout(debounceTimer);
+            const val = e.target.value.trim().toLowerCase();
+            const clearBtns = document.querySelectorAll('#desktop-search-clear, #mobile-search-clear');
+            
+            clearBtns.forEach(btn => val.length > 0 ? btn.classList.remove('hidden') : btn.classList.add('hidden'));
+            
+            // Sync both inputs
+            document.getElementById('desktop-search').value = e.target.value;
+            document.getElementById('mobile-search').value = e.target.value;
+
+            debounceTimer = setTimeout(() => {
+                searchTerm = val;
+                executeSearchAndFilter();
+                if(searchTerm !== "") {
+                    document.getElementById('directory').scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            }, 300);
+        }
+
+        function clearSearch() {
+            document.getElementById('desktop-search').value = "";
+            document.getElementById('mobile-search').value = "";
+            document.querySelectorAll('#desktop-search-clear, #mobile-search-clear').forEach(b => b.classList.add('hidden'));
+            searchTerm = "";
+            executeSearchAndFilter();
+        }
+
+        // --- 8. STATE ENGINES (Favorites & Recent) ---
+        let favorites = JSON.parse(localStorage.getItem('yono_favorites') || '[]');
+        let recent = JSON.parse(localStorage.getItem('yono_recent') || '[]');
+
+        function saveFavorites() { localStorage.setItem('yono_favorites', JSON.stringify(favorites)); }
+        function saveRecent() { localStorage.setItem('yono_recent', JSON.stringify(recent)); }
+
+        function toggleFavorite(id) {
+            const index = favorites.indexOf(id);
+            if(index > -1) {
+                favorites.splice(index, 1);
+                showToast("Removed from favorites", "fa-heart-crack");
+            } else {
+                favorites.push(id);
+                showToast("Added to favorites", "fa-heart", "text-brand-red");
+            }
+            saveFavorites();
+            renderStateLists();
+            
+            // Update modal heart if open
+            const modalFavBtn = document.getElementById('modal-fav-btn');
+            if(modalFavBtn && modalFavBtn.getAttribute('data-app-id') === id) {
+                updateModalFavIcon(id);
+            }
+        }
+
+        function updateModalFavIcon(id) {
+            const icon = document.querySelector('#modal-fav-btn i');
+            if(favorites.includes(id)) {
+                icon.className = "fa-solid fa-heart text-xl text-brand-red";
+            } else {
+                icon.className = "fa-regular fa-heart text-xl";
+            }
+        }
+
+        function addRecent(id) {
+            recent = recent.filter(r => r !== id); // remove if exists
+            recent.unshift(id); // add to front
+            if(recent.length > 10) recent.pop(); // limit 10
+            saveRecent();
+            renderStateLists();
+        }
+
+        function renderStateLists() {
+            const favContainer = document.getElementById('favorites-container');
+            const recContainer = document.getElementById('recent-container');
+
+            const renderSmallCard = (id) => {
+                const app = getAppById(id);
+                if(!app) return '';
+                return `
+                    <div class="app-card flex items-center gap-3 p-3 bg-white dark:bg-surface-800 rounded-xl border border-slate-200 dark:border-slate-700 shadow-sm cursor-pointer hover:border-brand-gold/50 transition-colors" data-app-id="${app.id}">
+                        <img src="${escapeHTML(app.icon)}" onerror="handleImageError(this)" class="w-10 h-10 rounded-lg object-cover bg-slate-100 shrink-0" alt="">
+                        <div class="flex-1 min-w-0">
+                            <h4 class="font-bold text-slate-900 dark:text-white text-sm truncate">${escapeHTML(app.name)}</h4>
+                            <div class="text-[10px] md:text-xs text-slate-500 flex items-center gap-2">
+                                <span><i class="fa-solid fa-star text-brand-gold mr-0.5"></i>${app.rating}</span>
+                                <span>${escapeHTML(app.category)}</span>
+                            </div>
+                        </div>
+                        <i class="fa-solid fa-chevron-right text-slate-400 text-xs shrink-0"></i>
+                    </div>
+                `;
+            };
+
+            const favHtml = favorites.map(id => renderSmallCard(id)).filter(Boolean).join('');
+            favContainer.innerHTML = favHtml || '<div class="text-sm text-slate-500 py-4 italic text-center md:text-left bg-slate-50 dark:bg-surface-900 rounded-xl border border-slate-200 dark:border-slate-800 border-dashed">Your favorite apps will appear here.</div>';
+
+            const recHtml = recent.map(id => renderSmallCard(id)).filter(Boolean).join('');
+            recContainer.innerHTML = recHtml || '<div class="text-sm text-slate-500 py-4 italic text-center md:text-left bg-slate-50 dark:bg-surface-900 rounded-xl border border-slate-200 dark:border-slate-800 border-dashed">Apps you view will appear here.</div>';
+        }
+
+        // --- 9. MODAL & DOWNLOAD ENGINE ---
+        const modal = document.getElementById('app-modal');
+        const modalContent = document.getElementById('app-modal-content');
+        let currentModalApp = null;
+        let downloadTimeout1, downloadTimeout2, downloadTimeout3;
+
+        function openModal(id) {
+            const app = getAppById(id);
+            if(!app) return;
+            currentModalApp = app;
+            addRecent(id);
+
+            // Populate Data
+            document.getElementById('modal-icon').src = escapeHTML(app.icon);
+            document.getElementById('modal-icon').setAttribute('data-app-name', escapeHTML(app.name));
+            document.getElementById('modal-name').textContent = app.name;
+            document.getElementById('modal-rating').textContent = app.rating;
+            document.getElementById('modal-downloads').textContent = app.downloads;
+            document.getElementById('modal-size').textContent = app.size;
+            document.getElementById('modal-version').textContent = app.version;
+            document.getElementById('modal-desc').textContent = app.description;
+            document.getElementById('modal-updated').textContent = app.updatedAt;
+            
+            document.getElementById('modal-fav-btn').setAttribute('data-app-id', app.id);
+            updateModalFavIcon(app.id);
+
+            // Badges
+            let badgesHtml = '';
+            if(app.verified) badgesHtml += `<span class="px-2 py-1 rounded bg-brand-emerald/10 text-brand-emerald border border-brand-emerald/20 text-xs font-bold flex items-center gap-1"><i class="fa-solid fa-shield-check"></i> Verified Listing</span>`;
+            if(app.isNew) badgesHtml += `<span class="px-2 py-1 rounded bg-brand-red/10 text-brand-red border border-brand-red/20 text-xs font-bold uppercase">New</span>`;
+            badgesHtml += `<span class="px-2 py-1 rounded bg-brand-gold/10 text-brand-gold border border-brand-gold/20 text-xs font-bold uppercase"><i class="fa-solid fa-gift mr-1"></i> ${escapeHTML(app.bonusValue)} Bonus</span>`;
+            document.getElementById('modal-badges').innerHTML = badgesHtml;
+
+            // Tags
+            if(app.tags && app.tags.length > 0) {
+                document.getElementById('modal-tags').innerHTML = app.tags.map(t => `<span class="px-2.5 py-1 rounded-full bg-slate-100 dark:bg-surface-700 text-slate-600 dark:text-slate-300 text-xs border border-slate-200 dark:border-slate-600">${escapeHTML(t)}</span>`).join('');
+            } else {
+                document.getElementById('modal-tags').innerHTML = '';
             }
 
-            $('#modal-tags').innerHTML = app.tags.map(t => `<span class="bg-slate-200 dark:bg-slate-700 text-slate-700 dark:text-slate-300 text-xs font-semibold px-2 py-1 rounded">${t}</span>`).join('');
-
-            // Fav State
-            const isFav = STATE.favorites.includes(app.id);
-            const favBtn = $('#modal-fav-btn');
-            favBtn.innerHTML = isFav ? '<i class="fa-solid fa-heart text-lg text-accent-red"></i>' : '<i class="fa-regular fa-heart text-lg"></i>';
-            if(isFav) favBtn.classList.add('border-accent-red');
-            else favBtn.classList.remove('border-accent-red');
-
-            // Reset Download Button
-            const dlBtn = $('#modal-download-btn');
-            dlBtn.className = 'w-full py-4 rounded-xl bg-accent-emerald hover:bg-emerald-600 text-white font-bold text-lg shadow-glow-emerald transition-all flex items-center justify-center gap-2';
-            dlBtn.innerHTML = '<i class="fa-solid fa-download"></i> Get Application';
-            dlBtn.onclick = handleDownload;
+            // Reset Download State
+            resetDownloadState();
 
             // Show Modal
-            const modal = $('#app-modal');
             modal.classList.remove('hidden');
-            document.body.classList.add('modal-open');
+            modal.classList.add('flex');
+            document.body.style.overflow = 'hidden';
             
-            // Animate In
+            // Trigger animation frame for CSS transition
             requestAnimationFrame(() => {
-                modal.querySelector('.modal-backdrop').classList.remove('opacity-0');
-                modal.querySelector('.modal-content').classList.remove('scale-95', 'opacity-0');
+                modal.classList.remove('opacity-0');
+                modalContent.classList.remove('scale-95');
             });
-        };
+        }
 
-        const closeModal = () => {
-            const modal = $('#app-modal');
-            modal.querySelector('.modal-backdrop').classList.add('opacity-0');
-            modal.querySelector('.modal-content').classList.add('scale-95', 'opacity-0');
+        function closeModal() {
+            modal.classList.add('opacity-0');
+            modalContent.classList.add('scale-95');
             setTimeout(() => {
+                modal.classList.remove('flex');
                 modal.classList.add('hidden');
-                document.body.classList.remove('modal-open');
-                activeApp = null;
-            }, 200);
-        };
+                document.body.style.overflow = '';
+                resetDownloadState();
+                currentModalApp = null;
+            }, 300);
+        }
 
-        const handleDownload = (e) => {
-            if(!activeApp || !isSafeUrl(activeApp.apkUrl)) {
-                showToast('Invalid download source.', 'fa-triangle-exclamation', 'text-accent-red');
+        function resetDownloadState() {
+            clearTimeout(downloadTimeout1);
+            clearTimeout(downloadTimeout2);
+            clearTimeout(downloadTimeout3);
+            const btn = document.getElementById('modal-download-btn');
+            const panel = document.getElementById('download-status-panel');
+            
+            btn.classList.remove('hidden');
+            btn.innerHTML = 'Download APK';
+            btn.disabled = false;
+            
+            panel.classList.add('hidden');
+            panel.classList.remove('flex');
+            document.getElementById('download-progress-bar').style.width = '0%';
+            document.getElementById('download-spinner').className = "fa-solid fa-circle-notch fa-spin text-brand-gold text-xl";
+        }
+
+        function handleDownload() {
+            if(!currentModalApp) return;
+            const url = currentModalApp.apkUrl;
+            
+            if(!isSafeUrl(url)) {
+                showToast("Invalid Download URL", "fa-triangle-exclamation", "text-brand-red");
                 return;
             }
-            const btn = e.currentTarget;
-            btn.onclick = null; // disable
-            btn.classList.remove('bg-accent-emerald', 'hover:bg-emerald-600');
-            btn.classList.add('bg-slate-600', 'cursor-not-allowed');
+
+            const btn = document.getElementById('modal-download-btn');
+            const panel = document.getElementById('download-status-panel');
+            const statusText = document.getElementById('download-status-text');
+            const bar = document.getElementById('download-progress-bar');
+            const spinner = document.getElementById('download-spinner');
+
+            btn.classList.add('hidden');
+            panel.classList.remove('hidden');
+            panel.classList.add('flex');
+
+            // Step 1
+            statusText.textContent = "Checking file...";
+            bar.style.width = "30%";
             
-            const steps = [
-                {t: 0, msg: '<i class="fa-solid fa-circle-notch fa-spin"></i> Checking file...'},
-                {t: 800, msg: '<i class="fa-solid fa-shield-check text-accent-emerald"></i> Verifying package...'},
-                {t: 1600, msg: '<i class="fa-solid fa-server"></i> Preparing secure download...'},
-            ];
+            downloadTimeout1 = setTimeout(() => {
+                // Step 2
+                statusText.textContent = "Verifying package...";
+                bar.style.width = "70%";
+                
+                downloadTimeout2 = setTimeout(() => {
+                    // Step 3
+                    statusText.textContent = "Preparing secure download...";
+                    bar.style.width = "100%";
+                    spinner.className = "fa-solid fa-shield-check text-brand-emerald text-xl";
+                    
+                    downloadTimeout3 = setTimeout(() => {
+                        window.open(url, '_blank', 'noopener,noreferrer');
+                        setTimeout(closeModal, 1000);
+                    }, 800);
+                }, 1000);
+            }, 1000);
+        }
 
-            steps.forEach(step => {
-                setTimeout(() => { btn.innerHTML = step.msg; }, step.t);
-            });
 
-            setTimeout(() => {
-                btn.className = 'w-full py-4 rounded-xl bg-[#0088cc] hover:bg-[#0077b3] text-white font-bold text-lg shadow-lg transition-all flex items-center justify-center gap-2';
-                btn.innerHTML = 'Download Now';
-                btn.onclick = () => {
-                    window.open(activeApp.apkUrl, '_blank', 'noopener,noreferrer');
-                };
-            }, 2400);
-        };
-
-        // --- TOAST ENGINE ---
-        const showToast = (message, icon = 'fa-circle-info', colorClass = 'text-accent-gold') => {
-            const container = $('#toast-container');
+        // --- 10. UI HELPERS (Toasts, Themes, Popups) ---
+        function showToast(message, iconClass = "fa-bell", colorClass = "text-brand-gold") {
+            const container = document.getElementById('toast-container');
             const toast = document.createElement('div');
-            toast.className = 'glass-panel px-4 py-3 rounded-lg shadow-xl flex items-center gap-3 animate-slide-up pointer-events-auto';
-            toast.innerHTML = `<i class="fa-solid ${icon} ${colorClass}"></i><span class="text-sm font-semibold">${message}</span>`;
+            toast.className = `bg-white dark:bg-surface-800 border border-slate-200 dark:border-slate-700 shadow-xl rounded-xl p-4 flex items-center gap-3 animate-toast pointer-events-auto`;
+            toast.innerHTML = `
+                <div class="w-8 h-8 rounded-full bg-slate-100 dark:bg-surface-700 flex items-center justify-center shrink-0">
+                    <i class="fa-solid ${iconClass} ${colorClass}"></i>
+                </div>
+                <div class="flex-1 text-sm font-medium text-slate-900 dark:text-white">${escapeHTML(message)}</div>
+                <button class="text-slate-400 hover:text-slate-600 dark:hover:text-slate-200 outline-none" onclick="this.parentElement.remove()"><i class="fa-solid fa-xmark"></i></button>
+            `;
             container.appendChild(toast);
-            
             setTimeout(() => {
                 toast.style.opacity = '0';
-                toast.style.transform = 'translateY(10px)';
+                toast.style.transform = 'translateX(100%)';
                 toast.style.transition = 'all 0.3s ease';
                 setTimeout(() => toast.remove(), 300);
             }, 3000);
-        };
+        }
 
-        // --- SHARE ENGINE ---
-        const handleShare = async () => {
-            const url = activeApp ? `https://yonoviphub.com/app/${activeApp.id}` : SITE_CONFIG.shareUrl;
-            const title = activeApp ? `Download ${activeApp.name} on Yono VIP Hub` : SITE_CONFIG.siteName;
-            
-            if(navigator.share) {
-                try {
-                    await navigator.share({ title, url });
-                } catch(e) { /* ignore aborts */ }
-            } else if(navigator.clipboard) {
-                try {
-                    await navigator.clipboard.writeText(url);
-                    showToast('Link copied to clipboard!', 'fa-check-circle', 'text-accent-emerald');
-                } catch(e) {
-                    showToast('Failed to copy link.', 'fa-times-circle', 'text-accent-red');
-                }
-            } else {
-                showToast('Share not supported on this browser.', 'fa-info-circle');
-            }
-        };
-
-        // --- THEME ENGINE ---
-        const initTheme = () => {
-            const stored = localStorage.getItem('yono_theme');
-            const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-            if(stored === 'light' || (!stored && !prefersDark)) {
-                document.documentElement.classList.remove('dark');
-            } else {
+        function initTheme() {
+            const isDark = localStorage.getItem('yono_theme') === 'dark' || (!('yono_theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches);
+            if (isDark) {
                 document.documentElement.classList.add('dark');
-            }
-        };
-
-        const toggleTheme = () => {
-            const html = document.documentElement;
-            html.classList.toggle('dark');
-            const isDark = html.classList.contains('dark');
-            try { localStorage.setItem('yono_theme', isDark ? 'dark' : 'light'); } catch(e){}
-            showToast(`${isDark ? 'Dark' : 'Light'} mode enabled`);
-        };
-
-        // --- EVENT DELEGATION ---
-        document.body.addEventListener('click', (e) => {
-            const actionTarget = e.target.closest('[data-action]');
-            if(!actionTarget) return;
-
-            const action = actionTarget.dataset.action;
-
-            if(action === 'open-modal') {
-                const id = actionTarget.dataset.appId;
-                if(id) openModal(id);
-            }
-            else if(action === 'close-modal') {
-                closeModal();
-            }
-            else if(action === 'toggle-fav') {
-                if(!activeApp) return;
-                const id = activeApp.id;
-                const idx = STATE.favorites.indexOf(id);
-                if(idx > -1) {
-                    STATE.favorites.splice(idx, 1);
-                    showToast('Removed from favorites');
-                } else {
-                    STATE.favorites.push(id);
-                    showToast('Added to favorites', 'fa-heart', 'text-accent-red');
-                }
-                try { localStorage.setItem('yono_favs', JSON.stringify(STATE.favorites)); } catch(err){}
-                
-                // update icon in modal visually
-                const isFav = STATE.favorites.includes(id);
-                actionTarget.innerHTML = isFav ? '<i class="fa-solid fa-heart text-lg text-accent-red"></i>' : '<i class="fa-regular fa-heart text-lg"></i>';
-                if(isFav) actionTarget.classList.add('border-accent-red');
-                else actionTarget.classList.remove('border-accent-red');
-
-                renderLists();
-            }
-            else if(action === 'category-filter') {
-                STATE.currentCategory = actionTarget.dataset.cat;
-                renderCategoryChips();
-                updateGrid();
-                if(window.innerWidth < 768) {
-                    $('#apps').scrollIntoView({behavior: 'smooth', block: 'start'});
-                }
-            }
-            else if(action === 'clear-filters') {
-                STATE.currentCategory = 'All';
-                STATE.searchQuery = '';
-                $('#desktop-search').value = '';
-                $('#mobile-search').value = '';
-                $('#clear-search-btn').classList.add('hidden');
-                renderCategoryChips();
-                updateGrid();
-            }
-            else if(action === 'toggle-theme') {
-                toggleTheme();
-            }
-            else if(action === 'set-view') {
-                STATE.viewMode = actionTarget.dataset.view;
-                $$('[data-action="set-view"]').forEach(btn => {
-                    btn.classList.remove('text-accent-gold', 'text-slate-400');
-                    if(btn.dataset.view === STATE.viewMode) btn.classList.add('text-accent-gold');
-                    else btn.classList.add('text-slate-400', 'hover:text-accent-gold');
-                });
-                updateGrid();
-            }
-            else if(action === 'share') {
-                handleShare();
-            }
-            else if(action === 'close-popup') {
-                const popup = $('#welcome-popup');
-                popup.querySelector('.popup-backdrop').classList.add('opacity-0');
-                popup.querySelector('.popup-content').classList.add('scale-95', 'opacity-0');
-                setTimeout(()=>popup.classList.add('hidden'), 200);
-            }
-            else if(action === 'focus-search') {
-                window.scrollTo({top: 0, behavior: 'smooth'});
-                setTimeout(() => $('#mobile-search').focus(), 300);
-            }
-        });
-
-        // Search Handlers (Debounced)
-        let searchTimeout;
-        const handleSearch = (e) => {
-            clearTimeout(searchTimeout);
-            const val = e.target.value.trim();
-            
-            // Sync desktop/mobile inputs
-            if(e.target.id === 'desktop-search') $('#mobile-search').value = val;
-            if(e.target.id === 'mobile-search') $('#desktop-search').value = val;
-
-            const clearBtn = $('#clear-search-btn');
-            if(val) clearBtn.classList.remove('hidden');
-            else clearBtn.classList.add('hidden');
-
-            searchTimeout = setTimeout(() => {
-                STATE.searchQuery = val;
-                updateGrid();
-                if(val && window.innerWidth < 768) {
-                    $('#apps').scrollIntoView({behavior: 'smooth', block: 'start'});
-                }
-            }, 300);
-        };
-        $('#desktop-search').addEventListener('input', handleSearch);
-        $('#mobile-search').addEventListener('input', handleSearch);
-        $('#clear-search-btn').addEventListener('click', () => {
-            document.body.click(); // trigger delegate if needed, handled mostly in HTML, let's explicitly handle:
-            $('#desktop-search').value = '';
-            $('#mobile-search').value = '';
-            $('#clear-search-btn').classList.add('hidden');
-            STATE.searchQuery = '';
-            updateGrid();
-        });
-
-        $('#sort-select').addEventListener('change', (e) => {
-            STATE.sortBy = e.target.value;
-            updateGrid();
-        });
-
-        // Modal Outside Click & ESC
-        $('#app-modal').addEventListener('click', (e) => {
-            if(e.target === e.currentTarget || e.target.classList.contains('modal-backdrop')) closeModal();
-        });
-        document.addEventListener('keydown', (e) => {
-            if(e.key === 'Escape' && !$('#app-modal').classList.contains('hidden')) closeModal();
-        });
-
-        // Header Scroll Effect
-        window.addEventListener('scroll', () => {
-            const header = $('#site-header');
-            if(window.scrollY > 20) {
-                header.classList.add('shadow-glass');
-                header.style.borderBottomColor = 'var(--glass-border)';
             } else {
-                header.classList.remove('shadow-glass');
-                header.style.borderBottomColor = 'transparent';
+                document.documentElement.classList.remove('dark');
             }
-            
-            // Update mobile active nav based on scroll position roughly
-            if(window.innerWidth < 768) {
-                const appsY = $('#apps').getBoundingClientRect().top;
-                const links = $$('.nav-btn');
-                links.forEach(l => l.classList.remove('text-accent-gold'));
-                if(appsY <= 100) links[1].classList.add('text-accent-gold');
-                else links[0].classList.add('text-accent-gold');
-            }
-        }, {passive: true});
+        }
 
-        // --- POPUP ENGINE ---
-        const initPopup = () => {
-            try {
-                const lastShow = localStorage.getItem('yono_popup_time');
-                const now = Date.now();
-                if(!lastShow || now - parseInt(lastShow) > 12 * 60 * 60 * 1000) { // 12 hours
-                    setTimeout(() => {
-                        const popup = $('#welcome-popup');
-                        popup.classList.remove('hidden');
-                        popup.classList.add('flex');
-                        requestAnimationFrame(() => {
-                            popup.querySelector('.popup-backdrop').classList.remove('opacity-0');
-                            popup.querySelector('.popup-content').classList.remove('scale-95', 'opacity-0');
-                        });
-                        localStorage.setItem('yono_popup_time', now.toString());
-                    }, 3000); // 3 sec delay
+        function toggleTheme() {
+            document.documentElement.classList.toggle('dark');
+            const isDark = document.documentElement.classList.contains('dark');
+            localStorage.setItem('yono_theme', isDark ? 'dark' : 'light');
+            showToast(`Switched to ${isDark ? 'Dark' : 'Light'} Mode`, isDark ? 'fa-moon' : 'fa-sun', 'text-brand-cyan');
+        }
+
+        function checkWelcomePopup() {
+            const lastShown = localStorage.getItem('yono_popup_time');
+            const now = new Date().getTime();
+            const interval = SITE_CONFIG.popupIntervalHours * 60 * 60 * 1000;
+
+            if(!lastShown || (now - parseInt(lastShown)) > interval) {
+                setTimeout(() => {
+                    const popup = document.getElementById('welcome-popup');
+                    popup.classList.remove('hidden');
+                    popup.classList.add('flex');
+                    localStorage.setItem('yono_popup_time', now.toString());
+                }, 3000);
+            }
+        }
+
+        function closeWelcomePopup() {
+            const popup = document.getElementById('welcome-popup');
+            popup.classList.remove('flex');
+            popup.classList.add('hidden');
+        }
+
+        async function handleShare() {
+            if (navigator.share) {
+                try {
+                    await navigator.share({
+                        title: SITE_CONFIG.siteName,
+                        text: "Check out the ultimate premium APK directory!",
+                        url: SITE_CONFIG.shareUrl
+                    });
+                } catch (err) {
+                    if(err.name !== 'AbortError') handleShareFallback();
                 }
-            } catch(e){}
-        };
+            } else {
+                handleShareFallback();
+            }
+        }
 
-        // --- INJECTION & INIT ---
-        const init = () => {
-            initTheme();
+        function handleShareFallback() {
+            navigator.clipboard.writeText(SITE_CONFIG.shareUrl).then(() => {
+                showToast("Link copied to clipboard", "fa-link", "text-brand-emerald");
+            }).catch(() => {
+                showToast("Failed to copy link", "fa-triangle-exclamation", "text-brand-red");
+            });
+        }
+
+        // --- 11. INITIALIZATION & DOM BUILDER ---
+        function renderStaticConfig() {
+            document.getElementById('current-year').textContent = new Date().getFullYear();
+            document.getElementById('footer-site-name').textContent = SITE_CONFIG.siteName;
+            document.title = `${SITE_CONFIG.siteName} — Ultimate Premium APK Directory`;
+
+            // Social/Legal Links
+            const socialHtml = `
+                <li><a href="${SITE_CONFIG.telegramUrl}" target="_blank" rel="noopener noreferrer" class="hover:text-brand-gold transition-colors flex items-center gap-2"><i class="fa-brands fa-telegram w-4"></i> Telegram</a></li>
+                <li><a href="${SITE_CONFIG.whatsappUrl}" target="_blank" rel="noopener noreferrer" class="hover:text-brand-gold transition-colors flex items-center gap-2"><i class="fa-brands fa-whatsapp w-4"></i> WhatsApp</a></li>
+                <li><a href="${SITE_CONFIG.supportUrl}" class="hover:text-brand-gold transition-colors flex items-center gap-2"><i class="fa-solid fa-envelope w-4"></i> Support</a></li>
+            `;
+            document.getElementById('footer-social-links').innerHTML = socialHtml;
+            document.getElementById('drawer-social-links').innerHTML = socialHtml.replace(/<li>/g, '').replace(/<\/li>/g, '').replace(/<a /g, '<a class="p-3 rounded-xl bg-slate-50 dark:bg-surface-700 text-slate-800 dark:text-slate-200 font-medium flex items-center gap-3" ');
+
+            document.getElementById('footer-legal-links').innerHTML = `
+                <li><a href="${SITE_CONFIG.privacyUrl}" class="hover:text-brand-gold transition-colors">Privacy Policy</a></li>
+                <li><a href="${SITE_CONFIG.termsUrl}" class="hover:text-brand-gold transition-colors">Terms of Service</a></li>
+                <li><a href="${SITE_CONFIG.disclaimerUrl}" class="hover:text-brand-gold transition-colors">Disclaimer</a></li>
+            `;
+
+            // Setup Header / Hero Buttons
+            document.getElementById('header-support-btn').href = SITE_CONFIG.telegramUrl;
+            document.getElementById('hero-telegram-btn').href = SITE_CONFIG.telegramUrl;
+            document.getElementById('popup-telegram').href = SITE_CONFIG.telegramUrl;
+
+            // Setup Floating Actions
+            const floatingHtml = FLOATING_ACTIONS.map(a => `
+                <button id="${a.id}" class="w-12 h-12 rounded-full ${a.color} text-${a.text} flex items-center justify-center text-xl shadow-lg hover:scale-110 transition-transform outline-none focus-visible:ring-2 focus-visible:ring-offset-2">
+                    <i class="${a.icon}"></i>
+                </button>
+            `).join('');
+            document.getElementById('floating-actions').innerHTML = floatingHtml;
+
+            // Setup FAQ
+            document.getElementById('faq-container').innerHTML = FAQ_DATA.map((faq, index) => `
+                <div class="border border-slate-200 dark:border-slate-700 rounded-xl overflow-hidden bg-white dark:bg-surface-800 transition-colors">
+                    <button class="faq-btn w-full px-6 py-4 text-left flex justify-between items-center outline-none focus-visible:bg-slate-50 dark:focus-visible:bg-surface-700" aria-expanded="false" aria-controls="faq-ans-${index}">
+                        <span class="font-bold text-slate-900 dark:text-white pr-4">${escapeHTML(faq.q)}</span>
+                        <i class="fa-solid fa-chevron-down text-slate-400 transition-transform duration-300"></i>
+                    </button>
+                    <div id="faq-ans-${index}" class="faq-content hidden px-6 pb-4 text-sm md:text-base text-slate-600 dark:text-slate-400">
+                        ${escapeHTML(faq.a)}
+                    </div>
+                </div>
+            `).join('');
             
-            // Inject Config URLs
-            $$('[data-dynamic-href]').forEach(el => {
-                const key = el.dataset.dynamicHref;
-                if(SITE_CONFIG[key]) el.href = SITE_CONFIG[key];
+            // Build JSON-LD
+            const schema = {
+                "@context": "https://schema.org",
+                "@type": "WebSite",
+                "name": SITE_CONFIG.siteName,
+                "url": SITE_CONFIG.canonicalUrl,
+                "potentialAction": {
+                    "@type": "SearchAction",
+                    "target": `${SITE_CONFIG.canonicalUrl}/#search={search_term_string}`,
+                    "query-input": "required name=search_term_string"
+                }
+            };
+            document.getElementById('seo-schema').textContent = JSON.stringify(schema);
+        }
+
+        function setupEventListeners() {
+            // Theme toggles
+            document.getElementById('theme-toggle').addEventListener('click', toggleTheme);
+            document.getElementById('drawer-theme-toggle').addEventListener('click', toggleTheme);
+
+            // Search inputs
+            document.getElementById('desktop-search').addEventListener('input', handleSearchInput);
+            document.getElementById('mobile-search').addEventListener('input', handleSearchInput);
+            document.getElementById('desktop-search-clear').addEventListener('click', clearSearch);
+            document.getElementById('mobile-search-clear').addEventListener('click', clearSearch);
+            document.getElementById('clear-search-btn').addEventListener('click', clearSearch);
+
+            // Mobile Nav & Drawer
+            const mobileSearchNav = document.getElementById('mobile-search-nav');
+            const mobileSearchContainer = document.getElementById('mobile-search-container');
+            const mobileInput = document.getElementById('mobile-search');
+            
+            mobileSearchNav.addEventListener('click', () => {
+                mobileSearchContainer.classList.toggle('hidden');
+                if(!mobileSearchContainer.classList.contains('hidden')) {
+                    mobileInput.focus();
+                }
             });
 
-            // Inject FAQs
-            $('#faq-accordion').innerHTML = SITE_CONFIG.faqs.map((faq, i) => `
-                <details class="glass-panel rounded-xl group border border-slate-200 dark:border-slate-700 overflow-hidden" ${i===0?'open':''}>
-                    <summary class="flex justify-between items-center font-bold cursor-pointer list-none p-5 text-slate-800 dark:text-slate-200 select-none">
-                        ${faq.q}
-                        <span class="transition group-open:rotate-180">
-                            <i class="fa-solid fa-chevron-down text-slate-400"></i>
-                        </span>
-                    </summary>
-                    <div class="text-slate-600 dark:text-slate-400 text-sm px-5 pb-5 leading-relaxed">${faq.a}</div>
-                </details>
-            `).join('');
-
-            // Details accordion logic (only one open)
-            $$('#faq-accordion details').forEach(targetDetail => {
-                targetDetail.addEventListener('click', () => {
-                    $$('#faq-accordion details').forEach(detail => {
-                        if (detail !== targetDetail) detail.removeAttribute('open');
-                    });
+            document.getElementById('mobile-more-nav').addEventListener('click', () => {
+                document.getElementById('mobile-drawer').classList.remove('hidden');
+                document.getElementById('mobile-drawer').classList.add('flex');
+            });
+            document.getElementById('close-drawer').addEventListener('click', () => {
+                document.getElementById('mobile-drawer').classList.add('hidden');
+                document.getElementById('mobile-drawer').classList.remove('flex');
+            });
+            document.querySelectorAll('.drawer-link').forEach(l => {
+                l.addEventListener('click', () => {
+                    document.getElementById('mobile-drawer').classList.add('hidden');
+                    document.getElementById('mobile-drawer').classList.remove('flex');
                 });
             });
 
-            // Inject Floating Actions
-            $('#floating-actions').innerHTML = SITE_CONFIG.floatingActions.map(btn => `
-                <${btn.action ? 'button data-action="'+btn.action+'"' : 'a href="'+(SITE_CONFIG[btn.urlKey]||'#')+'" target="_blank" rel="noopener noreferrer"'} 
-                    class="w-12 h-12 rounded-full flex items-center justify-center text-white shadow-lg hover:scale-110 transition-transform group relative" 
-                    style="background-color: ${btn.color}" aria-label="${btn.label}">
-                    <i class="${btn.icon} text-xl"></i>
-                    <span class="absolute right-14 bg-slate-900 text-white text-xs font-bold px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none whitespace-nowrap">${btn.label}</span>
-                </${btn.action ? 'button' : 'a'}>
-            `).join('');
+            // Sorting
+            document.getElementById('sort-select').addEventListener('change', (e) => {
+                currentSort = e.target.value;
+                executeSearchAndFilter();
+            });
 
-            // Initial Renders
-            updateStats();
-            initSlider();
-            renderCategoryChips();
-            updateGrid();
-            renderLists();
-            initPopup();
-        };
+            // Reset filters
+            document.getElementById('reset-filters-btn').addEventListener('click', () => {
+                clearSearch();
+                document.querySelector('[data-category="All"]').click();
+            });
 
-        // Boot
-        document.addEventListener('DOMContentLoaded', init);
+            // Modal
+            document.getElementById('modal-close').addEventListener('click', closeModal);
+            document.getElementById('app-modal').addEventListener('click', (e) => {
+                if(e.target === document.getElementById('app-modal')) closeModal();
+            });
+            document.addEventListener('keydown', (e) => {
+                if(e.key === 'Escape' && !document.getElementById('app-modal').classList.contains('hidden')) closeModal();
+            });
+            document.getElementById('modal-download-btn').addEventListener('click', handleDownload);
+            document.getElementById('modal-fav-btn').addEventListener('click', (e) => {
+                const id = e.currentTarget.getAttribute('data-app-id');
+                if(id) toggleFavorite(id);
+            });
+
+            // Popup
+            document.getElementById('popup-close').addEventListener('click', closeWelcomePopup);
+            document.getElementById('popup-later').addEventListener('click', closeWelcomePopup);
+
+            // FAQ Accordion
+            document.querySelectorAll('.faq-btn').addEventListener?.('click', e => {}); // Safe fallback
+            document.querySelectorAll('.faq-btn').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const content = this.nextElementSibling;
+                    const icon = this.querySelector('i');
+                    const isExpanded = this.getAttribute('aria-expanded') === 'true';
+                    
+                    // Close all others
+                    document.querySelectorAll('.faq-btn').forEach(b => {
+                        if(b !== this) {
+                            b.setAttribute('aria-expanded', 'false');
+                            b.nextElementSibling.classList.add('hidden');
+                            b.querySelector('i').style.transform = 'rotate(0deg)';
+                        }
+                    });
+
+                    if(isExpanded) {
+                        this.setAttribute('aria-expanded', 'false');
+                        content.classList.add('hidden');
+                        icon.style.transform = 'rotate(0deg)';
+                    } else {
+                        this.setAttribute('aria-expanded', 'true');
+                        content.classList.remove('hidden');
+                        icon.style.transform = 'rotate(180deg)';
+                    }
+                });
+            });
+
+            // Global Event Delegation for dynamic app cards
+            document.body.addEventListener('click', (e) => {
+                const card = e.target.closest('.app-card');
+                if(card && !e.target.closest('button')) { // Ignore if clicking a button inside card (like fav)
+                    const id = card.getAttribute('data-app-id');
+                    if(id) openModal(id);
+                }
+            });
+
+            // Floating Actions dynamic routing
+            document.getElementById('btn-share')?.addEventListener('click', handleShare);
+            document.getElementById('btn-tg')?.addEventListener('click', () => window.open(SITE_CONFIG.telegramUrl, '_blank'));
+            document.getElementById('btn-wa')?.addEventListener('click', () => window.open(SITE_CONFIG.whatsappUrl, '_blank'));
+
+            // Header Scroll state
+            const header = document.getElementById('site-header');
+            window.addEventListener('scroll', () => {
+                if(window.scrollY > 10) {
+                    header.classList.add('shadow-md');
+                } else {
+                    header.classList.remove('shadow-md');
+                }
+            }, {passive: true});
+        }
+
+        // --- 12. BOOTSTRAP ---
+        function initApp() {
+            initTheme();
+            renderStaticConfig();
+            deduplicateData();
+            
+            renderStats();
+            renderCategories();
+            renderSlider();
+            renderTrendingCards();
+            executeSearchAndFilter(); // Renders main grid initially
+            renderStateLists();
+            
+            setupEventListeners();
+            checkWelcomePopup();
+        }
+
+        // Go!
+        document.addEventListener('DOMContentLoaded', initApp);
 
     </script>
 </body>
