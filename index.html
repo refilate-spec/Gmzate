@@ -183,7 +183,7 @@
                 </a>
                 
                 <!-- Mobile Search Trigger -->
-                <button id="mobile-search-trigger" class="md:hidden hidden w-10 h-10 rounded-full flex items-center justify-center text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors outline-none">
+                <button id="mobile-search-trigger" class="md:hidden w-10 h-10 rounded-full flex items-center justify-center text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors outline-none">
                     <i class="fa-solid fa-search"></i>
                 </button>
             </div>
@@ -1022,33 +1022,123 @@
             }
         }
 
-        function handleSearchInput(e) {
-            clearTimeout(debounceTimer);
-            const val = e.target.value.trim().toLowerCase();
-            const clearBtns = document.querySelectorAll('#desktop-search-clear, #mobile-search-clear');
-            
-            clearBtns.forEach(btn => val.length > 0 ? btn.classList.remove('hidden') : btn.classList.add('hidden'));
-            
-            // Sync both inputs
-            document.getElementById('desktop-search').value = e.target.value;
-            document.getElementById('mobile-search').value = e.target.value;
+        // =========================================================
+// SEARCH SYSTEM
+// =========================================================
 
-            debounceTimer = setTimeout(() => {
-                searchTerm = val;
-                executeSearchAndFilter();
-                if(searchTerm !== "") {
-                    document.getElementById('directory').scrollIntoView({ behavior: 'smooth', block: 'start' });
-                }
-            }, 300);
-        }
+function handleSearchInput(e) {
+    clearTimeout(debounceTimer);
 
-        function clearSearch() {
-            document.getElementById('desktop-search').value = "";
-            document.getElementById('mobile-search').value = "";
-            document.querySelectorAll('#desktop-search-clear, #mobile-search-clear').forEach(b => b.classList.add('hidden'));
-            searchTerm = "";
-            executeSearchAndFilter();
+    const value = e.target.value;
+    const val = value.trim().toLowerCase();
+
+    // Show / hide clear buttons
+    const clearBtns = document.querySelectorAll(
+        '#desktop-search-clear, #mobile-search-clear'
+    );
+
+    clearBtns.forEach(btn => {
+        btn.classList.toggle('hidden', val.length === 0);
+    });
+
+    // Sync both search inputs
+    const desktopSearch = document.getElementById('desktop-search');
+    const mobileSearch = document.getElementById('mobile-search');
+
+    if (desktopSearch && desktopSearch !== e.target) {
+        desktopSearch.value = value;
+    }
+
+    if (mobileSearch && mobileSearch !== e.target) {
+        mobileSearch.value = value;
+    }
+
+    // Debounced search
+    debounceTimer = setTimeout(() => {
+        searchTerm = val;
+        executeSearchAndFilter();
+
+        if (searchTerm !== "") {
+            document.getElementById('directory')?.scrollIntoView({
+                behavior: 'smooth',
+                block: 'start'
+            });
         }
+    }, 300);
+}
+
+
+// =========================================================
+// CLEAR SEARCH
+// =========================================================
+
+function clearSearch() {
+    const desktopSearch = document.getElementById('desktop-search');
+    const mobileSearch = document.getElementById('mobile-search');
+
+    if (desktopSearch) desktopSearch.value = "";
+    if (mobileSearch) mobileSearch.value = "";
+
+    document.querySelectorAll(
+        '#desktop-search-clear, #mobile-search-clear'
+    ).forEach(btn => {
+        btn.classList.add('hidden');
+    });
+
+    searchTerm = "";
+    executeSearchAndFilter();
+}
+
+
+// =========================================================
+// MOBILE SEARCH TOGGLE
+// =========================================================
+
+const mobileSearchTrigger =
+    document.getElementById('mobile-search-trigger');
+
+const mobileSearchContainer =
+    document.getElementById('mobile-search-container');
+
+const mobileSearchInput =
+    document.getElementById('mobile-search');
+
+if (mobileSearchTrigger && mobileSearchContainer) {
+
+    mobileSearchTrigger.addEventListener('click', () => {
+
+        mobileSearchContainer.classList.toggle('hidden');
+
+        // Focus input when opened
+        if (!mobileSearchContainer.classList.contains('hidden')) {
+            setTimeout(() => {
+                mobileSearchInput?.focus();
+            }, 100);
+        }
+    });
+}
+
+
+// =========================================================
+// SEARCH INPUT EVENTS
+// =========================================================
+
+document.getElementById('desktop-search')
+    ?.addEventListener('input', handleSearchInput);
+
+document.getElementById('mobile-search')
+    ?.addEventListener('input', handleSearchInput);
+
+
+// =========================================================
+// CLEAR BUTTON EVENTS
+// =========================================================
+
+document.getElementById('desktop-search-clear')
+    ?.addEventListener('click', clearSearch);
+
+document.getElementById('mobile-search-clear')
+    ?.addEventListener('click', clearSearch);
 
         // --- 8. STATE ENGINES (Favorites & Recent) ---
         let favorites = JSON.parse(localStorage.getItem('yono_favorites') || '[]');
